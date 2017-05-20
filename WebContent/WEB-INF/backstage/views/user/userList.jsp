@@ -54,8 +54,8 @@
 							<tr>
 								<td><input type="checkbox"></td>
 								<td>${user.loginName}</td>
-								<td>${user.password}</td>
 								<td>${user.name}</td>
+								<td>${user.password}</td>
 								<td>${user.email}</td>
 								<td>${user.tel}</td>
 								<td>${user.sex}</td>
