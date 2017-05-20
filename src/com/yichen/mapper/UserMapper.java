@@ -2,6 +2,7 @@ package com.yichen.mapper;
 
 import java.util.List;
 
+import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 /**
  * 用户mapper
@@ -14,7 +15,7 @@ public interface UserMapper {
 	
 	public int signUesr(UserVo userVo);//注册
 	
-	public List<UserVo> queryAllUserVos();// 查询用户
+	public List<UserVo> queryAllUserVos(Page page);// 查询用户
 
 	public int insertUserVo(UserVo userVo);// 添加用户
 

@@ -74,6 +74,23 @@
 			</fieldset>
 			<div class="admin-table-page">
 				<div id="page" class="page">
+			   <a   href="${pageContext.request.contextPath}/back/user/list/1" >首页</a>
+			    <c:if test="${page.pageNow != 1}">
+			 		<a href="${pageContext.request.contextPath}/back/user/list/${page.pageNow-1}">上一页</a>
+					<a href="${pageContext.request.contextPath}/back/user/list/1" >1</a>
+				  <c:if test="${page.pageNow-1 != 1}">
+					<a href="${pageContext.request.contextPath}/back/user/list/${page.pageNow-1}">${page.pageNow-1}</a>
+				  </c:if>
+				</c:if>
+					<a  class="current">${page.pageNow}</a>
+				<c:if test="${page.pageNow != page.totalPageCount}">
+				  <c:if test="${page.pageNow+1 != page.totalPageCount}">
+					<a href="${pageContext.request.contextPath}/back/user/list/${page.pageNow+1}">${page.pageNow+1}</a>
+				  </c:if>
+					<a href="${pageContext.request.contextPath}/back/user/list/${page.totalPageCount}">${page.totalPageCount}</a>
+					<a href="${pageContext.request.contextPath}/back/user/list/${page.pageNow+1}" >下一页</a>
+			    </c:if>
+					<a href="${pageContext.request.contextPath}/back/user/list/${page.totalPageCount}">末页</a>
 				</div>
 			</div>
 		</div>

@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 import com.yichen.service.UserServcie;
 import com.yichen.utils.UUIDUtil;
@@ -49,9 +52,18 @@ public class UserController {
 		return "index";
 	}
 	
-	@RequestMapping("back/user/list")
-	public String backIndex(ModelMap map){
-		List<UserVo> userVoList = userService.findAllUserVos();
+	/**
+	 * 用户列表分页
+	 * @param map
+	 * @param pageNow
+	 * @return
+	 */
+	@RequestMapping("back/user/list/{pageNow}")
+	public String backIndex(ModelMap map,@PathVariable Integer pageNow){
+		int totalCount = userService.findUserVoCounts();//查询条数
+		Page page = new Page(totalCount, pageNow);
+		List<UserVo> userVoList = userService.findAllUserVos(page);//分页查询
+		map.put("page", page);
 		map.put("userVoList", userVoList);
 		return "views/user/userList";
 	}

@@ -4,7 +4,7 @@
 
 <configuration>
 	<typeAliases>
-		 <typeAlias alias="UserVo" type="com.yichen.model.UserVo"/>
+		  <package name="com.yichen.model"/>
 	</typeAliases>
 	<mappers> 
 		<!-- 通过mapper接口加载映射文件 -->  

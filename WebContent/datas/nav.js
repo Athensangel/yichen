@@ -88,7 +88,7 @@ var navs = [{
 	"children": [{
 		"title": "用户列表",
 		"icon": "fa-table",
-		"href": "back/user/list"
+		"href": "back/user/list/1"
 	}, {
 		"title": "修改密码",
 		"icon": "&#xe60c;",

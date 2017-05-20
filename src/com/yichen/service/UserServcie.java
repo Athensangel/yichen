@@ -2,6 +2,7 @@ package com.yichen.service;
 
 import java.util.List;
 
+import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 
 /**
@@ -15,7 +16,7 @@ public interface UserServcie {
 	
 	int registerUesr(UserVo userVo);//注册
 
-	List<UserVo> findAllUserVos();// 查询用户
+	List<UserVo> findAllUserVos(Page page);// 查询用户
 
 	int saveUserVo(UserVo userVo);// 添加用户
 

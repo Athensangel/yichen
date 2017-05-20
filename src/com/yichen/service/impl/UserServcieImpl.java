@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yichen.mapper.UserMapper;
+import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 import com.yichen.service.UserServcie;
 
@@ -22,8 +23,8 @@ public class UserServcieImpl implements UserServcie{
 	private UserMapper userMapper;
 
 	@Override
-	public List<UserVo> findAllUserVos() {
-		return userMapper.queryAllUserVos();
+	public List<UserVo> findAllUserVos(Page page) {
+		return userMapper.queryAllUserVos(page);
 	}
 
 	@Override
