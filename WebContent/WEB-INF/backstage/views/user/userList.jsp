@@ -18,7 +18,7 @@
 		<div class="admin-main">
 		<input type="hidden" id="pageCount" value="${pageCount}"/>
 			<blockquote class="layui-elem-quote">
-				<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+				<a href="${pageContext.request.contextPath}/back/user/add" class="layui-btn layui-btn-small" id="add">
 					<i class="layui-icon">&#xe608;</i> 添加信息
 				</a>
 				<a href="#" class="layui-btn layui-btn-small" id="import">
@@ -40,6 +40,7 @@
 								<th><input type="checkbox" id="selected-all"></th>
 								<th>登录名</th>
 								<th>姓名</th>
+								<th>密码</th>
 								<th>邮箱</th>
 								<th>电话</th>
 								<th>性别</th>
@@ -53,9 +54,8 @@
 							<tr>
 								<td><input type="checkbox"></td>
 								<td>${user.loginName}</td>
-								<td>
-									${user.name}
-								</td>
+								<td>${user.password}</td>
+								<td>${user.name}</td>
 								<td>${user.email}</td>
 								<td>${user.tel}</td>
 								<td>${user.sex}</td>
@@ -63,8 +63,8 @@
 								<td>${user.remark}</td>
 								<td>
 									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
-									<a href="/manage/article_edit_1" class="layui-btn layui-btn-mini">编辑</a>
-									<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+									<a href="${pageContext.request.contextPath}/back/user/up?id=${user.id}" class="layui-btn layui-btn-mini">编辑</a>
+									<a href="${pageContext.request.contextPath}/back/user/del?id=${user.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
 							</tr>
 							</c:forEach>

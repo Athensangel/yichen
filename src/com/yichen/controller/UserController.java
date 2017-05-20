@@ -68,5 +68,55 @@ public class UserController {
 		return "WEB-INF/backstage/views/user/userList";
 	}
 	
+	/**
+	 * 跳转到添加
+	 * @return
+	 */
+	@RequestMapping("back/user/add")
+	public String backUserAdd(){
+		return "WEB-INF/backstage/views/user/userAdd";
+	}
 	
+	/**
+	 * 添加
+	 * @return
+	 */
+	@RequestMapping("back/user/save")
+	public String backUserSave(UserVo userVo){
+		userVo.setId(UUIDUtil.getUUID());
+		userService.saveUserVo(userVo);
+		return "redirect:list/1";
+	}
+	
+	/**
+	 * 跳转到 修改
+	 * @return
+	 */
+	@RequestMapping("back/user/up")
+	public String backUserUp(String id,ModelMap map){
+		UserVo userVo = userService.findAllUserVoById(id);
+		map.put("userVo", userVo);
+		return "WEB-INF/backstage/views/user/userUp";
+	}
+	
+	/**
+	 * 修改
+	 * @return
+	 */
+	@RequestMapping("back/user/modify")
+	public String backUserModify(UserVo userVo){
+		userService.modifyUserVo(userVo);
+		return "redirect:list/1";
+	}
+	
+	/**
+	 * 删除
+	 * @param cc
+	 * @return
+	 */
+	@RequestMapping("back/user/del")
+	public String backUserDel(String id){
+		userService.deleteUserVo(id);
+		return "redirect:list/1";
+	}
 }
