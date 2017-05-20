@@ -44,12 +44,12 @@ public class UserController {
 	
 	@RequestMapping("yc_2017")
 	public String backLoginIndex(){
-		return "login";
+		return "WEB-INF/backstage/login";
 	}
 	
 	@RequestMapping("index")
 	public String backLogin(){
-		return "index";
+		return "WEB-INF/backstage/index";
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class UserController {
 		List<UserVo> userVoList = userService.findAllUserVos(page);//分页查询
 		map.put("page", page);
 		map.put("userVoList", userVoList);
-		return "views/user/userList";
+		return "WEB-INF/backstage/views/user/userList";
 	}
 	
 	
