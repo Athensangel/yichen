@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yichen.mapper.UserMapper">
+    <!--通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
+    <!--property="字段名" column="表名" -->
+	<resultMap type="com.yichen.model.UserVo" id="userResultMap">
+		<result property="id" column="id"/>
+		<result property="loginName" column="login_name"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="tel" column="tel"/>
+		<result property="sex" column="sex"/>
+		<result property="headphoto" column="head_photo"/>
+		<result property="remark" column="remark"/>
+		<result property="state" column="state"/>
+		<result property="delFlag" column="del_flag"/>
+		<result property="addTime" column="add_time"/>
+		<result property="addUserId" column="add_user_id"/>
+		<result property="updTime" column="upd_time"/>
+		<result property="updUserId" column="upd_user_id"/>
+	</resultMap>
+	
+	 <!--  根据id查询得到一个UserVo对象，使用这个查询是查询不到我们想要的结果的，
+        这主要是因为实体类的属性名和数据库的字段名对应不上的原因，因此无法查询出对应的记录 -->
+    <select id="queryAllUserVos" resultMap="userResultMap">
+        select a.id, a.login_name as loginName, a.`password`,a.`name`,a.email,a.tel,a.sex,a.head_photo as headphoto,a.remark,a.state  from t_user a
+    </select>
+
+	<!-- 用户注册 -->
+	<insert id="signUesr">
+	   insert into t_user
+	   (id,login_name,email,password,state,del_flag,add_time)
+	   values
+	   (#{id},#{loginName},#{email},#{password},0,0,now())
+	</insert>
+	
+	<!-- 登录校验 -->
+	<select  id="checkLogin" resultMap="userResultMap">
+		select a.login_name,a.password from  t_user a  where a.login_name=#{loginName} and a.password=#{password}
+	</select>
+	
+	<!-- 添加数据  -->
+	<insert id="insertUserVo">
+	</insert>
+	
+	<!-- 删除数据  -->
+	<delete id="delUserVo">
+	</delete>
+	
+	<!-- 修改数据  -->
+	<update id="updateUserVo">
+	</update>
+	
+	<!-- 通过id查询  -->
+	<select id="queryAllUserVoById" resultMap="userResultMap">
+	</select>
+	
+	<select id="findUserVoCounts" resultType="java.lang.Integer">
+		SELECT COUNT(a.id) FROM t_user a WHERE a.del_flag = '0'
+	</select>
+</mapper>

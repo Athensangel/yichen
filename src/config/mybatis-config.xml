@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		 <typeAlias alias="UserVo" type="com.yichen.model.UserVo"/>
+	</typeAliases>
+	<mappers> 
+		<!-- 通过mapper接口加载映射文件 -->  
+		<mapper resource="com/yichen/mapper/UserMapper.xml"/> 
+	</mappers>
+</configuration>  
