@@ -16,7 +16,6 @@ layui.config({
 			$(this).height($content.height());
 		});
 	}).resize();
-	alert(ctx);
 	//设置navbar
 	navbar.set({
 		spreadOne: true,
