@@ -1,9 +1,7 @@
 package com.yichen.model;
 
 import java.util.Date;
-import com.yichen.utils.UUIDGen;
-
-
+import com.yichen.utils.UUIDUtil;
 
 /**
  * 基础实体类
@@ -31,7 +29,7 @@ public abstract class DbBaseVo<T>{
 	 * @param userId 用户Id
 	 */
 	public void preInsert(String userId) {
-		this.id = UUIDGen.uuid();
+		this.id = UUIDUtil.getUUID();
 		this.addUserId = userId;
 		this.updUserId = userId;
 	}

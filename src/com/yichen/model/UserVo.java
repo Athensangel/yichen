@@ -7,9 +7,6 @@ package com.yichen.model;
  */
 public class UserVo extends DbBaseVo<UserVo>{
 
-	/**
-	 * 
-	 */
 	private String loginName;// 登录名
 	private String password;// 密码
 	private String name;// 姓名

@@ -10,21 +10,21 @@ import com.yichen.model.UserVo;
  *
  */
 public interface UserMapper {
-	
-	public UserVo checkLogin(UserVo userVo);//登录验证
-	
-	public int signUesr(UserVo userVo);//注册
-	
-	public List<UserVo> queryAllUserVos(Page page);// 查询用户
 
-	public int insertUserVo(UserVo userVo);// 添加用户
+	UserVo checkLogin(UserVo userVo);// 登录验证
 
-	public int updateUserVo(UserVo userVo);// 更新用户
+	int signUesr(UserVo userVo);// 注册
 
-	public int delUserVo(String id);// 删除用户
+	List<UserVo> queryAllUserVos(Page page);// 查询用户
 
-	public UserVo queryAllUserVoById(String id);// 通过id查询用户
+	int insertUserVo(UserVo userVo);// 添加用户
 
-	public int findUserVoCounts();
+	int updateUserVo(UserVo userVo);// 更新用户
+
+	int delUserVo(String id);// 删除用户
+
+	UserVo queryAllUserVoById(String id);// 通过id查询用户
+
+	int findUserVoCounts();
 
 }
