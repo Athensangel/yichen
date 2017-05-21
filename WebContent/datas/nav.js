@@ -7,9 +7,9 @@ var navs = [{
 		"icon": "&#xe641;",
 		"href": "back/department/list"
 	}, {
-		"title": "表单",
+		"title": "棋队管理",
 		"icon": "&#xe63c;",
-		"href": "form.html"
+		"href": "back/team/list"
 	}, {
 		"title": "表格",
 		"icon": "&#xe63c;",
