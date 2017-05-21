@@ -12,7 +12,7 @@
 
 	<!-- 查询数据 -->
 	<select id="queryDepartments" resultMap="departmentResultMap">
-		SELECT a.id,a.name FROM t_department a
+		SELECT a.id,a.name FROM t_department a WHERE a.del_flag = '0'
 	</select>
 
 	<!-- 添加数据 -->
@@ -33,7 +33,13 @@
 	<!-- 通过id查询 -->
 	<select id="queryDepartmentById" resultMap="departmentResultMap">
 		select a.id, a.name from t_department a
-		where a.id = #{id}
+		where a.del_flag = '0' 
+		<if test="id != null">
+			and a.id = #{id}
+		</if>
+		<if test="type!= null">
+			and a.type = #{type}
+		</if>
 	</select>
-
+	
 </mapper>

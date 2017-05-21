@@ -19,6 +19,6 @@ public interface DepartmentService {
 
 	int deleteDepartmentVo(String id);// 删除部门
 
-	DepartmentVo findDepartmentById(String id);// 通过id查询部门
+	DepartmentVo findDepartmentById(DepartmentVo departmentVo);// 通过id查询部门
 
 }

@@ -100,12 +100,12 @@ a:hover{color:#BA2636;text-decoration:none;}
 .pic-right p{ font-size:14px; height:50px; color:#000; line-height:50px;}
 .pic-right p strong{ margin-left:50px; font-size:16px;}
 
-.lanrenzhijia{ width:100%; height:auto; margin:0px auto; background:#fff; position:relative;  border-radius:5px; margin-top:10px;}
-.lanrenzhijia li{ z-index:2; position:relative; text-align:center; width:100%;  margin:0px auto;}
-.lanrenzhijia li a{ color:#666; height:40px; line-height:40px; border-bottom:1px solid #F8F8F8; display:block; text-align:center; text-decoration:none;  width:100%;  margin:0px auto;}
-.lanrenzhijia li:hover a{ color:#ccc; text-decoration:none;}
-.lanrenzhijia li.on a{color:#000; }
-.lanrenzhijia .hover{ width:100%; height:40px; position:absolute; left:-5px; background:#F8F8F8; border-left:5px solid #000;}
+.ycbm{ width:100%; height:auto; margin:0px auto; background:#fff; position:relative;  border-radius:5px; margin-top:10px;}
+.ycbm li{ z-index:2; position:relative; text-align:center; width:100%;  margin:0px auto;}
+.ycbm li a{ color:#666; height:40px; line-height:40px; border-bottom:1px solid #F8F8F8; display:block; text-align:center; text-decoration:none;  width:100%;  margin:0px auto;}
+.ycbm li:hover a{ color:#ccc; text-decoration:none;}
+.ycbm li.on a{color:#000; }
+.ycbm .hover{ width:100%; height:40px; position:absolute; left:-5px; background:#F8F8F8; border-left:5px solid #000;}
 
 .picmain{  width:90%; margin:0px auto; }
 .picmain_up{ width:100%; height:200px; margin:0px auto; padding-bottom:15px;}

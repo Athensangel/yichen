@@ -37,8 +37,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public DepartmentVo findDepartmentById(String id) {
-		return departmentMapper.queryDepartmentById(id);
+	public DepartmentVo findDepartmentById(DepartmentVo departmentVo) {
+		return departmentMapper.queryDepartmentById(departmentVo);
 	}
 
 }

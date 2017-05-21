@@ -9,7 +9,7 @@
                 <li><a href="${pageContext.request.contextPath}/news/1">资讯公告</a></li>
                 <li><a href="javascript:;">制度建设</a></li>
                 <li><a href="javascript:;">文化服务</a></li>
-                <li><a href="javascript:;">部门风采</a></li>
+                <li><a href="${pageContext.request.contextPath}/department">部门风采</a></li>
                 <li><a href="javascript:;">人物风采</a></li>
             </ul>
         </div>

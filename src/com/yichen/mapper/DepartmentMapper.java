@@ -14,6 +14,6 @@ public interface DepartmentMapper {
 
 	int delDepartmentVo(String id);// 删除部门
 
-	DepartmentVo queryDepartmentById(String id);// 通过id查询部门
+	DepartmentVo queryDepartmentById(DepartmentVo departmentVo);// 通过id查询部门
 
 }

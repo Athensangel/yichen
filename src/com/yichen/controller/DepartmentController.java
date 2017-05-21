@@ -49,9 +49,9 @@ public class DepartmentController {
 	 * 跳转到修改页
 	 */
 	@RequestMapping("back/department/up")
-	public String jumpDepartmentUp(String id,ModelMap map){
-		DepartmentVo departmentVo = departmentService.findDepartmentById(id);
-		map.put("departmentVo", departmentVo);
+	public String jumpDepartmentUp(DepartmentVo departmentVo,ModelMap map){
+		DepartmentVo currentDepartmentVo = departmentService.findDepartmentById(departmentVo);
+		map.put("departmentVo", currentDepartmentVo);
 		return "WEB-INF/backstage/views/department/departmentUp";
 	}
 	
@@ -71,5 +71,25 @@ public class DepartmentController {
 	public String backDepartmentDel(String id){
 		departmentService.deleteDepartmentVo(id);
 		return "redirect:list";
+	}
+	
+	/**
+	 * 部门列表
+	 */
+	@RequestMapping("department")
+	public String department(ModelMap map){
+		List<DepartmentVo> departmentVoList = departmentService.findDepartments();//查询
+		map.put("departmentVoList", departmentVoList);
+		return "department";
+	}
+	
+	/**
+	 * 部门详情
+	 */
+	@RequestMapping("departmentDetail")
+	public String departmentDetail(ModelMap map,DepartmentVo departmentVo){
+		DepartmentVo currentDepartmentVo = departmentService.findDepartmentById(departmentVo);
+		map.put("currentDepartmentVo", currentDepartmentVo);
+		return "departmentDetail";
 	}
 }
