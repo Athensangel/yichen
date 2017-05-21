@@ -22,11 +22,19 @@ public class UserController {
 	@Autowired
 	private UserServcie userService;
 	
+	/**
+	 * 登录
+	 * @return
+	 */
 	@RequestMapping("yc_2017")
 	public String backLoginIndex(){
 		return "WEB-INF/backstage/login";
 	}
 	
+	/**
+	 * 首页
+	 * @return
+	 */
 	@RequestMapping("backIndex")
 	public String backLogin(){
 		return "WEB-INF/backstage/index";
@@ -59,6 +67,7 @@ public class UserController {
 	
 	/**
 	 * 添加
+	 * @param userVo
 	 * @return
 	 */
 	@RequestMapping("back/user/save")
@@ -70,6 +79,8 @@ public class UserController {
 	
 	/**
 	 * 跳转到 修改
+	 * @param id
+	 * @param map
 	 * @return
 	 */
 	@RequestMapping("back/user/up")
@@ -81,6 +92,7 @@ public class UserController {
 	
 	/**
 	 * 修改
+	 * @param userVo
 	 * @return
 	 */
 	@RequestMapping("back/user/modify")
@@ -91,12 +103,27 @@ public class UserController {
 	
 	/**
 	 * 删除
-	 * @param cc
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("back/user/del")
 	public String backUserDel(String id){
 		userService.deleteUserVo(id);
 		return "redirect:list/1";
+	}
+	
+	/**
+	 * 登录验证
+	 * @param userVo
+	 * @return
+	 */
+	@RequestMapping("back/user/checkLogin")
+	public String backCheckLogin(UserVo userVo){
+		UserVo currentUserVo = userService.checkLogin(userVo);
+		if(currentUserVo != null){
+			return "redirect:/backIndex"; //用户名密码正确
+		}else{
+			return "redirect:/yc_2017";//用户名密码错误
+		}
 	}
 }

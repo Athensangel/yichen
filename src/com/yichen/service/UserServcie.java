@@ -12,7 +12,7 @@ import com.yichen.model.UserVo;
  */
 public interface UserServcie {
 	
-	UserVo checkLogin(String loginName,String password);//登录验证
+	UserVo checkLogin(UserVo userVo);//登录验证
 	
 	int registerUesr(UserVo userVo);//注册
 

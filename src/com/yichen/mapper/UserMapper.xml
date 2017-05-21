@@ -35,7 +35,7 @@
 	
 	<!-- 登录校验 -->
 	<select  id="checkLogin" resultMap="userResultMap">
-		select a.login_name,a.password from  t_user a  where a.login_name=#{loginName} and a.password=#{password}
+		select a.login_name,a.password from  t_user a  where a.del_flag = '0' and a.login_name=#{loginName} and a.password=#{password}
 	</select>
 	
 	<!-- 添加数据  -->

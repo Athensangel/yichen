@@ -11,7 +11,7 @@ import com.yichen.model.UserVo;
  */
 public interface UserMapper {
 	
-	public UserVo checkLogin(String loginName,String password);//登录验证
+	public UserVo checkLogin(UserVo userVo);//登录验证
 	
 	public int signUesr(UserVo userVo);//注册
 	

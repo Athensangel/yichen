@@ -53,8 +53,8 @@ public class UserServcieImpl implements UserServcie{
 	}
 
 	@Override
-	public UserVo checkLogin(String loginName, String password) {
-		return userMapper.checkLogin(loginName, password);
+	public UserVo checkLogin(UserVo userVo) {
+		return userMapper.checkLogin(userVo);
 	}
 
 	@Override
