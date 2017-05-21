@@ -6,8 +6,4 @@
 	<typeAliases>
 		  <package name="com.yichen.model"/>
 	</typeAliases>
-	<mappers> 
-		<!-- 通过mapper接口加载映射文件 -->  
-		<mapper resource="com/yichen/mapper/UserMapper.xml"/> 
-	</mappers>
 </configuration>  

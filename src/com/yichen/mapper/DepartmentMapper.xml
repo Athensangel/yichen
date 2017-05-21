@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yichen.mapper.DepartmentMapper">
+	<!--通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
+	<resultMap type="DepartmentVo" id="departmentResultMap">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="type" column="type" />
+		<result property="delFlag" column="del_flag" />
+		<result property="addTime" column="add_time" />
+	</resultMap>
+
+	<!-- 查询数据 -->
+	<select id="queryDepartments" resultMap="departmentResultMap">
+		SELECT a.id,a.name FROM t_department a
+	</select>
+
+	<!-- 添加数据 -->
+	<insert id="insertDepartmentVo">
+		insert into t_department(id,name,del_flag,add_time) values (#{id},#{name},0,now())
+	</insert>
+
+	<!-- 删除数据 -->
+	<delete id="delDepartmentVo">
+		delete from t_department where id = #{id};
+	</delete>
+
+	<!-- 修改数据 -->
+	<update id="updateDepartmentVo">
+		update t_department set name = #{name},del_flag=0,add_time=now() where id=#{id}
+	</update>
+
+	<!-- 通过id查询 -->
+	<select id="queryDepartmentById" resultMap="departmentResultMap">
+		select a.id, a.name from t_department a
+		where a.id = #{id}
+	</select>
+
+</mapper>
