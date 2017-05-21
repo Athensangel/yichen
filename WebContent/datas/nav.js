@@ -15,9 +15,9 @@ var navs = [{
 		"icon": "&#xe63c;",
 		"href": "back/chess/list"
 	}, {
-		"title": "导航",
+		"title": "资讯公告",
 		"icon": "&#xe609;",
-		"href": "nav.html"
+		"href": "back/message/list/1"
 	}, {
 		"title": "Tab选项卡",
 		"icon": "&#xe62a;",

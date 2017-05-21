@@ -37,4 +37,19 @@ public class MessageServiceImpl implements MessageService {
 		return messageMapper.queryMessageById(id);
 	}
 
+	@Override
+	public int savetMessage(MessageVo messageVo) {
+		return messageMapper.insertMessage(messageVo);
+	}
+
+	@Override
+	public int modifyMessage(MessageVo messageVo) {
+		return messageMapper.updateMessage(messageVo);
+	}
+
+	@Override
+	public int deleteMessage(String id) {
+		return messageMapper.delMessage(id);
+	}
+
 }

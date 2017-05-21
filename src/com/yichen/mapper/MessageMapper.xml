@@ -3,30 +3,56 @@
 <mapper namespace="com.yichen.mapper.MessageMapper">
 
 	<resultMap type="MessageVo" id="messageResultMap">
-		<result property="id" column="id"/>
-		<result property="title" column="title"/>
-		<result property="type" column="type"/>
-		<result property="content" column="content"/>
-		<result property="addTime" column="add_time"/>
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="type" column="type" />
+		<result property="content" column="content" />
+		<result property="addTime" column="add_time" />
 	</resultMap>
-	
+
 	<!-- 查询 -->
-    <select id="queryMessages" parameterType="Page" resultMap="messageResultMap">
-         SELECT a.id,a.title,a.type,a.content,a.add_time addTime FROM t_message a WHERE a.del_flag ='0' 
-         <if test="type != null">
-           and a.type = #{type}
-         </if>
-         ORDER BY a.add_time DESC LIMIT #{startPos},#{pageSize}
-    </select>
+	<select id="queryMessages" parameterType="Page" resultMap="messageResultMap">
+		SELECT a.id,a.title,a.type,a.content,a.add_time addTime FROM t_message
+		a WHERE a.del_flag ='0'
+		<if test="type != null">
+			and a.type = #{type}
+		</if>
+		ORDER BY a.add_time DESC LIMIT #{startPos},#{pageSize}
+	</select>
 
 	<!-- 查询条数 -->
 	<select id="queryMessageVoCounts" resultType="java.lang.Integer">
-		SELECT COUNT(a.id) FROM t_message a WHERE a.del_flag = '0'
+		SELECT COUNT(a.id)
+		FROM t_message a WHERE a.del_flag = '0'
 	</select>
-	
+
 	<!-- 详细 -->
-    <select id="queryMessageById" parameterType="java.lang.String" resultMap="messageResultMap">
-         SELECT a.id,a.title,a.type,a.content,a.add_time addTime FROM t_message a WHERE a.del_flag ='0' and a.id = #{id}
-    </select>
-    
+	<select id="queryMessageById" parameterType="java.lang.String"
+		resultMap="messageResultMap">
+		SELECT a.id,a.title,a.type,a.content,a.add_time addTime FROM
+		t_message a
+		WHERE a.del_flag ='0' and a.id = #{id}
+	</select>
+
+	<!-- 添加 信息 -->
+	<insert id="insertMessage">
+		insert into t_message(id,title,type,content,del_flag,add_time,add_user_id)
+		values
+		(#{id},#{title},#{type},#{content},0,now(),1)
+	</insert>
+
+	<!-- 添加修改 -->
+	<update id="updateMessage">
+		update t_message set
+		title = #{title},
+		type = #{type},
+		content = #{content},
+		add_time = now()
+		where id = #{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delMessage">
+		delete from t_message where id = #{id}
+	</delete>
 </mapper>
