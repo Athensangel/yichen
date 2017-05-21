@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yichen.mapper.MessageMapper">
+
+	<resultMap type="MessageVo" id="messageResultMap">
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="type" column="type"/>
+		<result property="content" column="content"/>
+		<result property="addTime" column="add_time"/>
+	</resultMap>
+	
+	<!-- 查询 -->
+    <select id="queryAllMessageVos" parameterType="Page" resultMap="messageResultMap">
+         SELECT a.id,a.title,a.type,a.content,a.add_time addTime FROM t_message a WHERE a.del_flag ='0' ORDER BY a.add_time DESC LIMIT #{startPos},#{pageSize}
+    </select>
+
+	<!-- 查询条数 -->
+	<select id="queryMessageVoCounts" resultType="java.lang.Integer">
+		SELECT COUNT(a.id) FROM t_message a WHERE a.del_flag = '0'
+	</select>
+	
+</mapper>

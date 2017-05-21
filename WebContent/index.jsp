@@ -2,30 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>弈辰棋社</title>
-<link href="${pageContext.request.contextPath}/css/css.css" type="text/css" rel="stylesheet" />
-</head>
+<jsp:include page="common/header.jsp" flush="true" /> 
 <body>
 <div class="top"></div>
 <div id="wrap"><!--整体-->
-	<div class="index-nav">
-    	<div class="logo"><img src="${pageContext.request.contextPath}/images/logo.png" width="200"/></div>
-        <div class="nav">
-        	<ul>
-            	<li><a href="index.html">首 页</a></li>
-                <li><a href="news.html">弈辰概括</a></li>
-                <li><a href="pic.html">制度建设</a></li>
-                <li><a href="news.html">文化服务</a></li>
-                <li><a href="news.html">部门风采</a></li>
-                <li><a href="text.html">人物风采</a></li>
-            </ul>
-        </div>
-</div>
-	<div style=" clear:both;"></div>
-	<div class="banner"><img src="${pageContext.request.contextPath}/images/banner.png" width="100%"/></div>
-    <div style=" clear:both;"></div>
+<jsp:include page="common/menu.jsp" flush="true" /> 
     <div class="index-box">
     	<div class="index-box-up">
         	<div class="index-box-left">
@@ -102,16 +83,7 @@
     
 </div>
 <div style=" clear:both;"></div>
-<div class="foot">
-	<div class="footer">
-        <div class="foot-text">
-            <p>版权所有：弈辰棋社　 24小时热线电话：000-0000-000</p>
-            <p>地址：湘潭市国家级湘潭九华经济技术开发区开源路(原宝马西路)1号　电话：0731-52317568</p>
-            <p>邮箱：xxx@163.com</p>
-        </div>
-        <%-- <div class="foot-img"><p>官<br/>方<br/>微<br/>信<br/>扫<br/>描</p><img src="${pageContext.request.contextPath}/images/ewm.jpg" width="100"/></div> --%>
-    </div>
-</div>
+<jsp:include page="common/footer.jsp" flush="true" /> 
 </body>
 </html>
 
