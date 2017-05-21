@@ -11,9 +11,9 @@ var navs = [{
 		"icon": "&#xe63c;",
 		"href": "back/team/list"
 	}, {
-		"title": "表格",
+		"title": "棋种管理",
 		"icon": "&#xe63c;",
-		"href": "table.html"
+		"href": "back/chess/list"
 	}, {
 		"title": "导航",
 		"icon": "&#xe609;",

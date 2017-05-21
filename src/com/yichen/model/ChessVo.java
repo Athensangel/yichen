@@ -1,11 +1,11 @@
 package com.yichen.model;
 
 /**
- * 棋队实体类
+ * 棋种
  * @author cc
  *
  */
-public class TeamVo extends DbBaseVo<TeamVo> {
+public class ChessVo extends DbBaseVo<ChessVo> {
 	
 	private String name;
 
