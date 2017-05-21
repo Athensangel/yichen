@@ -6,12 +6,13 @@ import com.yichen.model.MessageVo;
 import com.yichen.model.Page;
 
 /**
- * 咨询公告Mapper
+ *  资讯公告Mapper
  * @author Administrator
  *
  */
 public interface MessageMapper {
-	List<MessageVo> queryAllMessageVos(Page page);// 查询消息
+	List<MessageVo> queryMessages(Page page);// 查询消息
 	int queryMessageVoCounts();//查询条数
+	MessageVo queryMessageById(String id);//详细
 
 }

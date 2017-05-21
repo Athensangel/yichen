@@ -16,7 +16,7 @@
     <div class="abouttext">
         	<p><strong>弈辰简介弈辰简介弈辰简介弈辰简介弈辰简介</strong></p>
             <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
-            <p><span>发布时间：2017-10-1 10:56:50 信息来源：本站</span></p>
+            <p><span>发布时间：2017-10-1 10:56:50 信息来源：弈辰棋社</span></p>
             <div class="text">
             <p>
             为规范全国棋牌行业从业人员行为，维护良好的棋牌行业风气，树立棋牌运动健康的社会形象，根据《中华人民共和国体育法》和国家体育总局有关规定，制定本规范。

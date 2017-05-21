@@ -1,7 +1,7 @@
 package com.yichen.model;
 
 /**
- * 咨询公告Vo
+ *  资讯公告Vo
  * @author Administrator
  *
  */

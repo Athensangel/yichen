@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <jsp:include page="common/header.jsp" flush="true" /> 
@@ -40,30 +43,40 @@
         	<div class="index-box-left">
             	<div class="box-nav">
                     <div class="box-nav-left"><img src="${pageContext.request.contextPath}/images/13.png" width="149"/></div>
-                    <div class="box-nav-right"><a href="news.html">+MORE</a></div>
+                      <div class="box-nav-right"><a href="${pageContext.request.contextPath}/news/1">+MORE</a></div>
                 </div>
                 <img src="${pageContext.request.contextPath}/images/001.png" width="500"/>
                 <ul class="news_list_c">
-                  <li><span>2014-06-01</span> <a href="text.html" title="高房价下的10类“中国式蜗居” ">高房价下的10类“中国式蜗居” </a></li>
-                  <li><span>2014-06-01</span><a href="text.html" title="国土资源部：26宗闲置土地曝光 最长达18年">国土资源部：26宗闲置土地曝光 最长达18年 </a></li>
-                  <li><span>2014-05-30</span><a href="text.html" title="上海囤地企业喊冤：闲置地块已建楼盘">上海囤地企业喊冤：闲置地块已建楼盘</a></li>
-                  <li><span>2014-05-28</span><a href="text.html" title="发改委：首11月房地产开发投资增长36.5%">发改委：首11月房地产开发投资增长36.5% </a></li>
-                  <li><span>2014-05-30</span><a href="text.html" title="上海传房产税即将出台 二手房赶集过户">上海传房产税即将出台 二手房赶集过户 </a></li>
+                <c:forEach items="${messageNews}" var="message">
+                  <li><span><fmt:formatDate type="time" value="${message.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span> 
+                  <a href="${pageContext.request.contextPath}/newsDetail?id=${message.id }" title="${message.title } ">
+                  <c:choose>
+                   <c:when test="${fn:length(message.title ) > 18}"><c:out value="${fn:substring(message.title , 0, 18)}..." /></c:when>
+                   <c:otherwise><c:out value="${message.title }" /></c:otherwise>
+                  </c:choose>
+                  </a>
+                  </li>
+                </c:forEach>
                 </ul>
                 <img src="${pageContext.request.contextPath}/images/001.png" width="500"/>
                 </div>
             <div class="index-box-right">
             <div class="box-nav">
                     <div class="box-nav-left"><img src="${pageContext.request.contextPath}/images/14.png" width="149"/></div>
-                    <div class="box-nav-right"><a href="news.html">+MORE</a></div>
+                    <div class="box-nav-right"><a href="${pageContext.request.contextPath}/news/1">+MORE</a></div>
                 </div>
                 <img src="${pageContext.request.contextPath}/images/001.png" width="460"/>
                 <ul class="news_list_c">
-                  <li><span>2014-06-01</span><a href="text.html">近期课程</a></li>
-                  <li><span>2014-06-01</span><a href="text.html">近期课程</a></li>
-                  <li><span>2014-05-30</span><a href="text.html">近期课程</a></li>
-                  <li><span>2014-05-28</span><a href="text.html">近期课程</a></li>
-                  <li><span>2014-05-30</span><a href="text.html">近期课程</a></li>
+              <c:forEach items="${messageNotice}" var="notice">
+                  <li><span><fmt:formatDate type="time" value="${notice.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span> 
+                  <a href="${pageContext.request.contextPath}/newsDetail?id=${notice.id }" title="${notice.title } ">
+                  <c:choose>
+                   <c:when test="${fn:length(notice.title ) > 18}"><c:out value="${fn:substring(notice.title , 0, 18)}..." /></c:when>
+                   <c:otherwise><c:out value="${notice.title }" /></c:otherwise>
+                  </c:choose>
+                  </a>
+                  </li>
+                </c:forEach>
                 </ul>
                 <img src="${pageContext.request.contextPath}/images/001.png" width="460"/>
             </div>

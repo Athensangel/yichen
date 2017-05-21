@@ -18,25 +18,11 @@
     <ul class="news_list_b">
 	    <c:forEach items="${messageVoList }" var="message">
 	      <li><span><fmt:formatDate type="time" value="${message.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span> 
-	           <a href="text.html" title="${message.title }">${message.title }</a>
+	           <a href="${pageContext.request.contextPath}/newsDetail?id=${message.id }" title="${message.title }">${message.title }</a>
 	      </li>
 	    </c:forEach>
     </ul>
     <img src="${pageContext.request.contextPath}/images/002.png" width="1003"/>
-<!--     <div class="page-normal">
-                    <span class="page-prev">&lt;</span>
-                    <span class="page-current">1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    ...
-                    <a href="#">199</a>
-                    <a href="#">200</a>
-                    <a href="#" class="page-next">&gt;</a>
-   </div> -->
    <div class="page-normal">
 			   <a   href="${pageContext.request.contextPath}/news/1" >首页</a>
 			    <c:if test="${page.pageNow != 1}">

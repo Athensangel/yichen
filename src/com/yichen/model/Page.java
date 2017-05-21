@@ -31,7 +31,7 @@ public class Page implements Serializable {
 
 	@SuppressWarnings("unused")
 	private boolean hasLast;// 是否有最后一页
-
+	private String type;//类型(1，动态，2公告）
 	public Page(int totalCount, int pageNow) {
 		this.totalCount = totalCount;
 		this.pageNow = pageNow;
@@ -117,6 +117,14 @@ public class Page implements Serializable {
 
 	public void setHasLast(boolean hasLast) {
 		this.hasLast = hasLast;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

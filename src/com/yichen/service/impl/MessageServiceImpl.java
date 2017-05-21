@@ -12,7 +12,7 @@ import com.yichen.model.Page;
 import com.yichen.service.MessageService;
 
 /**
- * 咨询公告Service实现
+ *  资讯公告Service实现
  * @author Administrator
  *
  */
@@ -23,13 +23,18 @@ public class MessageServiceImpl implements MessageService {
 	private MessageMapper messageMapper;
 	
 	@Override
-	public List<MessageVo> findAllMessageVos(Page page) {
-		return messageMapper.queryAllMessageVos(page);
+	public List<MessageVo> findMessages(Page page) {
+		return messageMapper.queryMessages(page);
 	}
 
 	@Override
 	public int findMessageVoCounts() {
 		return messageMapper.queryMessageVoCounts();
+	}
+
+	@Override
+	public MessageVo findMessageById(String id) {
+		return messageMapper.queryMessageById(id);
 	}
 
 }
