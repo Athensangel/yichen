@@ -32,4 +32,13 @@
 		<property name="maxInMemorySize" value="80960" />
 	</bean>
 	
+	    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <!-- 配置登陆拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.yichen.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
 </beans>
