@@ -13,39 +13,51 @@ import com.yichen.service.MessageService;
 
 /**
  * 网站首页
+ * 
  * @author Administrator
  *
  */
 @Controller
 public class IndexController {
-	
+
 	@Autowired
 	private MessageService messageService;
-	
+
 	/**
 	 * 简介
+	 * 
 	 * @return
 	 */
 	@RequestMapping("main")
-	public String main(ModelMap map){
+	public String main(ModelMap map) {
 		Page page = new Page(5, 1);
 		page.setPageSize(5);
-		page.setType("1");//消息
-		List<MessageVo>  messageNews = messageService.findMessages(page);
-		page.setType("2");//公告
-		List<MessageVo>  messageNotice = messageService.findMessages(page);
+		page.setType("1");// 消息
+		List<MessageVo> messageNews = messageService.findMessages(page);
+		page.setType("2");// 公告
+		List<MessageVo> messageNotice = messageService.findMessages(page);
 		map.put("messageNews", messageNews);
 		map.put("messageNotice", messageNotice);
 		return "index";
 	}
-	
+
 	/**
 	 * 简介
+	 * 
 	 * @return
 	 */
 	@RequestMapping("about")
-	public String about(){
+	public String about() {
 		return "about";
 	}
-	
+
+	/**
+	 * 人物风采
+	 * @return
+	 */
+	@RequestMapping("person")
+	public String person() {
+		return "person";
+	}
+
 }
