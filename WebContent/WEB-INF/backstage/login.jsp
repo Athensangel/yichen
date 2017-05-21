@@ -19,7 +19,7 @@
 				<h1>后台登录</h1>
 			</header>
 			<div class="beg-login-main">
-				<form action="index" class="layui-form" method="post">
+				<form action="${pageContext.request.contextPath}/backIndex" class="layui-form" method="post">
 					<div class="layui-form-item">
 						<label class="beg-login-icon">
                         <i class="layui-icon">&#xe612;</i>

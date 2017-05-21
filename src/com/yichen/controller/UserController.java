@@ -47,7 +47,7 @@ public class UserController {
 		return "WEB-INF/backstage/login";
 	}
 	
-	@RequestMapping("index")
+	@RequestMapping("backIndex")
 	public String backLogin(){
 		return "WEB-INF/backstage/index";
 	}

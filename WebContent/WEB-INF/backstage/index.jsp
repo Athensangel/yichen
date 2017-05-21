@@ -11,19 +11,16 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
-
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css" media="all">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-
 	</head>
-
 	<body>
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header header header-demo">
 				<div class="layui-main">
 					<div class="admin-login-box">
-						<a class="logo" style="left: 0;" href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">
+						<a class="logo" style="left: 0;" href="javascript:;">
 							<span style="font-size: 22px;">弈辰棋社后台管理</span>
 						</a>
 						<div class="admin-side-toggle">
@@ -42,7 +39,7 @@
 						</li>
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
-								<img src="images/0.jpg" />
+								<img src="${pageContext.request.contextPath}/images/0.jpg" />
 								<span>beginner</span>
 							</a>
 							<dl class="layui-nav-child">
@@ -83,7 +80,7 @@
 					</ul>
 					<div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
 						<div class="layui-tab-item layui-show">
-							<iframe src="main.html"></iframe>
+							<iframe src="main.jsp"></iframe>
 						</div>
 					</div>
 				</div>
