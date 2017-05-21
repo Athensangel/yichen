@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/common/path.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -14,8 +14,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
 
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 	</head>
 
 	<body>
@@ -23,7 +23,7 @@
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
 				<legend>添加成员信息</legend>
 			</fieldset>
-			<form class="layui-form" action="${pageContext.request.contextPath}/back/user/modify" method="post">
+			<form class="layui-form" action="${ctx}/back/user/modify" method="post">
 			<input type="hidden" name="id" value="${userVo.id}">
 				<div class="layui-form-item">
 					<label class="layui-form-label">登录名</label>
@@ -83,7 +83,7 @@
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 		<script>
 			layui.use(['form', 'layedit', 'laydate'], function() {
 				var form = layui.form(),

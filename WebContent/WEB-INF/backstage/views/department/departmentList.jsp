@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Table</title>
 		  <title>用户管理</title>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css" media="all">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/table.css" />
+		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
+		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="${ctx}/css/table.css" />
 		
 	</head>
 
 	<body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
-				<a href="${pageContext.request.contextPath}/back/department/add" class="layui-btn layui-btn-small" id="add">
+				<a href="${ctx}/back/department/add" class="layui-btn layui-btn-small" id="add">
 					<i class="layui-icon">&#xe608;</i> 添加信息
 				</a>
 				<a href="#" class="layui-btn layui-btn-small" id="import">
@@ -48,8 +48,8 @@
 								<td>${department.name}</td>
 								<td>
 									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
-									<a href="${pageContext.request.contextPath}/back/department/up?id=${department.id}" class="layui-btn layui-btn-mini">编辑</a>
-									<a href="${pageContext.request.contextPath}/back/department/del?id=${department.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+									<a href="${ctx}/back/department/up?id=${department.id}" class="layui-btn layui-btn-mini">编辑</a>
+									<a href="${ctx}/back/department/del?id=${department.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
 							</tr>
 							</c:forEach>
@@ -58,11 +58,11 @@
 				</div>
 			</fieldset>
 		</div>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 		<!-- <script>
 		    var pages=$("#pageCount").val() ;  
 			layui.config({
-				base: '${pageContext.request.contextPath}/plugins/layui/modules/'
+				base: '${ctx}/plugins/layui/modules/'
 			});
 
 			layui.use(['icheck', 'laypage','layer'], function() {

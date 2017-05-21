@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+ <%@ include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,9 +12,9 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/global.css" media="all">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
+		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div class="layui-layout layui-layout-admin">
@@ -39,7 +40,7 @@
 						</li>
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
-								<img src="${pageContext.request.contextPath}/images/0.jpg" />
+								<img src="${ctx}/images/0.jpg" />
 								<span>beginner</span>
 							</a>
 							<dl class="layui-nav-child">
@@ -110,9 +111,9 @@
 			</script>
 			<!--锁屏模板 end -->
 			
-			<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/layui/layui.js"></script>
-			<script type="text/javascript" src="${pageContext.request.contextPath}/datas/nav.js"></script>
-			<script src="${pageContext.request.contextPath}/js/index.js"></script>
+			<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
+			<script type="text/javascript" src="${ctx}/datas/nav.js"></script>
+			<script src="${ctx}/js/index.js"></script>
 			<script>
 				layui.use('layer', function() {
 					var $ = layui.jquery,

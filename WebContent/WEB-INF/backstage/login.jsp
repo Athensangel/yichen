@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +10,6 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" />
 	</head>
-
 	<body class="beg-login-bg">
 		<div class="beg-login-box">
 			<header>
