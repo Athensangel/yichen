@@ -27,4 +27,6 @@ public interface UserMapper {
 
 	int findUserVoCounts();
 
+	int checkLoginName(String loginName); //用户名校验
+
 }

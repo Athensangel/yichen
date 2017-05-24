@@ -27,6 +27,8 @@ public interface UserServcie {
 	UserVo findAllUserVoById(String id);// 通过id查询用户
 	
 	int findUserVoCounts();//查询用户总数
+
+	int checkLoginName(String loginName);//用户名校验
 	
 
 }

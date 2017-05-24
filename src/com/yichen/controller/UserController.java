@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.yichen.model.Page;
@@ -154,4 +155,64 @@ public class UserController {
 	public String backUserMain(){
 		return "WEB-INF/backstage/main";
 	}
+	
+	/**
+	 * 登录
+	 * @return
+	 */
+	@RequestMapping("/login")
+	public String login(){
+		return "WEB-INF/front/login/login";
+	}
+	
+	/**
+	 * 登录验证
+	 * @return
+	 */
+	@RequestMapping("/loginValidate")
+	public String loginValidate(UserVo userVo,RedirectAttributes attr,HttpSession session){
+		UserVo currentUserVo = userService.checkLogin(userVo);
+		if(currentUserVo != null){
+			session.setAttribute("currentUserVo", currentUserVo);
+			session.setAttribute("loginName", currentUserVo.getLoginName());
+			return "redirect:/main"; //用户名密码正确
+		}else{
+			 message="登录失败:用户名?密码错误?用户未激活?";
+			 attr.addFlashAttribute("message", message);
+			return "redirect:/login";//用户名密码错误
+		}
+	}
+	
+	/**
+	 * 注册
+	 * @return
+	 */
+	@RequestMapping("/loginRegister")
+	public String loginRegister(UserVo userVo){
+		  userVo.setId(UUIDUtil.getUUID());
+		  userService.saveUserVo(userVo) ;
+		return "redirect:login";
+	}
+	
+	/**
+	 * 用户名校验
+	 * @return
+	 */
+	@RequestMapping("/checkLoginName")
+	@ResponseBody
+	public int checkLoginName(String loginName){
+		  int result = userService.checkLoginName(loginName);
+		  return result ;
+		}
+	
+	/**
+	 * 退出登录
+	 * @return
+	 */
+	@RequestMapping("/loginExt")
+	public String loginExt(HttpSession session){
+		session.invalidate();
+		return "redirect:login";
+	}
+	
 }

@@ -62,4 +62,9 @@ public class UserServcieImpl implements UserServcie{
 		return userMapper.findUserVoCounts();
 	}
 
+	@Override
+	public int checkLoginName(String loginName) {
+		return userMapper.checkLoginName(loginName);
+	}
+
 }
