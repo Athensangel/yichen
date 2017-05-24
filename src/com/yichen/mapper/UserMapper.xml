@@ -77,7 +77,7 @@
 	   #{registeredIdentity,jdbcType=VARCHAR},
 	   #{identity,jdbcType=VARCHAR},
 	   #{grade,jdbcType=VARCHAR},
-	   #{gradeScore,jdbcType=INTEGER},
+	   #{gradeScore,jdbcType=INTEGER}
 	   )
 	</insert>
 	
