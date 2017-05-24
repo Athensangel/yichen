@@ -1,11 +1,16 @@
 package com.yichen.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 import com.yichen.service.UserServcie;
@@ -21,6 +26,16 @@ public class UserController {
 	
 	@Autowired
 	private UserServcie userService;
+	
+	private String message;
+	
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	
 	/**
 	 * 登录
@@ -117,13 +132,26 @@ public class UserController {
 	 * @param userVo
 	 * @return
 	 */
-	@RequestMapping("back/user/checkLogin")
-	public String backCheckLogin(UserVo userVo){
+	@RequestMapping("/user/checkLogin")
+	public String backCheckLogin(UserVo userVo,RedirectAttributes attr,HttpSession session){
 		UserVo currentUserVo = userService.checkLogin(userVo);
 		if(currentUserVo != null){
+			session.setAttribute("currentUserVo", currentUserVo);
+			session.setAttribute("loginName", currentUserVo.getLoginName());
 			return "redirect:/backIndex"; //用户名密码正确
 		}else{
+			 message="登录失败:用户名?密码错误?用户未激活?";
+			 attr.addFlashAttribute("message", message);
 			return "redirect:/yc_2017";//用户名密码错误
 		}
+	}
+	
+	/**
+	 * main
+	 * @return
+	 */
+	@RequestMapping("back/user/main")
+	public String backUserMain(){
+		return "WEB-INF/backstage/main";
 	}
 }

@@ -4,6 +4,6 @@
 
 <configuration>
 	<typeAliases>
-		  <package name="com.yichen.model"/>
+		<package name="com.yichen.model" />
 	</typeAliases>
 </configuration>  

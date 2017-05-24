@@ -1,10 +1,10 @@
 package com.yichen.model;
 
+/**
+ * 部门实体类
+ */
 public class DepartmentVo extends DbBaseVo<DepartmentVo>{
-	
-	/**
-	 * 部门实体类
-	 */
+
 	private String name;// 部门名称
 	private String type;// 部门类型
 	public String getName() {
