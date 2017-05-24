@@ -217,7 +217,7 @@ public class UserController {
 	@RequestMapping("/loginExt")
 	public String loginExt(HttpSession session){
 		session.invalidate();
-		return "redirect:login";
+		return "index";
 	}
 	
 	/**
@@ -229,7 +229,7 @@ public class UserController {
 		dictVo.setType("chessType");
 		List<DictVo> dvList = dictService.findDicts(dictVo);
 		map.put("dvList", dvList);
-		return "WEB-INF/front/chessRegister/login";
+		return "WEB-INF/front/chess/register";
 	}
 	
 	/**
@@ -237,7 +237,9 @@ public class UserController {
 	 */
 	@RequestMapping("/loginPlayer")
 	public String loginPlayer(UserVo userVo){
+		userVo.setId(UUIDUtil.getUUID());
 		userService.saveUserVo(userVo);
 		return "redirect:login";
 	}
+	
 }

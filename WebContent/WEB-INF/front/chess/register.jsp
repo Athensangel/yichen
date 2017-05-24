@@ -3,9 +3,9 @@
 <%@ include file="/common/taglib.jsp"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>弈辰棋社棋手注册</title>
-<link rel="stylesheet" media="screen" href="${ctx }/front/chessRegister/css/css.css" />
+<link rel="stylesheet" media="screen" href="${ctx }/front/chess/css/css.css" />
 </head>
 <form id="msform" action="${ctx }/loginPlayer" method="post">
 	<ul id="progressbar">
@@ -55,7 +55,7 @@
 </form>
 <script src="${ctx }/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 <script src="${ctx }/js/jquery.js" type="text/javascript"></script>
-<script src="${ctx }/front/chessRegister/js/jquery.easing.min.js" type="text/javascript"></script>
-<script src="${ctx }/front/chessRegister/js/jQuery.time.js" type="text/javascript"></script>
+<script src="${ctx }/front/chess/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="${ctx }/front/chess/js/jQuery.time.js" type="text/javascript"></script>
 </body>
 </html>
