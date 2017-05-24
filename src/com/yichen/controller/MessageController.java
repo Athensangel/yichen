@@ -108,10 +108,10 @@ public class MessageController {
 		messageService.modifyMessage(messageVo);
 		return "redirect:list/1";
 	}
-	
+		
 	/**
-	 * 删除
-	 * @param cc
+	 * 
+	 * @param id
 	 * @return
 	 */
 	@RequestMapping("back/message/del")
@@ -119,4 +119,5 @@ public class MessageController {
 		messageService.deleteMessage(id);
 		return "redirect:list/1";
 	}
+
 }
