@@ -19,9 +19,9 @@ var navs = [{
 		"icon": "&#xe609;",
 		"href": "back/message/list/1"
 	}, {
-		"title": "Tab选项卡",
+		"title": "字典管理",
 		"icon": "&#xe62a;",
-		"href": "tab.html"
+		"href": "back/dict/list"
 	}, {
 		"title": "辅助性元素",
 		"icon": "&#xe60c;",

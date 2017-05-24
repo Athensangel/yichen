@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yichen.mapper.DictMapper">
+	<resultMap type="DictVo" id="dictResultMap">
+		<result property="id" column="id" />
+		<result property="type" column="type" />
+		<result property="value" column="value" />
+		<result property="label" column="label" />
+		<result property="sort" column="sort" />
+		<result property="description" column="description" />
+		<result property="remark" column="remark" />
+		<result property="delFlag" column="del_flag" />
+		<result property="addTime" column="add_time" />
+		<result property="addUserId" column="add_user_id" />
+	</resultMap>
+
+	<!-- 查询数据 -->
+	<select id="querDicts" resultMap="dictResultMap">
+		SELECT a.id,a.type,a.value,a.label,a.sort,a.description,a.remark FROM t_dict a
+	</select>
+
+	<!-- 添加数据 -->
+	<insert id="insertDict">
+		insert into t_dict(id,type,value,label,sort,description,remark,del_flag,add_time,add_user_id) 
+		values
+		(#{id},#{type},#{value},#{label},#{sort},#{description},#{remark},0,now(),1)
+	</insert>
+
+	<!-- 删除数据 -->
+	<delete id="delDict">
+		delete from t_dict where id = #{id};
+	</delete>
+
+	<!-- 修改数据 -->
+	<update id="updateDict">
+		update t_dict set 
+		type = #{type},
+		value = #{value},
+		label= #{label},
+		sort= #{sort},
+		description= #{description},
+		remark= #{remark},
+		del_flag=0,
+		add_time=now(),
+		add_user_id=1
+		where id=#{id}
+	</update>
+
+	<!-- 通过id查询 -->
+	<select id="queryDictById" resultMap="dictResultMap">
+		select  a.id,a.type,a.value,a.label,a.sort,a.description,a.remark from t_dict a
+		where a.id = #{id}
+	</select>
+
+</mapper>
