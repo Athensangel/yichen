@@ -7,7 +7,7 @@
 <title>弈辰棋社棋手注册</title>
 <link rel="stylesheet" media="screen" href="${ctx }/front/chessRegister/css/css.css" />
 </head>
-<form id="msform">
+<form id="msform" action="${ctx }/loginPlayer" method="post">
 	<ul id="progressbar">
 		<li class="active">第一步</li>
 		<li>第二步</li>
@@ -28,13 +28,13 @@
 		<input type="text" name="loginName" placeholder="帐号" />
 		<input type="text" name="password" placeholder="密码" />
 		<input type="text" name="repassword" placeholder="确认密码" />
-		<input type="text" name="twitter" placeholder="姓名" />
-		<select>
+		<input type="text" name="name" placeholder="姓名" />
+		<select name="sex">
 		  <option value ="1">男</option>
-		  <option value ="2">女</option>
+		  <option value ="0">女</option>
 		</select>
 		<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:true,maxDate:'%y-%M-%d'});" name="" placeholder="出生日期" >
-		<input type="text" name="gplus" placeholder="联系电话" />
+		<input type="text" name="tel" placeholder="联系电话" />
 		<input type="text" name="email" placeholder="QQ邮箱" />
 		<input type="button" name="previous" class="previous action-button" value="上一步" />
 		<input type="button" name="next" class="next action-button" value="下一步" />
@@ -42,12 +42,12 @@
 	<fieldset>
 		<h2 class="fs-title">完善信息</h2>
 		<h3 class="fs-subtitle">注册信息提交，管理员将在15个工作日内审核</h3>
-	    <input type="text" name="gplus" placeholder="运动员称号" />
-		<input type="text" name="gplus" placeholder="单位" />
-		<input type="text" name="gplus" placeholder="注册身份 " />
-		<input type="text" name="gplus" placeholder="身份证" />
-		<input type="text" name="gplus" placeholder="等级" />
-		<input type="text" name="gplus" placeholder="等级分" />
+	    <input type="text" name="chessTitle" placeholder="运动员称号" />
+		<input type="text" name="company" placeholder="单位" />
+		<input type="text" name="registeredIdentity" placeholder="注册身份 " />
+		<input type="text" name="identity" placeholder="身份证" />
+		<input type="text" name="grade" placeholder="等级" />
+		<input type="text" name="gradeScore" placeholder="等级分" />
 		<textarea name="remark" placeholder="备注"></textarea>
 		<input type="button" name="previous" class="previous action-button" value="上一步" />
 		<input type="submit" name="submit" class="submit action-button" value="确认注册" />

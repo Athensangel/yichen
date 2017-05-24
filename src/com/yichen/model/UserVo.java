@@ -16,6 +16,55 @@ public class UserVo extends DbBaseVo<UserVo>{
 	private String headphoto;// 头像地址
 	private String remark;// 备注
 	private String state;// 状态（0：禁用，1：启用）
+	private String birthday;// 生日
+	private String chessTitle;//棋手称号
+	private String company;//单位
+	private String registeredIdentity;// 注册身份
+	private String identity;// 身份证
+	private String grade;// 等级
+	private Integer gradeScore;//等级分数
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public String getChessTitle() {
+		return chessTitle;
+	}
+	public void setChessTitle(String chessTitle) {
+		this.chessTitle = chessTitle;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public String getRegisteredIdentity() {
+		return registeredIdentity;
+	}
+	public void setRegisteredIdentity(String registeredIdentity) {
+		this.registeredIdentity = registeredIdentity;
+	}
+	public String getIdentity() {
+		return identity;
+	}
+	public void setIdentity(String identity) {
+		this.identity = identity;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public Integer getGradeScore() {
+		return gradeScore;
+	}
+	public void setGradeScore(Integer gradeScore) {
+		this.gradeScore = gradeScore;
+	}
 	public String getLoginName() {
 		return loginName;
 	}
@@ -69,5 +118,13 @@ public class UserVo extends DbBaseVo<UserVo>{
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	@Override
+	public String toString() {
+		return "UserVo [loginName=" + loginName + ", password=" + password + ", name=" + name + ", email=" + email
+				+ ", tel=" + tel + ", sex=" + sex + ", headphoto=" + headphoto + ", remark=" + remark + ", state="
+				+ state + ", birthday=" + birthday + ", chessTitle=" + chessTitle + ", company=" + company
+				+ ", registeredIdentity=" + registeredIdentity + ", identity=" + identity + ", grade=" + grade
+				+ ", gradeScore=" + gradeScore + "]";
 	}
 }

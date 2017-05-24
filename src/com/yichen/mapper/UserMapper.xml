@@ -39,10 +39,46 @@
 	
 	<!-- 添加数据  -->
 	<insert id="insertUserVo">
-	    insert into t_user
-	   (id,login_name,password,name,email,tel,sex,remark,state,del_flag,add_time)
+	  insert into t_user
+	   (id,
+	   login_name,
+	   password,
+	   name,
+	   email,
+	   tel,
+	   sex,
+	   remark,
+	   state,
+	   del_flag,
+	   add_time,
+	   birthday,
+	   chess_title,
+	   company,
+	   registered_identity,
+	   identity,
+	   grade,
+	   grade_score
+	   )
 	   values
-	   (#{id},#{loginName},#{password},#{name},#{email},#{tel},#{sex},#{remark},0,0,now())
+	   (#{id,jdbcType=VARCHAR},
+	   #{loginName,jdbcType=VARCHAR},
+	   #{password,jdbcType=VARCHAR},
+	   #{name,jdbcType=VARCHAR},
+	   #{email,jdbcType=VARCHAR},
+	   #{tel,jdbcType=VARCHAR},
+	   #{sex},
+	   #{remark,jdbcType=VARCHAR},
+	   0,
+	   0,
+	   now(),
+	   #{birthday,jdbcType=DATE},
+	   #{chessTitle,jdbcType=VARCHAR},
+	   #{company,jdbcType=VARCHAR},
+	   #{registeredIdentity,jdbcType=VARCHAR},
+	   #{identity,jdbcType=VARCHAR},
+	   #{grade,jdbcType=VARCHAR},
+	   #{gradeScore,jdbcType=INTEGER},
+	   )
 	</insert>
 	
 	<!-- 删除数据  -->

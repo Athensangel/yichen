@@ -221,7 +221,7 @@ public class UserController {
 	}
 	
 	/**
-	 * 棋手注册
+	 * 跳转棋手注册
 	 * @return
 	 */
 	@RequestMapping("/chessReg")
@@ -232,4 +232,12 @@ public class UserController {
 		return "WEB-INF/front/chessRegister/login";
 	}
 	
+	/**
+	 * 棋手注册
+	 */
+	@RequestMapping("/loginPlayer")
+	public String loginPlayer(UserVo userVo){
+		userService.saveUserVo(userVo);
+		return "redirect:login";
+	}
 }
