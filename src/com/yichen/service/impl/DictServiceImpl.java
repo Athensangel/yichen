@@ -17,8 +17,8 @@ public class DictServiceImpl implements DictService {
 	private DictMapper dictMapper;
 
 	@Override
-	public List<DictVo> findDicts() {
-		return dictMapper.querDicts();
+	public List<DictVo> findDicts(DictVo dictVo) {
+		return dictMapper.querDicts(dictVo);
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import com.yichen.model.DictVo;
 
 public interface DictMapper {
 
-	List<DictVo> querDicts();// 查询棋队
+	List<DictVo> querDicts(DictVo dictVo);// 查询棋队
 
 	int insertDict(DictVo DictVo);// 添加棋队
 

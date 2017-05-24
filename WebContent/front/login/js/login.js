@@ -21,8 +21,7 @@ if(getParam("a")=='0')
 {
 	$('#switch_login').trigger('click');
 }
-
-	});
+});
 	
 function logintab(){
 	scrollTo(0);
@@ -31,7 +30,6 @@ function logintab(){
 	$('#switch_bottom').animate({left:'154px',width:'96px'});
 	$('#qlogin').css('display','none');
 	$('#web_qr_login').css('display','block');
-	
 }
 
 
@@ -53,15 +51,10 @@ function getParam(pname) {
     } 
 }  
 
-
 var reMethod = "GET",
 	pwdmin = 6;
-
 $(document).ready(function() {
-
-
 	$('#reg').click(function() {
-
 		if ($('#user').val() == "") {
 			$('#user').focus().css({
 				border: "1px solid red",
@@ -85,7 +78,6 @@ $(document).ready(function() {
 	    		 password:$("#passwd").val(),
 	    		 email:$("#email").val()
 	         };
-
 
 		if ($('#passwd').val().length < pwdmin) {
 			$('#passwd').focus();
@@ -112,7 +104,6 @@ $(document).ready(function() {
 				boxShadow: "none"
 			});
 		}
-		
 		$.ajax({
 			type: reMethod,
 			url: ctx+"/loginRegister",

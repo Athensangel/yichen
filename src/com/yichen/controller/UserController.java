@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.yichen.model.DictVo;
 import com.yichen.model.Page;
 import com.yichen.model.UserVo;
+import com.yichen.service.DictService;
 import com.yichen.service.UserServcie;
 import com.yichen.utils.UUIDUtil;
 
@@ -24,6 +26,9 @@ import com.yichen.utils.UUIDUtil;
  */
 @Controller
 public class UserController {
+	
+	@Autowired
+	private DictService dictService;
 	
 	@Autowired
 	private UserServcie userService;
@@ -213,6 +218,18 @@ public class UserController {
 	public String loginExt(HttpSession session){
 		session.invalidate();
 		return "redirect:login";
+	}
+	
+	/**
+	 * 棋手注册
+	 * @return
+	 */
+	@RequestMapping("/chessReg")
+	public String chessReg(ModelMap map,DictVo dictVo){
+		dictVo.setType("chessType");
+		List<DictVo> dvList = dictService.findDicts(dictVo);
+		map.put("dvList", dvList);
+		return "WEB-INF/front/chessRegister/login";
 	}
 	
 }

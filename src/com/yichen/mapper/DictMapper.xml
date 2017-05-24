@@ -16,7 +16,10 @@
 
 	<!-- 查询数据 -->
 	<select id="querDicts" resultMap="dictResultMap">
-		SELECT a.id,a.type,a.value,a.label,a.sort,a.description,a.remark FROM t_dict a
+		SELECT a.id,a.type,a.value,a.label,a.sort,a.description,a.remark FROM t_dict a WHERE a.del_flag = '0'
+		<if test="type !=null">
+		    AND a.type = #{type}
+		</if>
 	</select>
 
 	<!-- 添加数据 -->

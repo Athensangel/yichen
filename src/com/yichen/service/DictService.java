@@ -12,7 +12,7 @@ import com.yichen.model.DictVo;
 
 public interface DictService {
 	
-	List<DictVo> findDicts();// 查询字典
+	List<DictVo> findDicts(DictVo dictVo);// 查询字典
 
 	int saveDict(DictVo dDictVo);// 添加字典
 

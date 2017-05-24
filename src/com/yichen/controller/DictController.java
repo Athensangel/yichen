@@ -17,11 +17,11 @@ public class DictController {
 		private DictService dictService;
 		
 		/**
-		 * 查询部门信息
+		 * 查询字典信息
 		 */
 		@RequestMapping("back/dict/list")
-		public String backdict(ModelMap map){
-			List<DictVo> dictVoList = dictService.findDicts();
+		public String backdict(ModelMap map,DictVo dictVo){
+			List<DictVo> dictVoList = dictService.findDicts(dictVo);
 			map.put("dictVoList", dictVoList);
 			return "WEB-INF/backstage/views/dict/dictList";
 		}
