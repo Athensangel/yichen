@@ -7,6 +7,12 @@
 <body>
 <div class="top"></div>
 <div id="wrap"><!--整体-->
+<c:if test="${currentUserVo.loginName eq null }">
+<span style="float: right;"><a href="${ctx }/login">登录</a>&nbsp;&nbsp;&nbsp;<a href="${ctx }/login">注册</a></span>
+</c:if>
+<c:if test="${currentUserVo.loginName ne null }">
+<span style="float: right;">欢迎${currentUserVo.loginName }登录&nbsp;&nbsp;&nbsp;<a href="${ctx }/loginExt">退出</a></span>
+</c:if>
 <jsp:include page="common/menu.jsp" flush="true" /> 
     <div class="index-box">
     	<div class="index-box-up">
