@@ -7,14 +7,6 @@ var navs = [{
 		"icon": "&#xe641;",
 		"href": "back/department/list"
 	}, {
-		"title": "棋队管理",
-		"icon": "&#xe63c;",
-		"href": "back/team/list"
-	}, {
-		"title": "棋种管理",
-		"icon": "&#xe63c;",
-		"href": "back/chess/list"
-	}, {
 		"title": "资讯公告",
 		"icon": "&#xe609;",
 		"href": "back/message/list/1"
@@ -53,9 +45,5 @@ var navs = [{
 		"title": "用户列表",
 		"icon": "fa-table",
 		"href": "back/user/list/1"
-	}, {
-		"title": "修改密码",
-		"icon": "&#xe60c;",
-		"href": ""
 	}]
 }];
