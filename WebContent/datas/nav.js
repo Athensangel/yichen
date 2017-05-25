@@ -22,59 +22,23 @@ var navs = [{
 		"title": "字典管理",
 		"icon": "&#xe62a;",
 		"href": "back/dict/list"
-	}, {
-		"title": "辅助性元素",
-		"icon": "&#xe60c;",
-		"href": "auxiliar.html"
-	}]
+	},]
 }, {
 	"title": "文化服务管理",
 	"icon": "fa-cogs",
 	"spread": false,
-	"children": [{
-		"title": "Datatable",
-		"icon": "fa-table",
-		"href": "begtable.html"
-	}, {
-		"title": "Navbar组件",
-		"icon": "fa-navicon",
-		"href": "navbar.html"
-	}, {
-		"title": "Laytpl+Laypage",
-		"icon": "&#xe628;",
-		"href": "paging.html"
-	}]
+	"children": []
 }, {
 	"title": "荣誉展示管理",
 	"icon": "&#x1002;",
 	"spread": false,
-	"children": [{
-		"title": "iCheck组件",
-		"icon": "fa-check-square-o",
-		"href": "icheck.html"
-	}]
+	"children": []
 }, {
 	"title": "通知公告管理",
 	"icon": "fa-snapchat",
 	"href": "",
 	"spread": false,
-	"children": [{
-		"title": "Github",
-		"icon": "fa-github",
-		"href": "https://www.github.com/"
-	}, {
-		"title": "QQ",
-		"icon": "fa-qq",
-		"href": "http://www.qq.com/"
-	}, {
-		"title": "Fly社区",
-		"icon": "&#xe609;",
-		"href": "http://fly.layui.com/"
-	}, {
-		"title": "新浪微博",
-		"icon": "fa-weibo",
-		"href": "http://weibo.com/"
-	}]
+	"children": []
 }, {
 	"title": "弈辰史苑管理",
 	"icon": "fa-stop-circle",

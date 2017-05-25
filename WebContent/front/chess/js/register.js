@@ -16,6 +16,7 @@ $("#chessType").attr("value", $('#chessSelect option:selected').val());
 					maxlength: "用户名长度不能超过20"
 				},
 				password: "必填信息"
+				
 			},
 	        submitHandler: function(form){
                   form.submit(); 
