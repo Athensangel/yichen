@@ -9,6 +9,7 @@
 <script src="${ctx }/js/jquery.js" type="text/javascript"></script>
 <script src="${ctx }/js/jquery.validate.js" type="text/javascript"></script>
 <script type="text/javascript" src="${ctx }/front/chess/js/register.js"></script>
+<script src="${ctx }/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 </head>
 <form id="msform" action="${ctx }/loginPlayer" method="post">
    <input type="hidden" name="isChess" value="1">
@@ -30,7 +31,7 @@
 	</fieldset>
 	<fieldset>
 		<h2 class="fs-title">填写资料</h2>
-		<input type="text" name="loginName" placeholder="帐号" />
+		<input type="text" name="loginName" placeholder="帐号" /><span class="errorTip"></span>
 		<input type="text" name="password" placeholder="密码" />
 		<input type="text" name="repassword" placeholder="确认密码" />
 		<input type="text" name="name" placeholder="姓名" />
@@ -58,8 +59,6 @@
 		<input type="submit" name="submit" class="submit action-button" value="确认注册" />
 	</fieldset>
 </form>
-<script src="${ctx }/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
-<script src="${ctx }/js/jquery.js" type="text/javascript"></script>
 <script src="${ctx }/front/chess/js/jquery.easing.min.js" type="text/javascript"></script>
 <script src="${ctx }/front/chess/js/jQuery.time.js" type="text/javascript"></script>
 </body>

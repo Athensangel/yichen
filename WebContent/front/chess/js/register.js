@@ -1,5 +1,5 @@
 $(function(){
-$("#chessSelect").val($('#chessSelect option:selected').val());
+$("#chessType").attr("value", $('#chessSelect option:selected').val());
 		$("#msform").validate({
 			rules: {
 				loginName: {
