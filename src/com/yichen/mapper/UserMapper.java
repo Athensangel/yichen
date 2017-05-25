@@ -29,4 +29,8 @@ public interface UserMapper {
 
 	int checkLoginName(String loginName); //用户名校验
 
+	int checkEmail(String email, String loginName);//邮箱校验
+
+	int updatePassword(String password, String loginName);//更新密码
+
 }

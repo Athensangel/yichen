@@ -40,7 +40,7 @@
                 </div>
                 </div>
                 <span>${message }</span>
-                <div style="padding-left:50px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div><a href="javascript:;" class="zcxy" target="_blank">忘记密码</a>
+                <div style="padding-left:50px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div><a href="${ctx }/forgetPassword" class="zcxy" target="_blank">忘记密码</a>
               </form>
            </div>
             	</div>

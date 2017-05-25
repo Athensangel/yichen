@@ -1,7 +1,11 @@
 package com.yichen.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +21,10 @@ import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 import com.yichen.service.DictService;
 import com.yichen.service.UserServcie;
+import com.yichen.utils.SendMailUtil;
+import com.yichen.utils.StringRandomUtils;
 import com.yichen.utils.UUIDUtil;
+import com.yichen.utils.VerifyCodeUtils;
 
 /**
  *用户Controller
@@ -242,4 +249,91 @@ public class UserController {
 		return "redirect:login";
 	}
 	
+	/**
+	 * 忘记密码
+	 * @return
+	 */
+	@RequestMapping("/forgetPassword")
+	public String forgetPassword(){
+		return "WEB-INF/front/login/forget";
+	}
+	
+	@RequestMapping("/createVerifyCode")
+	 public void createVerifyCode(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+	        response.setHeader("Pragma", "No-cache");  
+	        response.setHeader("Cache-Control", "no-cache");  
+	        response.setDateHeader("Expires", 0);  
+	        response.setContentType("image/jpeg");  
+	          
+	        //生成随机字串  
+	        String verifyCode = VerifyCodeUtils.generateVerifyCode(4);  
+	        //存入会话session  
+	        HttpSession session = request.getSession(true);  
+	        session.setAttribute("verifyCode", verifyCode.toLowerCase());  
+	        //生成图片  
+	        int w = 100, h = 30;  
+	        VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);  
+	  
+	    }  
+	
+	/**
+	 * 忘记密码验证登录名
+	 * @return
+	 */
+	@RequestMapping("/fpVerify")
+	public String fpVerify(String loginName,String verifyCode,RedirectAttributes attr,HttpSession session){
+		if(verifyCode.equals(session.getAttribute("verifyCode"))){
+			int result = userService.checkLoginName(loginName);
+			if(result >0){
+				session.setAttribute("forgetLoginName", loginName);
+				return "WEB-INF/front/login/forget2";
+			}else{
+				 message="用户名不存在";
+				 attr.addFlashAttribute("message1", message);
+				 return "redirect:/forgetPassword";//用户名不存在
+			}
+		}else{
+			message="验证码错误";
+			 attr.addFlashAttribute("message2", message);
+			 return "redirect:/forgetPassword";//验证码错误
+		}
+		
+	}
+	
+	/**
+	 * 邮箱验证
+	 * @return
+	 */
+	@RequestMapping("/emailVerify")
+	public String emailVerify(String email,String emailCode,HttpSession session,RedirectAttributes attr){
+		int result = userService.checkEmail("184227881@qq.com",/*(String)session.getAttribute("forgetLoginName")*/"admin");
+		if(result > 0){
+			if(emailCode .equals((String)session.getAttribute("forgetEmailCode"))){}
+			return "WEB-INF/front/login/forget3";
+		}else{
+			 message="邮箱不存在";
+			 attr.addFlashAttribute("message3", message);
+			 return "WEB-INF/front/login/forget2";
+		}
+	}
+	
+	/**
+	 * 获取邮箱验证码
+	 * @return
+	 */
+	@RequestMapping("/getEmailCode")
+	public void getEmailCode(String email,HttpSession session){
+		String emailCode =StringRandomUtils.getStringRandom(6);
+		session.setAttribute("forgetEmailCode", emailCode);
+		SendMailUtil.sendCommonMail("184227881@qq.com", "弈辰棋社密码找回邮件，您找回密码的验证码为", emailCode);
+	}
+	
+	/**
+	 *  更新密码
+	 */
+	@RequestMapping("/updatePassword")
+	public String updatePassword(String password,HttpSession session){
+		userService.updatePassword(password,(String)session.getAttribute("forgetLoginName"));
+		return "WEB-INF/front/login/forget4";
+	}
 }

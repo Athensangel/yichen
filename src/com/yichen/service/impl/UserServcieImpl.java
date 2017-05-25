@@ -67,4 +67,14 @@ public class UserServcieImpl implements UserServcie{
 		return userMapper.checkLoginName(loginName);
 	}
 
+	@Override
+	public int checkEmail(String email, String  loginName) {
+		return userMapper.checkEmail(email,loginName);
+	}
+
+	@Override
+	public int updatePassword(String password, String loginName) {
+		return userMapper.updatePassword(password,loginName);
+	}
+
 }
