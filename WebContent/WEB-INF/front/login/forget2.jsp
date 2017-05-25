@@ -8,6 +8,8 @@
 <title>弈辰棋社找回密码</title>
 <link type="text/css" href="${ctx }/css/forget.css" rel="stylesheet" />
 <script src="${ctx }/js/jquery.js" type="text/javascript"></script>
+<script src="${ctx }/js/jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript" src="${ctx }/front/login/js/forget2.js"></script>
 <script type="text/javascript">
    var ctx = "${pageContext.request.contextPath}";
 </script>
@@ -27,15 +29,15 @@
        <div class="liutext"><em>4</em><br /><strong>完成</strong></div>
       </div>
      </div>
-     <form action="${ctx }/emailVerify" method="post" class="forget-pwd">
+     <form action="${ctx }/emailVerify" method="post" class="forget-pwd" id="forgetForm2">
        <dl class="sel-yzyx">
         <dt>邮箱：</dt>
-        <dd><input type="text" name="email" id="email" value="${email }"/><span>${message3 }</span></dd>
+        <dd><input type="text" name="email" id="email" value="${email }"/><span class="errorTip"></span><span>${message3 }</span></dd>
         <div class="clears"></div>
        </dl>
        <dl>
         <dt>验证码：</dt>
-        <dd><input type="text" name="emailCode" />&nbsp;&nbsp;&nbsp;<a onclick="sendCode()">获取验证码</a></dd>
+        <dd><input type="text" name="emailCode" />&nbsp;&nbsp;&nbsp;<a onclick="sendCode()">获取验证码</a><span class="errorTip"></span></dd>
         <div class="clears"></div>
        </dl>
        <div class="subtijiao"><input type="submit" value="提交" /></div> 
@@ -43,12 +45,6 @@
    </div>
   </div>
   <script type="text/javascript">
-function sendCode(){
-	  var ipt = document.getElementById('email');
-	   var v = ipt.value;
-	   window.location.href = ctx + "/getEmailCode?email="+v;
-	   return false;
-}
 </script>
 </body>
 </html>

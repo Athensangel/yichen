@@ -8,6 +8,8 @@
 <title>弈辰棋社找回密码</title>
 <link type="text/css" href="${ctx }/css/forget.css" rel="stylesheet" />
 <script src="${ctx }/js/jquery.js" type="text/javascript"></script>
+<script src="${ctx }/js/jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript" src="${ctx }/front/login/js/forget3.js"></script>
 </head>
 <body>
   <div class="content">
@@ -24,15 +26,15 @@
        <div class="liutext"><em>4</em><br /><strong>完成</strong></div>
       </div>
      </div>
-     <form action="${ctx }/updatePassword" method="get" class="forget-pwd">
+     <form action="${ctx }/updatePassword" method="get" class="forget-pwd" id="forgetForm3">
        <dl>
         <dt>新密码：</dt>
-        <dd><input type="password" name="password"/></dd>
+        <dd><input type="password" name="password" id="password"/><span class="errorTip"></span></dd>
         <div class="clears"></div>
        </dl> 
        <dl>
         <dt>确认密码：</dt>
-        <dd><input type="password" name="repassword"/></dd>
+        <dd><input type="password" name="repassword"/><span class="errorTip"></span></dd>
         <div class="clears"></div>
        </dl> 
        <div class="subtijiao"><input type="submit" value="提交" /></div> 
