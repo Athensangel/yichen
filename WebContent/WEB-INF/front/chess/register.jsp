@@ -5,9 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>弈辰棋社棋手注册</title>
-<link rel="stylesheet" media="screen" href="${ctx }/front/chess/css/css.css" />
+<link rel="stylesheet" media="screen" href="${ctx }/front/chess/css/register.css" />
+<script src="${ctx }/js/jquery.js" type="text/javascript"></script>
+<script src="${ctx }/js/jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript" src="${ctx }/front/chess/js/register.js"></script>
 </head>
 <form id="msform" action="${ctx }/loginPlayer" method="post">
+   <input type="hidden" name="isChess" value="1">
+   <input type="hidden" name="chessType">
 	<ul id="progressbar">
 		<li class="active">第一步</li>
 		<li>第二步</li>
@@ -16,7 +21,7 @@
 	<fieldset>
 		<h2 class="fs-title">棋手注册流程</h2>
 		<h3 class="fs-subtitle">选择注册棋类</h3>
-		<select>
+		<select id="chessSelect">
 		<c:forEach items="${dvList }" var="dv">
 		  <option value ="${dv.value }">${dv.label }</option>
 		  </c:forEach>
@@ -33,7 +38,7 @@
 		  <option value ="1">男</option>
 		  <option value ="0">女</option>
 		</select>
-		<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:true,maxDate:'%y-%M-%d'});" name="" placeholder="出生日期" >
+		<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:true,maxDate:'%y-%M-%d'});" name="birthday" placeholder="出生日期" >
 		<input type="text" name="tel" placeholder="联系电话" />
 		<input type="text" name="email" placeholder="QQ邮箱" />
 		<input type="button" name="previous" class="previous action-button" value="上一步" />

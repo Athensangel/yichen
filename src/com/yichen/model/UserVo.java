@@ -23,6 +23,8 @@ public class UserVo extends DbBaseVo<UserVo>{
 	private String identity;// 身份证
 	private String grade;// 等级
 	private Integer gradeScore;//等级分数
+	private String isChess;//是否棋手（0，否，1，是）
+	private String chessType;//1围棋,2国际象棋,3象棋,4五子棋,5跳棋
 	public String getBirthday() {
 		return birthday;
 	}
@@ -119,12 +121,16 @@ public class UserVo extends DbBaseVo<UserVo>{
 	public void setState(String state) {
 		this.state = state;
 	}
-	@Override
-	public String toString() {
-		return "UserVo [loginName=" + loginName + ", password=" + password + ", name=" + name + ", email=" + email
-				+ ", tel=" + tel + ", sex=" + sex + ", headphoto=" + headphoto + ", remark=" + remark + ", state="
-				+ state + ", birthday=" + birthday + ", chessTitle=" + chessTitle + ", company=" + company
-				+ ", registeredIdentity=" + registeredIdentity + ", identity=" + identity + ", grade=" + grade
-				+ ", gradeScore=" + gradeScore + "]";
+	public String getIsChess() {
+		return isChess;
+	}
+	public void setIsChess(String isChess) {
+		this.isChess = isChess;
+	}
+	public String getChessType() {
+		return chessType;
+	}
+	public void setChessType(String chessType) {
+		this.chessType = chessType;
 	}
 }
