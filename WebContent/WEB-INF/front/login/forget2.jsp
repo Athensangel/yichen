@@ -8,6 +8,9 @@
 <title>弈辰棋社找回密码</title>
 <link type="text/css" href="${ctx }/css/forget.css" rel="stylesheet" />
 <script src="${ctx }/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+   var ctx = "${pageContext.request.contextPath}";
+</script>
 </head>
 <body>
   <div class="content">
@@ -27,12 +30,12 @@
      <form action="${ctx }/emailVerify" method="post" class="forget-pwd">
        <dl class="sel-yzyx">
         <dt>邮箱：</dt>
-        <dd><input type="text" name="email" id="email"/><span>${message3 }</span></dd>
+        <dd><input type="text" name="email" id="email" value="${email }"/><span>${message3 }</span></dd>
         <div class="clears"></div>
        </dl>
        <dl>
         <dt>验证码：</dt>
-        <dd><input type="text" name="emailCode" /> <button onclick="sendCode()">获取验证码</button><%-- <a href="">获取短信验证码</a> --%></dd>
+        <dd><input type="text" name="emailCode" />&nbsp;&nbsp;&nbsp;<a onclick="sendCode()">获取验证码</a></dd>
         <div class="clears"></div>
        </dl>
        <div class="subtijiao"><input type="submit" value="提交" /></div> 
@@ -41,10 +44,9 @@
   </div>
   <script type="text/javascript">
 function sendCode(){
-	debugger;
 	  var ipt = document.getElementById('email');
 	   var v = ipt.value;
-	   alert(v);
+	   window.location.href = ctx + "/getEmailCode?email="+v;
 	   return false;
 }
 </script>

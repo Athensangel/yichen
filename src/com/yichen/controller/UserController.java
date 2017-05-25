@@ -305,14 +305,14 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/emailVerify")
-	public String emailVerify(String email,String emailCode,HttpSession session,RedirectAttributes attr){
-		int result = userService.checkEmail("184227881@qq.com",/*(String)session.getAttribute("forgetLoginName")*/"admin");
+	public String emailVerify(String email,String emailCode,HttpSession session,ModelMap map){
+		int result = userService.checkEmail(email,(String)session.getAttribute("forgetLoginName"));
 		if(result > 0){
 			if(emailCode .equals((String)session.getAttribute("forgetEmailCode"))){}
 			return "WEB-INF/front/login/forget3";
 		}else{
 			 message="邮箱不存在";
-			 attr.addFlashAttribute("message3", message);
+			 map.put("message3", message);
 			 return "WEB-INF/front/login/forget2";
 		}
 	}
@@ -322,10 +322,12 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/getEmailCode")
-	public void getEmailCode(String email,HttpSession session){
+	public String getEmailCode(String email,HttpSession session,ModelMap map){
 		String emailCode =StringRandomUtils.getStringRandom(6);
 		session.setAttribute("forgetEmailCode", emailCode);
-		SendMailUtil.sendCommonMail("184227881@qq.com", "弈辰棋社密码找回邮件，您找回密码的验证码为", emailCode);
+		SendMailUtil.sendCommonMail(email, "弈辰棋社密码找回邮件，您找回密码的验证码为", emailCode);
+		map.put("email", email);
+	  return "WEB-INF/front/login/forget2";
 	}
 	
 	/**
