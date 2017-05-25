@@ -32,12 +32,12 @@
      <form action="${ctx }/emailVerify" method="post" class="forget-pwd" id="forgetForm2">
        <dl class="sel-yzyx">
         <dt>邮箱：</dt>
-        <dd><input type="text" name="email" id="email" value="${email }"/><span class="errorTip"></span><span>${message3 }</span></dd>
+        <dd><input type="text" name="email" id="email" value="${email }"/><span class="errorTip"></span><span id="emailError">${message3 }</span></dd>
         <div class="clears"></div>
        </dl>
        <dl>
         <dt>验证码：</dt>
-        <dd><input type="text" name="emailCode" />&nbsp;&nbsp;&nbsp;<a onclick="sendCode()">获取验证码</a><span class="errorTip"></span></dd>
+        <dd><input type="text" name="emailCode" />&nbsp;&nbsp;&nbsp; <button type="button" id="sendCode">获取验证码</button><span class="errorTip"></span></dd>
         <div class="clears"></div>
        </dl>
        <div class="subtijiao"><input type="submit" value="提交" /></div> 
