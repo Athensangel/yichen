@@ -13,7 +13,7 @@
 </head>
 <form id="msform" action="${ctx }/loginPlayer" method="post">
    <input type="hidden" name="isChess" value="1">
-   <input type="hidden" name="chessType">
+   <input type="hidden" name="chessType" id="chessType">
 	<ul id="progressbar">
 		<li class="active">第一步</li>
 		<li>第二步</li>
