@@ -151,6 +151,7 @@ public class UserController {
 		if(currentUserVo != null){
 			session.setAttribute("currentUserVo", currentUserVo);
 			session.setAttribute("loginName", currentUserVo.getLoginName());
+			session.setAttribute("id", currentUserVo.getId());
 			return "redirect:/backIndex"; //用户名密码正确
 		}else{
 			 message="登录失败:用户名?密码错误?用户未激活?";

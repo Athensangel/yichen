@@ -13,7 +13,6 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
-
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 	</head>
@@ -105,14 +104,6 @@
 						layedit.sync(editIndex);
 					}
 				});
-
-				//监听提交
-				/* form.on('submit(demo1)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					})
-					return false;
-				}); */
 			});
 		</script>
 	</body>

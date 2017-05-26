@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Table</title>
-		  <title>消息管理</title>
+		  <title>字典管理</title>
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
 		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
@@ -16,9 +16,8 @@
 
 	<body>
 		<div class="admin-main">
-		<input type="hidden" id="pageCount" value="${pageCount}"/>
 			<blockquote class="layui-elem-quote">
-				<a href="${ctx}/back/message/add" class="layui-btn layui-btn-small" id="add">
+				<a href="${ctx}/back/person/add" class="layui-btn layui-btn-small" id="add">
 					<i class="layui-icon">&#xe608;</i> 添加信息
 				</a>
 				<a href="#" class="layui-btn layui-btn-small" id="import">
@@ -38,21 +37,27 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selected-all"></th>
+								<th>序号</th>
 								<th>标题</th>
 								<th>内容</th>
+								<th>图片</th>
+								<th>时间</th>
 								<th>操作</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${messageVoList}" var="message">
+						<c:forEach items="${personVoList}" var="person" varStatus="status">
 							<tr>
 								<td><input type="checkbox"></td>
-								<td>${message.title}</td>
-								<td>${message.content}</td>
+								<td>${status.index+1}</td>
+								<td>${person.title}</td>
+								<td>${fn:substring(person.content, 0, 20)}...</td>
+								<td><img src="${ctx }${person.imagePath}"style="width: 130px;height:140px;"/></td>
+								<td><fmt:formatDate type="time" value="${person.addTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 								<td>
 									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
-									<a href="${ctx}/back/message/up?id=${message.id}" class="layui-btn layui-btn-mini">编辑</a>
-									<a href="${ctx}/back/message/del?id=${message.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+									<a href="${ctx}/back/person/up?id=${person.id}" class="layui-btn layui-btn-mini">编辑</a>
+									<a href="${ctx}/back/person/del?id=${person.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
 							</tr>
 							</c:forEach>
@@ -60,25 +65,25 @@
 					</table>
 				</div>
 			</fieldset>
-			<div class="admin-table-page">
+					<div class="admin-table-page">
 				<div id="page" class="page">
-			   <a   href="${ctx}/back/message/list/1" >首页</a>
+			   <a   href="${ctx}/back/person/list/1" >首页</a>
 			    <c:if test="${page.pageNow != 1}">
-			 		<a href="${ctx}/back/message/list/${page.pageNow-1}">上一页</a>
-					<a href="${ctx}/back/message/list/1" >1</a>
+			 		<a href="${ctx}/back/person/list/${page.pageNow-1}">上一页</a>
+					<a href="${ctx}/back/person/list/1" >1</a>
 				  <c:if test="${page.pageNow-1 != 1}">
-					<a href="${ctx}/back/message/list/${page.pageNow-1}">${page.pageNow-1}</a>
+					<a href="${ctx}/back/person/list/${page.pageNow-1}">${page.pageNow-1}</a>
 				  </c:if>
 				</c:if>
 					<a  class="current">${page.pageNow}</a>
 				<c:if test="${page.pageNow != page.totalPageCount}">
 				  <c:if test="${page.pageNow+1 != page.totalPageCount}">
-					<a href="${ctx}/back/message/list/${page.pageNow+1}">${page.pageNow+1}</a>
+					<a href="${ctx}/back/person/list/${page.pageNow+1}">${page.pageNow+1}</a>
 				  </c:if>
-					<a href="${ctx}/back/message/list/${page.totalPageCount}">${page.totalPageCount}</a>
-					<a href="${ctx}/back/message/list/${page.pageNow+1}" >下一页</a>
+					<a href="${ctx}/back/person/list/${page.totalPageCount}">${page.totalPageCount}</a>
+					<a href="${ctx}/back/person/list/${page.pageNow+1}" >下一页</a>
 			    </c:if>
-					<a href="${ctx}/back/message/list/${page.totalPageCount}">末页</a>
+					<a href="${ctx}/back/person/list/${page.totalPageCount}">末页</a>
 				</div>
 			</div>
 		</div>

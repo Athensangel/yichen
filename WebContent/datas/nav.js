@@ -14,7 +14,11 @@ var navs = [{
 		"title": "字典管理",
 		"icon": "&#xe62a;",
 		"href": "back/dict/list"
-	},]
+	},{
+		"title": "人物风采",
+		"icon": "&#xe62a;",
+		"href": "back/person/list/1"
+	}]
 }, {
 	"title": "文化服务管理",
 	"icon": "fa-cogs",

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yichen.mapper.PersonMapper">
+	<resultMap type="PersonVo" id="personResultMap">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="imagePath" column="image_path" />
+		<result property="delFlag" column="del_flag" />
+		<result property="addTime" column="add_time" />
+		<result property="addUserId" column="add_user_id" />
+	</resultMap>
+
+	<!-- 查询数据 -->
+	<select id="querPersons" resultMap="personResultMap">
+		SELECT a.id,a.title,a.content,a.time,a.image_path imagePath,a.add_time addTime FROM t_person a WHERE a.del_flag = '0' ORDER BY a.add_time DESC  limit #{startPos},#{pageSize}
+	</select>
+
+	<!-- 添加数据 -->
+	<insert id="insertPerson">
+		insert into t_person(id,title,content,image_path,del_flag,add_time,add_user_id) 
+		values
+		(#{id},#{title},#{content},#{imagePath},0,now(),#{addUserId})
+	</insert>
+
+	<!-- 删除数据 -->
+	<update id="delPerson">
+		update t_person set
+		del_flag='1',
+		upd_time=now() 
+		where id=#{id}
+	</update>
+
+	<!-- 修改数据 -->
+	<update id="updatePerson">
+		update t_person set 
+		title = #{title},
+		content = #{content},
+		image_path= #{imagePath},
+		upd_time=now() 
+		where id=#{id}
+	</update>
+
+	<!-- 通过id查询 -->
+	<select id="queryPersonById" resultMap="personResultMap">
+		select  a.id,a.title,a.content,a.image_path imagePath from t_person a
+		where a.id = #{id}
+	</select>
+	
+	<!-- 查询条数 -->
+	<select id="queryPersonVoCounts" resultType="java.lang.Integer">
+		SELECT COUNT(a.id) FROM t_person a WHERE a.del_flag = '0'
+	</select>
+
+</mapper>
