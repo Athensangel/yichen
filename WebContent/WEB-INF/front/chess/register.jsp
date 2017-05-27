@@ -25,6 +25,7 @@ var ctx = "${pageContext.request.contextPath}";
 	<fieldset>
 		<h2 class="fs-title">棋手注册流程</h2>
 		<h3 class="fs-subtitle">选择注册棋类</h3>
+		<span>${message }</span>
 		<select id="chessSelect">
 		<c:forEach items="${dvList }" var="dv">
 		  <option value ="${dv.value }">${dv.label }</option>
@@ -59,7 +60,7 @@ var ctx = "${pageContext.request.contextPath}";
 		<input type="text" name="gradeScore" placeholder="等级分" />
 		<textarea name="remark" placeholder="备注"></textarea>
 		<input type="button" name="previous" class="previous action-button" value="上一步" />
-		<input type="button" name="submit" class="submit action-button" value="确认注册" onclick="reg()" />
+		<input type="submit" name="submit" class="submit action-button" value="确认注册" />
 	</fieldset>
 </form>
 <script src="${ctx }/front/chess/js/jquery.easing.min.js" type="text/javascript"></script>

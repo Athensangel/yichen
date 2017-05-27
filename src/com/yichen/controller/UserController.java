@@ -201,10 +201,17 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/loginRegister")
-	public String loginRegister(UserVo userVo){
-		  userVo.setId(UUIDUtil.getUUID());
-		  userService.saveUserVo(userVo) ;
-		return "redirect:login";
+	public String loginRegister(UserVo userVo, RedirectAttributes attr) {
+		int result = checkLoginName(userVo.getLoginName());
+		if (result > 0) {
+			 message = "注册失败:用户名已存在!";
+			 attr.addFlashAttribute("message", message);
+			return "redirect:login";
+		} else {
+			userVo.setId(UUIDUtil.getUUID());
+			userService.saveUserVo(userVo);
+			return "redirect:login";
+		}
 	}
 	
 	/**
@@ -244,9 +251,16 @@ public class UserController {
 	 * 棋手注册
 	 */
 	@RequestMapping("/loginPlayer")
-	public String loginPlayer(UserVo userVo){
-		userVo.setId(UUIDUtil.getUUID());
-		userService.saveUserVo(userVo);
+	public String loginPlayer(UserVo userVo, RedirectAttributes attr){
+		int result = checkLoginName(userVo.getLoginName());
+		if (result > 0) {
+			 message = "注册失败:用户名已存在!";
+			 attr.addFlashAttribute("message", message);
+			 return "redirect:chessReg";
+		}else{
+			userVo.setId(UUIDUtil.getUUID());
+			userService.saveUserVo(userVo);
+		}
 		return "redirect:login";
 	}
 	
