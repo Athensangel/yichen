@@ -10,6 +10,9 @@
 <script src="${ctx }/js/jquery.validate.js" type="text/javascript"></script>
 <script type="text/javascript" src="${ctx }/front/chess/js/register.js"></script>
 <script src="${ctx }/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script type="text/javascript">
+var ctx = "${pageContext.request.contextPath}";
+</script>
 </head>
 <form id="msform" action="${ctx }/loginPlayer" method="post">
    <input type="hidden" name="isChess" value="1">
@@ -31,9 +34,9 @@
 	</fieldset>
 	<fieldset>
 		<h2 class="fs-title">填写资料</h2>
-		<input type="text" name="loginName" placeholder="帐号" /><span class="errorTip"></span>
-		<input type="text" name="password" placeholder="密码" />
-		<input type="text" name="repassword" placeholder="确认密码" />
+		<input type="text" name="loginName" placeholder="帐号" />
+		<input type="password" name="password" placeholder="密码" id="password" />
+		<input type="password" name="repassword" placeholder="确认密码" />
 		<input type="text" name="name" placeholder="姓名" />
 		<select name="sex">
 		  <option value ="1">男</option>
@@ -56,7 +59,7 @@
 		<input type="text" name="gradeScore" placeholder="等级分" />
 		<textarea name="remark" placeholder="备注"></textarea>
 		<input type="button" name="previous" class="previous action-button" value="上一步" />
-		<input type="submit" name="submit" class="submit action-button" value="确认注册" />
+		<input type="button" name="submit" class="submit action-button" value="确认注册" onclick="reg()" />
 	</fieldset>
 </form>
 <script src="${ctx }/front/chess/js/jquery.easing.min.js" type="text/javascript"></script>
