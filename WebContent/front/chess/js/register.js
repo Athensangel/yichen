@@ -1,5 +1,11 @@
 $(function() {
 	$("#chessType").attr("value", $('#chessSelect option:selected').val());
+	// 手机号码验证  
+	jQuery.validator.addMethod("isMobile", function(value, element) {  
+	    var length = value.length;  
+	    var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;  
+	    return this.optional(element) || (length == 11 && mobile.test(value));  
+	}, "请正确填写您的手机号码");
 	$("#msform").validate({
 		rules : {
 			loginName : {
@@ -22,11 +28,13 @@ $(function() {
 			},
 			tel : {
 				required : true,
+				isMobile:true,
 				minlength : 11,
 				maxlength : 20
 			},
 			email : {
 				required : true,
+				email:true,
 				minlength : 5,
 				maxlength : 20
 			},
@@ -62,16 +70,17 @@ $(function() {
 			},
 			name : {
 				required : "必填信息",
-				minlength : "用户名长度不能小于5位",
-				maxlength : "用户名长度不能超过20"
+				minlength : "姓名长度不能小于5位",
+				maxlength : "姓名长度不能超过20"
 			},
 			tel : {
-				required : "必填电话",
-				minlength : "电话长度小于11位",
-				maxlength : "电话长度不能超过20"
+				  required : "请输入手机号",  
+	              minlength : "确认手机不能小于11个字符",  
+	              isMobile : "请正确填写您的手机号码"  
 			},
 			email : {
 				required : "必填信息",
+				email: "请输入正确格式的电子邮件",
 				minlength : "邮箱长度小于11位",
 				maxlength : "邮箱长度不能超过20"
 			},
