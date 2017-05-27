@@ -41,4 +41,9 @@ public class DictServiceImpl implements DictService {
 		return dictMapper.queryDictById(id);
 	}
 
+	@Override
+	public int batchDel(List<String> list) {
+		return dictMapper.batchDel(list);
+	}
+
 }

@@ -21,4 +21,6 @@ public interface MessageService {
 	int modifyMessage(MessageVo messageVo);// 更新用户
 
 	int deleteMessage(String id);// 删除用户
+	
+	int batchDel(List<String> list);//批量删除
 }

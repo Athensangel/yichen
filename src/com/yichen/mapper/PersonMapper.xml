@@ -51,5 +51,16 @@
 	<select id="queryPersonVoCounts" resultType="java.lang.Integer">
 		SELECT COUNT(a.id) FROM t_person a WHERE a.del_flag = '0'
 	</select>
+	
+	<!-- 物理删除 -->
+	<update id="batchDel">
+		UPDATE t_person SET
+		del_flag = '1',
+		upd_time = now()
+		WHERE id in
+		<foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</update>
 
 </mapper>

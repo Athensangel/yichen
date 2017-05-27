@@ -1,14 +1,18 @@
 package com.yichen.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yichen.model.DepartmentVo;
 import com.yichen.service.DepartmentService;
+import com.yichen.utils.AjaxResponseVo;
+import com.yichen.utils.ResponseCode;
 import com.yichen.utils.UUIDUtil;
 
 @Controller
@@ -91,5 +95,16 @@ public class DepartmentController {
 		DepartmentVo currentDepartmentVo = departmentService.findDepartmentById(departmentVo);
 		map.put("currentDepartmentVo", currentDepartmentVo);
 		return "departmentDetail";
+	}
+	
+	/**
+	 *  批量删除
+	 */
+	@RequestMapping("/back/department/batchDel")
+	@ResponseBody
+	public AjaxResponseVo backBatchDel(String ids){
+		List<String> idsTemp = Arrays.asList(ids.split(","));  
+		int result = departmentService.batchDel(idsTemp);
+		return result > 0 ? AjaxResponseVo.of(ResponseCode.DEL_SUCCESS):AjaxResponseVo.of(ResponseCode.DEL_FAIL);
 	}
 }

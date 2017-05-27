@@ -55,4 +55,15 @@
 	<delete id="delMessage">
 		delete from t_message where id = #{id}
 	</delete>
+	
+    <!-- 物理删除 -->
+	<update id="batchDel">
+		UPDATE t_message SET
+		del_flag = '1',
+		upd_time = now()
+		WHERE id in
+		<foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</update>
 </mapper>

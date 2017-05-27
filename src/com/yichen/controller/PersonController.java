@@ -3,6 +3,7 @@ package com.yichen.controller;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -16,10 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
 import com.yichen.service.PersonService;
+import com.yichen.utils.AjaxResponseVo;
+import com.yichen.utils.ResponseCode;
 import com.yichen.utils.UUIDUtil;
 
 @Controller
@@ -152,4 +156,14 @@ public class PersonController {
 		return "redirect:/back/person/list/1";
 	}
 
+	/**
+	 *  批量删除
+	 */
+	@RequestMapping("/back/person/batchDel")
+	@ResponseBody
+	public AjaxResponseVo backBatchDel(String ids){
+		List<String> idsTemp = Arrays.asList(ids.split(","));  
+		int result = personService.batchDel(idsTemp);
+		return result > 0 ? AjaxResponseVo.of(ResponseCode.DEL_SUCCESS):AjaxResponseVo.of(ResponseCode.DEL_FAIL);
+	}
 }

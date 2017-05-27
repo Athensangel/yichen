@@ -41,4 +41,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return departmentMapper.queryDepartmentById(departmentVo);
 	}
 
+	@Override
+	public int batchDel(List<String> list) {
+		return departmentMapper.batchDel(list);
+	}
+
 }

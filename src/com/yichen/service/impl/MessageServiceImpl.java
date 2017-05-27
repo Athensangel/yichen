@@ -52,4 +52,9 @@ public class MessageServiceImpl implements MessageService {
 		return messageMapper.delMessage(id);
 	}
 
+	@Override
+	public int batchDel(List<String> list) {
+		return messageMapper.batchDel(list);
+	}
+
 }

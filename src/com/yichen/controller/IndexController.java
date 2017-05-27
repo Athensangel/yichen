@@ -1,5 +1,6 @@
 package com.yichen.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,4 +71,5 @@ public class IndexController {
 		map.put("page", page);
 		return "person";
 	}
+	
 }

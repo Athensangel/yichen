@@ -27,8 +27,8 @@
 				<a href="#" class="layui-btn layui-btn-small">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
 				</a>
-				<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
-					<i class="layui-icon">&#xe615;</i> 搜索
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="delete" onclick="batchDel()">
+				    <i class="layui-icon">&#xe640;</i> 批量删除
 				</a>
 			</blockquote>
 			<fieldset class="layui-elem-field">
@@ -47,7 +47,7 @@
 						<tbody>
 						<c:forEach items="${messageVoList}" var="message" varStatus="status">
 							<tr>
-								<td><input type="checkbox"></td>
+								<td><input type="checkbox" name="checkbox"><input type="hidden" value="${message.id}"/></td>
 								<td>${status.index+1}</td>
 								<td>${message.title}</td>
 								<td>${message.content}</td>
@@ -84,7 +84,13 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			var ctx = "${pageContext.request.contextPath}";
+		</script>
+		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="${ctx}/backstage/js/message/message.js"></script>
 	</body>
 
 </html>

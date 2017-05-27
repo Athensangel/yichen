@@ -43,4 +43,9 @@ public class PersonServiceImpl implements PersonService {
 		return personMapper.queryPersonVoCounts();
 	}
 
+	@Override
+	public int batchDel(List<String> list) {
+		return personMapper.batchDel(list);
+	}
+
 }

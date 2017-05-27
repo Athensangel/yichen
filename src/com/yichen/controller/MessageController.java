@@ -1,15 +1,19 @@
 package com.yichen.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yichen.model.MessageVo;
 import com.yichen.model.Page;
 import com.yichen.service.MessageService;
+import com.yichen.utils.AjaxResponseVo;
+import com.yichen.utils.ResponseCode;
 import com.yichen.utils.UUIDUtil;
 
 /**
@@ -120,4 +124,15 @@ public class MessageController {
 		return "redirect:list/1";
 	}
 
+
+	/**
+	 *  批量删除
+	 */
+	@RequestMapping("/back/message/batchDel")
+	@ResponseBody
+	public AjaxResponseVo backBatchDel(String ids){
+		List<String> idsTemp = Arrays.asList(ids.split(","));  
+		int result = messageService.batchDel(idsTemp);
+		return result > 0 ? AjaxResponseVo.of(ResponseCode.DEL_SUCCESS):AjaxResponseVo.of(ResponseCode.DEL_FAIL);
+	}
 }

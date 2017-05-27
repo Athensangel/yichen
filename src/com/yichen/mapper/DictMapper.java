@@ -16,4 +16,6 @@ public interface DictMapper {
 	int delDict(String id);// 删除棋队
 
 	DictVo queryDictById(String id);// 通过id查询棋队
+	
+	int batchDel(List<String> list);//批量删除
 }

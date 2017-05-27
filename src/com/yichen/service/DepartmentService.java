@@ -21,4 +21,5 @@ public interface DepartmentService {
 
 	DepartmentVo findDepartmentById(DepartmentVo departmentVo);// 通过id查询部门
 
+	int batchDel(List<String> list);//批量删除
 }
