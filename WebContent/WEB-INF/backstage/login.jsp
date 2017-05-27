@@ -31,6 +31,7 @@
                     </label>
 						<input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="这里输入密码" class="layui-input">
 					</div>
+					<span>${message }</span>
 					<div class="layui-form-item">
 						<div class="beg-pull-left beg-login-remember">
 							<label>记住帐号？</label>
@@ -71,11 +72,6 @@
 					layedit.sync(editIndex);
 				}
 			});
-					
-			/* 	form.on('submit(login)',function(data){
-					location.href='index.html';
-					return false;
-				}); */
 			});
 		</script>
 	</body>

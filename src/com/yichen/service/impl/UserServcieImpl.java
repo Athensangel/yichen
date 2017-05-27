@@ -77,4 +77,9 @@ public class UserServcieImpl implements UserServcie{
 		return userMapper.updatePassword(password,loginName);
 	}
 
+	@Override
+	public int batchDel(List<String> list) {
+		return userMapper.batchDel(list);
+	}
+
 }

@@ -3,7 +3,6 @@
 <%@ include file="/common/path.jsp"%>
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title>表单</title>
@@ -14,31 +13,29 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 	</head>
-
 	<body>
 		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
 				<legend>添加成员信息</legend>
 			</fieldset>
-			<form class="layui-form" action="${ctx}/back/user/save" method="post">
+			<form class="layui-form" id="userAdd">
 				<div class="layui-form-item">
 					<label class="layui-form-label">登录名</label>
 					<div class="layui-input-block">
-						<input name="loginName" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+						<input name="loginName" lay-verify="loginName" autocomplete="off" placeholder="请输入标题" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">密码</label>
 					<div class="layui-input-block">
-						<input  name="password"  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+						<input  name="password"  lay-verify="pass" placeholder="请输入" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">姓名</label>
 					<div class="layui-input-block">
-						<input  name="name"  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+						<input  name="name"  lay-verify="name" placeholder="请输入" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -76,13 +73,19 @@
 				</div>
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+						<button class="layui-btn" lay-submit="" lay-filter="demo1" onclick="save()">立即提交</button>
 						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					</div>
 				</div>
 			</form>
 		</div>
+		<script type="text/javascript">
+			var ctx = "${pageContext.request.contextPath}";
+		</script>
+		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
+		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
+		<script type="text/javascript" src="${ctx}/backstage/js/user/userAdd.js"></script>
 		<script>
 			layui.use(['form', 'layedit', 'laydate'], function() {
 				var form = layui.form(),
@@ -94,12 +97,17 @@
 				var editIndex = layedit.build('LAY_demo_editor');
 				//自定义验证规则
 				form.verify({
-					title: function(value) {
+					loginName: function(value) {
 						if(value.length < 5) {
-							return '标题至少得5个字符';
+							return '登录名至少得5个字符';
 						}
 					},
 					pass: [/(.+){6,12}$/, '密码必须6到12位'],
+					name: function(value) {
+						if(value.length < 5) {
+							return '姓名至少得5个字符';
+						}
+					},
 					content: function(value) {
 						layedit.sync(editIndex);
 					}

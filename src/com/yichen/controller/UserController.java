@@ -1,6 +1,7 @@
 package com.yichen.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,8 @@ import com.yichen.model.Page;
 import com.yichen.model.UserVo;
 import com.yichen.service.DictService;
 import com.yichen.service.UserServcie;
+import com.yichen.utils.AjaxResponseVo;
+import com.yichen.utils.ResponseCode;
 import com.yichen.utils.SendMailUtil;
 import com.yichen.utils.StringRandomUtils;
 import com.yichen.utils.UUIDUtil;
@@ -99,12 +102,18 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("back/user/save")
-	public String backUserSave(UserVo userVo){
-		userVo.setId(UUIDUtil.getUUID());
-		userService.saveUserVo(userVo);
-		return "redirect:list/1";
+	@ResponseBody
+	public AjaxResponseVo backUserSave(UserVo userVo) {
+		int flag = checkLoginName(userVo.getLoginName());
+		if (flag > 0) {
+			return flag > 0 ? AjaxResponseVo.of(ResponseCode.SAVE_FAIL) : AjaxResponseVo.of(ResponseCode.SAVE_SUCCESS);
+		} else {
+			userVo.setId(UUIDUtil.getUUID());
+			int result = userService.saveUserVo(userVo);
+			return result > 0 ? AjaxResponseVo.of(ResponseCode.SAVE_SUCCESS) : AjaxResponseVo.of(ResponseCode.SAVE_FAIL);
+		}
 	}
-	
+
 	/**
 	 * 跳转到 修改
 	 * @param id
@@ -352,5 +361,16 @@ public class UserController {
 	public String updatePassword(String password,HttpSession session){
 		userService.updatePassword(password,(String)session.getAttribute("forgetLoginName"));
 		return "WEB-INF/front/login/forget4";
+	}
+	
+	/**
+	 *  批量删除
+	 */
+	@RequestMapping("/back/user/batchDel")
+	@ResponseBody
+	public AjaxResponseVo backBatchDel(String ids){
+		List<String> idsTemp = Arrays.asList(ids.split(","));  
+		int result = userService.batchDel(idsTemp);
+		return result > 0 ? AjaxResponseVo.of(ResponseCode.DEL_SUCCESS):AjaxResponseVo.of(ResponseCode.DEL_FAIL);
 	}
 }

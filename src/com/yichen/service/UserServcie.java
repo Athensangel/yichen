@@ -33,6 +33,8 @@ public interface UserServcie {
 	int checkEmail(String email, String  loginName);//邮箱校验
 
 	int updatePassword(String password, String loginName);//更新密码
+
+	int batchDel(List<String> list); //批量删除
 	
 
 }
