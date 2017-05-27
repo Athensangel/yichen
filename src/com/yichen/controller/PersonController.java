@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
 import com.yichen.service.PersonService;
@@ -29,16 +27,6 @@ public class PersonController {
 	
 	@Autowired
 	private PersonService personService;
-	
-	private String message;
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 	
 	/**
 	 * 查询
@@ -65,7 +53,7 @@ public class PersonController {
 	 * 保存
 	 */
 	@RequestMapping(value="/back/person/save" ,method=RequestMethod.POST)
-	public String  backPersonSave(@RequestParam(value = "myfile", required = false) MultipartFile file,PersonVo personVo,HttpServletRequest request,RedirectAttributes attr) {
+	public String  backPersonSave(@RequestParam(value = "myfile", required = false) MultipartFile file,PersonVo personVo,HttpServletRequest request) {
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");     
 	        /**构建图片保存的目录**/    
 	        String logoPathDir = "/uploads/"+ dateformat.format(new Date());     
@@ -76,11 +64,7 @@ public class PersonController {
 	        if(!logoSaveFile.exists())     
 	            logoSaveFile.mkdirs();           
 	        /**页面控件的文件流**/    
-	        if (file.getSize()==0) {   
-           message="上传失败：文件为空";
-				 attr.addFlashAttribute("message", message);
-	            return "redirect:/back/person/add";
-	        }   
+	        if (file.getSize()!=0) {   
 	        /**获取文件的后缀**/    
 	        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));     
 	        /**使用UUID生成文件名称**/    
@@ -95,14 +79,17 @@ public class PersonController {
 	            personVo.setId(UUIDUtil.getUUID());
 	            personVo.setAddUserId((String)request.getSession().getAttribute("id"));
 	            personService.savePerson(personVo);
-	            message="添加成功";
-	    		attr.addFlashAttribute("message", message);
 	        } catch (IllegalStateException e) {     
 	            e.printStackTrace();     
 	        } catch (IOException e) {            
 	            e.printStackTrace();     
-	        }     
-		return "redirect:/back/person/list";
+	        }    
+	        }else{
+	        	personVo.setId(UUIDUtil.getUUID());
+	            personVo.setAddUserId((String)request.getSession().getAttribute("id"));
+	            personService.savePerson(personVo);
+	        }
+		return "redirect:/back/person/list/1";
 	}
 	
 	/**
@@ -119,7 +106,7 @@ public class PersonController {
 	 * 修改
 	 */
 	@RequestMapping(value="/back/person/modify" ,method=RequestMethod.POST)
-	public String  backPersonModify(@RequestParam(value = "myfile", required = false) MultipartFile file,PersonVo personVo,HttpServletRequest request,RedirectAttributes attr) {
+	public String  backPersonModify(@RequestParam(value = "myfile", required = false) MultipartFile file,PersonVo personVo,HttpServletRequest request) {
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");     
 	        /**构建图片保存的目录**/    
 	        String logoPathDir = "/uploads/"+ dateformat.format(new Date());     
@@ -130,11 +117,7 @@ public class PersonController {
 	        if(!logoSaveFile.exists())     
 	            logoSaveFile.mkdirs();           
 	        /**页面控件的文件流**/    
-	        if (file.getSize()==0) {   
-           message="上传失败：文件为空";
-				 attr.addFlashAttribute("message", message);
-	            return "redirect:/back/person/up";
-	        }   
+	        if (file.getSize()!=0) {   
 	        /**获取文件的后缀**/    
 	        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));     
 	        /**使用UUID生成文件名称**/    
@@ -148,14 +131,16 @@ public class PersonController {
 	            personVo.setImagePath(fileTemp);
 	            personVo.setAddUserId((String)request.getSession().getAttribute("id"));
 	            personService.modifyPerson(personVo);
-	            message="修改成功";
-	    		attr.addFlashAttribute("message", message);
 	        } catch (IllegalStateException e) {     
 	            e.printStackTrace();     
 	        } catch (IOException e) {            
 	            e.printStackTrace();     
-	        }     
-		return "redirect:/back/person/list";
+	        }    
+	        }else{
+	        	 personVo.setAddUserId((String)request.getSession().getAttribute("id"));
+		         personService.modifyPerson(personVo);
+	        }   
+		return "redirect:/back/person/list/1";
 	}
 	
 	/**
@@ -164,7 +149,7 @@ public class PersonController {
 	@RequestMapping("back/person/del")
 	public String backPersonDel(String id){
 		personService.deletePerson(id);
-		return "redirect:/back/person/list";
+		return "redirect:/back/person/list/1";
 	}
 
 }

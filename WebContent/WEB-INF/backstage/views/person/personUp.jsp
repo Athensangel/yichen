@@ -23,6 +23,7 @@
 			</fieldset>
 			<form class="layui-form" action="${ctx}/back/person/modify" method="post"  enctype="multipart/form-data">
 			<input type="hidden" name="id" value="${personVo.id }"/>
+			<input type="hidden" name="imagePath" value="${personVo. imagePath}"/>
 				<div class="layui-form-item">
 					<label class="layui-form-label">标题</label>
 					<div class="layui-input-block">
@@ -32,11 +33,11 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">内容</label>
 					<div class="layui-input-block">
-						<input name="content" lay-verify="title" autocomplete="off" value="${personVo. content}"  class="layui-input">
+						<input name="content" lay-verify="content" autocomplete="off" value="${personVo. content}"  class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
-					<label class="layui-form-label">图片</label>
+					<label class="layui-form-label">图片(<1M)</label>
 					<div class="layui-input-block">
 						    <input type="file" id="up" name="myfile" class="input tips" style="width:25%; float:left;"  value=""  data-toggle="hover" data-place="right" data-image="" />
            					<img id="ImgPr" src="${ctx }${personVo. imagePath}">
@@ -71,22 +72,18 @@
 				form.verify({
 					title: function(value) {
 						if(value.length < 3) {
-							return '信息填写至少得3个字符啊';
+							return '信息填写至少得3个字符';
 						}
 					},
-					pass: [/(.+){6,12}$/, '密码必须6到12位'],
+					content: function(value) {
+						if(value.length < 3) {
+							return '信息填写至少得3个字符';
+						}
+					},
 					content: function(value) {
 						layedit.sync(editIndex);
 					}
 				});
-
-				//监听提交
-				/* form.on('submit(demo1)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					})
-					return false;
-				}); */
 			});
 		</script>
 	</body>

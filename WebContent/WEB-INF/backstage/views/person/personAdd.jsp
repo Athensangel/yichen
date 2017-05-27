@@ -24,7 +24,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">标题</label>
 					<div class="layui-input-block">
-						<input name="title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
+						<input name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -58,10 +58,21 @@
 				layer = layui.layer,
 				layedit = layui.layedit,
 				laydate = layui.laydate;
+
 			//创建一个编辑器
 			var editIndex = layedit.build('LAY_demo_editor');
+			//自定义验证规则
+			form.verify({
+				title: function(value) {
+					if(value.length < 5) {
+						return '标题至少得5个字符';
+					}
+				},
+				content: function(value) {
+					layedit.sync(editIndex);
+				}
+			});
 		});
-		
 		$(document).ready(function(e) {
 			//上传图片预览
 			$("#up").uploadPreview({ Img: "ImgPr"});
