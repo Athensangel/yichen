@@ -38,15 +38,17 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selected-all"></th>
+								<th>序号</th>
 								<th>标题</th>
 								<th>内容</th>
 								<th>操作</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${messageVoList}" var="message">
+						<c:forEach items="${messageVoList}" var="message" varStatus="status">
 							<tr>
 								<td><input type="checkbox"></td>
+								<td>${status.index+1}</td>
 								<td>${message.title}</td>
 								<td>${message.content}</td>
 								<td>

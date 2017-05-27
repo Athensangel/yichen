@@ -37,14 +37,16 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selected-all"></th>
+								<th>序号</th>
 								<th>部门名称</th>
 								<th>操作</th>
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${departmentVoList}" var="department">
+						<c:forEach items="${departmentVoList}" var="department" varStatus="status">
 							<tr>
 								<td><input type="checkbox"></td>
+								<td>${status.index+1}</td>
 								<td>${department.name}</td>
 								<td>
 									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>

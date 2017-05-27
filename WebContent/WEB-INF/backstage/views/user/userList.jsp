@@ -38,6 +38,7 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selected-all"></th>
+								<th>序号</th>
 								<th>登录名</th>
 								<th>姓名</th>
 								<th>密码</th>
@@ -50,9 +51,10 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${userVoList}" var="user">
+						<c:forEach items="${userVoList}" var="user" varStatus="status">
 							<tr>
 								<td><input type="checkbox"></td>
+								<td>${status.index+1}</td>
 								<td>${user.loginName}</td>
 								<td>${user.name}</td>
 								<td>${user.password}</td>

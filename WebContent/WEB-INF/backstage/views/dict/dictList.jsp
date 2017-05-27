@@ -37,6 +37,7 @@
 						<thead>
 							<tr>
 								<th><input type="checkbox" id="selected-all"></th>
+								<th>序号</th>
 								<th>类型</th>
 								<th>数据值</th>
 								<th>标签名</th>
@@ -47,9 +48,10 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${dictVoList}" var="dict">
+						<c:forEach items="${dictVoList}" var="dict" varStatus="status">
 							<tr>
 								<td><input type="checkbox"></td>
+								<td>${status.index+1}</td>
 								<td>${dict.type}</td>
 								<td>${dict.value}</td>
 								<td>${dict.label}</td>
