@@ -14,34 +14,38 @@
             <div class="box-nav-right"><strong>首页 > 人物风采</strong></div>
         </div>
         <img src="${ctx}/images/002.png" width="1003"/>
-        <div class="abouttext-img">
-                <div class="picmain_up">
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/ch.png" width="100%"/><p>人物风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/ch.png" width="100%"/><p>人物风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/ch.png" width="100%"/><p>人物风采</p></a></div>         
+				<%-- <c:forEach items="${personVoList }"  var="personVo">
+                <div class="picmain_up" style="">
+                    <div class="picmain_pic"><a href=""><img src="${ctx}/${personVo.imagePath}" width="100%"/><p>${personVo.title}</p></a></div>
                 </div>
-                <div class="picmain_down">
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/ch.png" width="100%"/><p>人物风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/ch.png" width="100%"/><p>人物风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/ch.png" width="100%"/><p>人物风采</p></a></div>          
-                </div>
-            </div>
-        <img src="${ctx}/images/002.png" width="1003"/>
-           <div class="page-normal">
-                    <span class="page-prev">&lt;</span>
-                    <span class="page-current">1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    ...
-                    <a href="#">199</a>
-                    <a href="#">200</a>
-                    <a href="#" class="page-next">&gt;</a>
-                </div>
-    </div>
+          </c:forEach> --%>
+				<ul class="imglist">
+					<c:forEach items="${personVoList }" var="personVo">
+						<li><a href="#" target="_blank"> <img src="${ctx}/${personVo.imagePath}" /> <span>${personVo.title}</span>
+						</a></li>
+					</c:forEach>
+				</ul>
+			<img src="${ctx}/images/002.png" width="1003"/>
+			<div class="page-normal">
+				<a href="${ctx}/person/1">首页</a>
+				<c:if test="${page.pageNow != 1}">
+					<a href="${ctx}/person/${page.pageNow-1}">上一页</a>
+					<a href="${ctx}/person/1">1</a>
+					<c:if test="${page.pageNow-1 != 1}">
+						<a href="${ctx}/person/${page.pageNow-1}">${page.pageNow-1}</a>
+					</c:if>
+				</c:if>
+				<a class="current">${page.pageNow}</a>
+				<c:if test="${page.pageNow != page.totalPageCount}">
+					<c:if test="${page.pageNow+1 != page.totalPageCount}">
+						<a href="${ctx}/person/${page.pageNow+1}">${page.pageNow+1}</a>
+					</c:if>
+					<a href="${ctx}/person/${page.totalPageCount}">${page.totalPageCount}</a>
+					<a href="${ctx}/person/${page.pageNow+1}">下一页</a>
+				</c:if>
+				<a href="${ctx}/person/${page.totalPageCount}">末页</a>
+			</div>
+		</div>
 </div>
 <div style=" clear:both;"></div>
 <jsp:include page="common/footer.jsp" flush="true" /> 

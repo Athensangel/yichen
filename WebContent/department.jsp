@@ -10,11 +10,11 @@
 <jsp:include page="common/menu.jsp" flush="true" /> 
     <div class="index-box-up">
     <div class="pic-left">
-    <p>产品分类</p>
+    <p>部门分类</p>
     	<div class="ycbm">
                 <ul>
                 <c:forEach items="${departmentVoList }" var="department">
-                    <li class="on"><a href='#'>${department.name }</a></li>
+                    <li class="on"><a href='${ctx }/departmentDetail?id=${department.id }&type=${department.type }'>${department.name }</a></li>
                     </c:forEach>
                 </ul>
             <div class="hover"></div>
@@ -25,21 +25,16 @@
             <div class="box-nav-left"><img src="${ctx}/images/16.png" width="149"/></div>
             <div class="box-nav-right"><strong>首页 > 部门风采</strong></div>
         </div>
-        <img src="${ctx}/images/002.png" width="740"/>
-        <p><strong>部门风采系列</strong></p>
-        <div class="picmain">
-                <div class="picmain_up">
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/lj.png" width="100%"/><p>部门风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/lj.png" width="100%"/><p>部门风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/lj.png" width="100%"/><p>部门风采</p></a></div>         
-                </div>
-                <div class="picmain_down">
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/lj.png" width="100%"/><p>部门风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/lj.png" width="100%"/><p>部门风采</p></a></div>
-                    <div class="picmain_pic"><a href="${ctx}/departmentDetail?id=177e6d7cc7ed472eb641adc7654a73e7&type=1"><img src="${ctx}/images/lj.png" width="100%"/><p>部门风采</p></a></div>          
-                </div>
-            </div>
-        <img src="${ctx}/images/002.png" width="740"/>
+        <img src="${ctx}/images/002.png" width="840"/>
+          <div class="abouttext">
+        	<p><strong>部门风采</strong></p>
+            <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
+            <div class="text"><p>部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门
+            风采部门风采部风采部门风采部门风采部门风采部风采部门风采部门风采部门风采部风采部门风采部门风采部门风采部采部门风采部采部门风采部</p>
+    <div class="abouttext-img"><img src="${ctx}/images/pic1.png" width="50%"/></div>
+	</div>
+        </div>
+        <img src="${ctx}/images/002.png" width="840"/>
     </div>
     </div>
 </div>

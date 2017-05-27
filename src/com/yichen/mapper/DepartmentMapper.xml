@@ -5,13 +5,15 @@
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="type" column="type" />
+		<result property="introducte" column="introducte" />
+		<result property="imagePath" column="image_path" />
 		<result property="delFlag" column="del_flag" />
 		<result property="addTime" column="add_time" />
 	</resultMap>
 
 	<!-- 查询数据 -->
 	<select id="queryDepartments" resultMap="departmentResultMap">
-		SELECT a.id,a.name FROM t_department a WHERE a.del_flag = '0'
+		select a.id,a.type, a.name,a.introducte,a.image_path imagePath from t_department a WHERE a.del_flag = '0'
 	</select>
 
 	<!-- 添加数据 -->
@@ -31,7 +33,7 @@
 
 	<!-- 通过id查询 -->
 	<select id="queryDepartmentById" resultMap="departmentResultMap">
-		select a.id, a.name from t_department a
+		select a.id,a.type, a.name,a.introducte,a.image_path imagePath from t_department a
 		where a.del_flag = '0' 
 		<if test="id != null">
 			and a.id = #{id}

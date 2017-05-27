@@ -10,7 +10,7 @@
                 <li><a href="javascript:;">制度建设</a></li>
                 <li><a href="javascript:;">文化服务</a></li>
                 <li><a href="${pageContext.request.contextPath}/department">部门风采</a></li>
-                <li><a href="${pageContext.request.contextPath}/person">人物风采</a></li>
+                <li><a href="${pageContext.request.contextPath}/person/1">人物风采</a></li>
             </ul>
         </div>
 </div>

@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yichen.model.MessageVo;
 import com.yichen.model.Page;
+import com.yichen.model.PersonVo;
 import com.yichen.service.MessageService;
+import com.yichen.service.PersonService;
 
 /**
  * 网站首页
@@ -22,6 +25,9 @@ public class IndexController {
 
 	@Autowired
 	private MessageService messageService;
+	
+	@Autowired
+	private PersonService personService ;
 
 	/**
 	 * 简介
@@ -55,9 +61,13 @@ public class IndexController {
 	 * 人物风采
 	 * @return
 	 */
-	@RequestMapping("person")
-	public String person() {
+	@RequestMapping("person/{pageNow}")
+	public String person(ModelMap map,PersonVo personVo,@PathVariable Integer pageNow) {
+		int totalCount = personService.findPersonVoCounts();//查询条数
+		Page page = new Page(totalCount, pageNow);
+		List<PersonVo> personVoList = personService.findPersons(page);
+		map.put("personVoList", personVoList);
+		map.put("page", page);
 		return "person";
 	}
-
 }
