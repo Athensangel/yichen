@@ -10,6 +10,10 @@ $(function() {
 
 //批量删除
 function batchDel() {
+	if($("input:checkbox[name='checkbox']:checked").length < 1){
+		layer.msg("请选需要删除的记录！", {icon: 5, shade: [0.4], time: 1500});
+		return;
+	}
 	var ids = "";
 	$('input:checkbox[name=checkbox]:checked').each(function(i) {
 		if (0 == i) {
