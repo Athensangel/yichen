@@ -6,7 +6,6 @@
 <jsp:include page="common/header.jsp" flush="true" /> 
 <body>
 <div class="top"></div>
-<jsp:include page="common/menu.jsp" flush="true" /> 
 <div id="wrap"><!--整体-->
 <c:if test="${currentUserVo.loginName eq null }">
 <span style="float: right;"><a href="${ctx }/login">登录</a>&nbsp;&nbsp;&nbsp;<a href="${ctx }/login">注册</a>&nbsp;&nbsp;&nbsp;<a href="${ctx }/chessReg">棋手注册</a></span>
@@ -14,7 +13,7 @@
 <c:if test="${currentUserVo.loginName ne null }">
 <span style="float: right;">欢迎${currentUserVo.loginName }登录&nbsp;&nbsp;&nbsp;<a href="${ctx }/loginExt">退出</a></span>
 </c:if>
-
+<jsp:include page="common/menu.jsp" flush="true" /> 
     <div class="index-box">
     	<div class="index-box-up">
         	<div class="index-box-left">
@@ -88,7 +87,6 @@
         </div>
     </div>
     <div style=" clear:both;"></div>
-    
     <div class="pic">
         <div class="pic-pic">
             <a href="pic.html"><img src="${ctx}/images/pic.png" width="159"/></a>
@@ -97,8 +95,6 @@
             <a href="pic.html"><img src="${ctx}/images/pic.png" width="159"/></a>
         </div>
     </div>
-    
-    
 </div>
 <div style=" clear:both;"></div>
 <jsp:include page="common/footer.jsp" flush="true" /> 
