@@ -62,7 +62,6 @@
 		  </ul>
 	  </div>
 	  </li>
-	  <li><a class="topa" href="javascript:;">联系我们</a></li>
 	</ul>
 </div>
 </div>
