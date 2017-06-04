@@ -5,60 +5,49 @@
     	<div class="logo"><img src="${pageContext.request.contextPath}/images/logo.png" width="200"/></div>
        <div id="headm">
   <ul>
-	<li><a class="topa" href="javascript:;">首页</a></li>
 	<li>
-	  <div class="dh"><a href="javascript:;" class="topa">关于三一</a>
+	<div class="dh"><a href="javascript:;" class="topa">首页</a>
 	  <ul>
-		<li><a href="javascript:;" >集团简介</a></li>
-		<li><a href="javascript:;" >分支机构</a></li>
-		<li><a href="javascript:;" >典型案例</a></li>
-		<li><a href="javascript:;" >京都荣誉</a></li>
-		<li><a href="javascript:;" >社会责任</a></li>
+		<li><a href="javascript:;" >时事资讯</a></li>
+		<li><a href="javascript:;" >活动风采</a></li>
 	  </ul>
 	  </div>
 	</li>
 	<li>
-	  <div class="dh dh2"><a href="javascript:;" class="topa">新闻与媒体</a>
-		  <ul>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
-		  </ul>
+	  <div class="dh"><a href="javascript:;" class="topa">奕辰概括</a>
+	  <ul>
+		<li><a href="javascript:;" >弈辰棋社名称缘由</a></li>
+		<li><a href="javascript:;" >弈辰棋社属性定位</a></li>
+		<li><a href="javascript:;" >弈辰棋社发展历史</a></li>
+		<li><a href="javascript:;" >现任理事会</a></li>
+	  </ul>
 	  </div>
 	</li>
+	<li><a class="topa" href="javascript:;">制度建设</a></li>
 	<li>
-	  <div class="dh"><a href="javascript:;"  class="topa">产品</a>
+	  <div class="dh"><a href="javascript:;"  class="topa">文化建设</a>
 		  <ul>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
+			<li><a href="javascript:;" >文化内涵</a></li>
+			<li><a href="javascript:;" >文化活动</a></li>
 		  </ul>
 	  </div>
 	  </li>
 	  <li>
-	  <div class="dh"><a href="javascript:;"  class="topa">服务与机构</a>
+	  <div class="dh"><a href="javascript:;"  class="topa">部门风采</a>
 		  <ul>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
+			<li><a href="javascript:;" >外联部</a></li>
+			<li><a href="javascript:;" >组织部</a></li>
+			<li><a href="javascript:;" >宣传部</a></li>
+			<li><a href="javascript:;" >传习部</a></li>
+			<li><a href="javascript:;" >竞技部</a></li>
 		  </ul>
 	  </div>
 	  </li>
 	  <li>
-	  <div class="dh"><a href="javascript:;"  class="topa">人才招骋</a>
+	  <div class="dh"><a href="javascript:;"  class="topa">理性之音</a>
 		  <ul>
-			<li><a href="javascript:;" >名誉主任</a></li>
-			<li><a href="javascript:;" >高级顾问</a></li>
-			<li><a href="javascript:;" >合伙人律师</a></li>
+			<li><a href="javascript:;" >言论集</a></li>
+			<li><a href="javascript:;" >棋语集</a></li>
 		  </ul>
 	  </div>
 	  </li>
