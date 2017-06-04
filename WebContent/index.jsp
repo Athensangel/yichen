@@ -7,6 +7,12 @@
 <body>
 <div class="top"></div>
 <div id="wrap"><!--整体-->
+<div id="ycSearch">
+    <div class="input">
+        <input type="text" id="search"/><span class="clear" id="cls">X</span>
+          <button>搜索</button>
+    </div>
+</div>
 <c:if test="${currentUserVo.loginName eq null }">
 <span style="float: right;"><a href="${ctx }/login">登录</a>&nbsp;&nbsp;&nbsp;<a href="${ctx }/login">注册</a>&nbsp;&nbsp;&nbsp;<a href="${ctx }/chessReg">棋手注册</a></span>
 </c:if>

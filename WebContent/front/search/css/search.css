@@ -1,0 +1,7 @@
+*:focus {outline: none; }
+#ycSearch{height: 33px;}
+#ycSearch .input{height: 100%;}
+#ycSearch .input .clear{width: 30px;height: 35px;line-height: 30px;text-align: center;cursor: pointer;padding-right: 10px;visibility: hidden;opacity: 0.8;color: gray;}
+#ycSearch input[type=text]{height:100%;border:0px;width: 250px;}
+#ycSearch div{float: right;}
+#ycSearch div button{width: 100px;height: 35px;background: black;color: #fff;border: none;float: right;}
