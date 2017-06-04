@@ -12,4 +12,4 @@ a:hover{color:#c00; text-decoration:underline;}
 #headm li ul li a{line-height: 26px; border:none; background: none; height:26px; color: #6e6e6e;  float:left;}
 #headm li ul li a:hover {line-height: 26px;text-decoration: underline}
 #headm li.show ul{display: block}
-#headm li.show .topa{display: block; border-bottom:none; text-decoration: none}
+#headm li.show .topa{display: block; border-bottom:none; text-decoration: none;padding-top: -120px;}
