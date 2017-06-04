@@ -29,8 +29,7 @@ public class IndexController {
 	@Autowired
 	private PersonService personService ;
 
-	/**
-	 * 简介
+	/**首页
 	 * 
 	 * @return
 	 */
@@ -69,6 +68,26 @@ public class IndexController {
 		map.put("personVoList", personVoList);
 		map.put("page", page);
 		return "person";
+	}
+	
+	/**
+	 * 文化建设/内涵
+	 * 
+	 * @return
+	 */
+	@RequestMapping("culture/connote")
+	public String culture() {
+		return "connote";
+	}
+	
+	/**
+	 * 文化建设/活动
+	 * 
+	 * @return
+	 */
+	@RequestMapping("culture/activity")
+	public String activity() {
+		return "activity";
 	}
 	
 }

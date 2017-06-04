@@ -27,8 +27,8 @@
 	<li>
 	  <div class="dh"><a href="javascript:;"  class="topa">文化建设</a>
 		  <ul>
-			<li><a href="javascript:;" >文化内涵</a></li>
-			<li><a href="javascript:;" >文化活动</a></li>
+			<li><a href="${pageContext.request.contextPath}/culture/connote" >文化内涵</a></li>
+			<li><a href="${pageContext.request.contextPath}/culture/activity" >文化活动</a></li>
 		  </ul>
 	  </div>
 	  </li>
