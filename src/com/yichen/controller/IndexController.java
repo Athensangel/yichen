@@ -31,6 +31,7 @@ public class IndexController {
 
 	/**
 	 * 首页
+	 * @param map
 	 * @return
 	 */
 	@RequestMapping("main")
@@ -57,6 +58,9 @@ public class IndexController {
 
 	/**
 	 * 人物风采
+	 * @param map
+	 * @param personVo
+	 * @param pageNow
 	 * @return
 	 */
 	@RequestMapping("person/{pageNow}")
@@ -67,6 +71,19 @@ public class IndexController {
 		map.put("personVoList", personVoList);
 		map.put("page", page);
 		return "person";
+	}
+	
+	/**
+	 * 人物风采-详情
+	 * @param map
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("person/detail")
+	public String personDetail(ModelMap map,String id) {
+		PersonVo personVo =personService.findPersonById(id);
+		map.put("personVo", personVo);
+		return "personDetail";
 	}
 	
 	/**

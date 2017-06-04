@@ -12,8 +12,8 @@
     <div class="box-nav">
                     <div class="box-nav-left"><img src="${ctx}/images/15.png" width="149"/></div>
                     <div class="box-nav-right"><strong>首页 > 弈辰概括</strong></div>
-                </div>
-    <img src="images/002.png" width="1003"/>
+    </div>
+    <img src="${ctx}/images/002.png" width="1003"/>
     <div class="abouttext">
         	<p><strong>弈辰棋社简介</strong></p>
             <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>

@@ -14,14 +14,9 @@
             <div class="box-nav-right"><strong>首页 > 人物风采</strong></div>
         </div>
         <img src="${ctx}/images/002.png" width="1003"/>
-				<%-- <c:forEach items="${personVoList }"  var="personVo">
-                <div class="picmain_up" style="">
-                    <div class="picmain_pic"><a href=""><img src="${ctx}/${personVo.imagePath}" width="100%"/><p>${personVo.title}</p></a></div>
-                </div>
-          </c:forEach> --%>
 				<ul class="imglist">
 					<c:forEach items="${personVoList }" var="personVo">
-						<li><a href="#" target="_blank"> <img src="${ctx}/${personVo.imagePath}" /> <span>${personVo.title}</span>
+						<li><a href="${ctx}/person/detail?id=${personVo.id}"> <img src="${ctx}/${personVo.imagePath}" /> <span>${personVo.title}</span>
 						</a></li>
 					</c:forEach>
 				</ul>
