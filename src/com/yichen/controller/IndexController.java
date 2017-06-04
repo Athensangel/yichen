@@ -29,8 +29,8 @@ public class IndexController {
 	@Autowired
 	private PersonService personService ;
 
-	/**首页
-	 * 
+	/**
+	 * 首页
 	 * @return
 	 */
 	@RequestMapping("main")
@@ -48,7 +48,6 @@ public class IndexController {
 
 	/**
 	 * 简介
-	 * 
 	 * @return
 	 */
 	@RequestMapping("about")
@@ -72,7 +71,6 @@ public class IndexController {
 	
 	/**
 	 * 文化建设/内涵
-	 * 
 	 * @return
 	 */
 	@RequestMapping("culture/connote")
@@ -82,12 +80,21 @@ public class IndexController {
 	
 	/**
 	 * 文化建设/活动
-	 * 
 	 * @return
 	 */
 	@RequestMapping("culture/activity")
 	public String activity() {
 		return "activity";
 	}
+	
+	/**
+	 * 制度建设
+	 * @return
+	 */
+	@RequestMapping("regime")
+	public String regime() {
+		return "regime";
+	}
+	
 	
 }

@@ -23,7 +23,7 @@
 	  </ul>
 	  </div>
 	</li>
-	<li><a class="topa" href="javascript:;">制度建设</a></li>
+	<li><a class="topa" href="${pageContext.request.contextPath}/regime">制度建设</a></li>
 	<li>
 	  <div class="dh"><a href="javascript:;"  class="topa">文化建设</a>
 		  <ul>
