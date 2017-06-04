@@ -29,9 +29,7 @@
           <div class="abouttext">
         	<p><strong>部门风采</strong></p>
             <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
-            <div class="text"><p>部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门风采部门
-            风采部门风采部风采部门风采部门风采部门风采部风采部门风采部门风采部门风采部风采部门风采部门风采部门风采部采部门风采部采部门风采部</p>
-    <div class="abouttext-img"><img src="${ctx}/images/pic1.png" width="50%"/></div>
+            <div class="text"><p>奕辰棋社部门分为：外联部，组织部，宣传部，传习部，竞技部（象棋，围棋，五子棋）</p>
 	</div>
         </div>
         <img src="${ctx}/images/002.png" width="840"/>

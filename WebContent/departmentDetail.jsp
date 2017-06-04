@@ -19,13 +19,8 @@
     <div class="abouttext">
         	<p><strong>${currentDepartmentVo.name}</strong></p>
             <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
-    <div class="abouttext-img">
-        <img src="${ctx}/images/pic1.png" width="100%"/>
-        <img src="${ctx}/images/pic1.png" width="100%"/>
-        <img src="${ctx}/images/pic1.png" width="100%"/>
-    </div>
 	<div class="text">
-	<p>${currentDepartmentVo.introducte}</p>
+		${currentDepartmentVo.introducte}
 	</div>
         </div>
     <img src="${ctx}/images/002.png" width="1003"/>
