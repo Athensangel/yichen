@@ -51,6 +51,9 @@
 		  </ul>
 	  </div>
 	  </li>
+	  <li><a class="topa" href="javascript:;">通知公告</a></li>
+	  <li><a class="topa" href="javascript:;">人物风采</a></li>
+	  <li><a class="topa" href="javascript:;">弈辰史苑</a></li>
 	</ul>
 </div>
 </div>
