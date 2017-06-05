@@ -54,8 +54,14 @@
 								<td>${user.password}</td>
 								<td>${user.email}</td>
 								<td>${user.tel}</td>
-								<td>${user.sex}</td>
-								<td>${user.state}</td>
+								<td>
+								<c:if test="${user.sex eq 0}">女</c:if>
+								<c:if test="${user.sex eq 1}">男</c:if>
+								</td>
+								<td>
+								<c:if test="${user.state eq 0}">启用</c:if>
+								<c:if test="${user.state eq 1}">禁用</c:if>
+								</td>
 								<td>${user.remark}</td>
 								<td>
 									<a href="javascript:;" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
@@ -69,7 +75,7 @@
 				</div>
 			</fieldset>
 			<div class="admin-table-page">
-				<div id="page" class="page">
+			 <div id="page" class="page">
 			   <a   href="${ctx}/back/user/list/1" >首页</a>
 			    <c:if test="${page.pageNow != 1}">
 			 		<a href="${ctx}/back/user/list/${page.pageNow-1}">上一页</a>
