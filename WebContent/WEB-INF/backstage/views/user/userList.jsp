@@ -5,12 +5,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Table</title>
-		  <title>用户管理</title>
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
-		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="${ctx}/css/table.css" />
 	</head>
 	<body>
 		<div class="admin-main">
@@ -19,10 +15,10 @@
 				<a href="${ctx}/back/user/add" class="layui-btn layui-btn-small" id="add">
 					<i class="layui-icon">&#xe608;</i> 添加信息
 				</a>
-				<a href="#" class="layui-btn layui-btn-small" id="import">
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="import">
 					<i class="layui-icon">&#xe608;</i> 导入信息
 				</a>
-				<a href="#" class="layui-btn layui-btn-small">
+				<a href="javascript:;" class="layui-btn layui-btn-small">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
 				</a>
 				<a href="javascript:;" class="layui-btn layui-btn-small" id="delete" onclick="batchDel()">
@@ -62,7 +58,7 @@
 								<td>${user.state}</td>
 								<td>${user.remark}</td>
 								<td>
-									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+									<a href="javascript:;" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
 									<a href="${ctx}/back/user/up?id=${user.id}" class="layui-btn layui-btn-mini">编辑</a>
 									<a href="${ctx}/back/user/del?id=${user.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
@@ -94,13 +90,9 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			var ctx = "${pageContext.request.contextPath}";
-		</script>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 		<script type="text/javascript" src="${ctx}/backstage/js/user/user.js"></script>
 	</body>
-
 </html>

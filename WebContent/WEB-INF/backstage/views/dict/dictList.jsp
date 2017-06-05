@@ -7,8 +7,6 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
-		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="${ctx}/css/table.css" />
 	</head>
 	<body>
 		<div class="admin-main">
@@ -55,7 +53,7 @@
 								<td>${dict.description}</td>
 								<td>${dict.remark}</td>
 								<td>
-									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+									<a href="javascript:;" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
 									<a href="${ctx}/back/dict/up?id=${dict.id}" class="layui-btn layui-btn-mini">编辑</a>
 									<a href="${ctx}/back/dict/del?id=${dict.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
@@ -66,9 +64,6 @@
 				</div>
 			</fieldset>
 		</div>
-		<script type="text/javascript">
-			var ctx = "${pageContext.request.contextPath}";
-		</script>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>

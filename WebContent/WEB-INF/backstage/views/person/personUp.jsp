@@ -5,7 +5,6 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>表单</title>
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,9 +12,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 	</head>
-
 	<body>
 		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
@@ -33,7 +30,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">内容</label>
 					<div class="layui-input-block">
-						<input name="content" lay-verify="content" autocomplete="off" value="${personVo. content}"  class="layui-input">
+						<input name="content" lay-verify="required" autocomplete="off" value="${personVo. content}"  class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -45,8 +42,7 @@
 				</div>
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<input type="submit" value="立即提交" class="layui-btn" lay-filter="demo1"/>
-						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						<input type="submit" value="立即提交" class="layui-btn" lay-submit="" lay-filter="demo1"/>
 					</div>
 				</div>
 			</form>
@@ -65,19 +61,11 @@
 					layer = layui.layer,
 					layedit = layui.layedit,
 					laydate = layui.laydate;
-
-				//创建一个编辑器
 				var editIndex = layedit.build('LAY_demo_editor');
-				//自定义验证规则
 				form.verify({
 					title: function(value) {
-						if(value.length < 3) {
-							return '信息填写至少得3个字符';
-						}
-					},
-					content: function(value) {
-						if(value.length < 3) {
-							return '信息填写至少得3个字符';
+						if(value.length < 1) {
+							return '标题至少得1个字符';
 						}
 					},
 					content: function(value) {
@@ -87,5 +75,4 @@
 			});
 		</script>
 	</body>
-
 </html>

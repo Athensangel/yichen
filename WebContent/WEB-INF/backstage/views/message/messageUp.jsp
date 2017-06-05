@@ -3,7 +3,6 @@
 <%@ include file="/common/path.jsp"%>
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title>表单</title>
@@ -13,11 +12,9 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
-
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 	</head>
-
 	<body>
 		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
@@ -37,6 +34,13 @@
 						<textarea class="layui-textarea layui-hide" name="content"  lay-verify="content" id="LAY_demo_editor"> ${messageVo.content}</textarea>
 					</div>
 				</div>
+			    <div class="layui-form-item">
+					<label class="layui-form-label">类别</label>
+					<div class="layui-input-block">
+						<input type="radio" name="type" value="1" title="最新动态" <c:if test="${messageVo.type eq 1}" >checked</c:if> >
+						<input type="radio" name="type" value="2" title="公告通知" <c:if test="${messageVo.type eq 2}" >checked</c:if> >
+					</div>
+				</div>
 				<div class="layui-form-item">
 					<div class="layui-input-block">
 						<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
@@ -51,29 +55,14 @@
 					layer = layui.layer,
 					layedit = layui.layedit,
 					laydate = layui.laydate;
-
-				//创建一个编辑器
 				var editIndex = layedit.build('LAY_demo_editor');
-				//自定义验证规则
 				form.verify({
 					title: function(value) {
 						if(value.length < 5) {
-							return '标题至少得5个字符啊';
+							return '标题至少得5个字符';
 						}
-					},
-					pass: [/(.+){6,12}$/, '密码必须6到12位'],
-					content: function(value) {
-						layedit.sync(editIndex);
 					}
 				});
-
-				/* //监听提交
-				form.on('submit(demo1)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					})
-					return false;
-				}); */
 			});
 		</script>
 	</body>

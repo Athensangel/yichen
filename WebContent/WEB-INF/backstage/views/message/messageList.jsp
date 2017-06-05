@@ -5,15 +5,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Table</title>
-		  <title>消息管理</title>
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
-		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="${ctx}/css/table.css" />
-		
 	</head>
-
 	<body>
 		<div class="admin-main">
 		<input type="hidden" id="pageCount" value="${pageCount}"/>
@@ -21,10 +15,10 @@
 				<a href="${ctx}/back/message/add" class="layui-btn layui-btn-small" id="add">
 					<i class="layui-icon">&#xe608;</i> 添加信息
 				</a>
-				<a href="#" class="layui-btn layui-btn-small" id="import">
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="import">
 					<i class="layui-icon">&#xe608;</i> 导入信息
 				</a>
-				<a href="#" class="layui-btn layui-btn-small">
+				<a href="javascript:;" class="layui-btn layui-btn-small">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
 				</a>
 				<a href="javascript:;" class="layui-btn layui-btn-small" id="delete" onclick="batchDel()">
@@ -37,11 +31,12 @@
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="selected-all"></th>
-								<th>序号</th>
-								<th>标题</th>
-								<th>内容</th>
-								<th>操作</th>
+								<th width="1%"><input type="checkbox" id="selected-all"></th>
+								<th width="2%">序号</th>
+								<th width="10%">标题</th>
+								<th width="30%">内容</th>
+								<th width="4%">类别</th>
+								<th width="10%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -52,7 +47,13 @@
 								<td>${message.title}</td>
 								<td>${message.content}</td>
 								<td>
-									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+								<c:choose>
+									<c:when test="${message.type eq 1}">最新动态</c:when>
+									<c:when test="${message.type eq 2}">公告通知</c:when>
+								</c:choose>
+								</td>
+								<td>
+									<a href="javascript:;" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
 									<a href="${ctx}/back/message/up?id=${message.id}" class="layui-btn layui-btn-mini">编辑</a>
 									<a href="${ctx}/back/message/del?id=${message.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
@@ -84,13 +85,9 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			var ctx = "${pageContext.request.contextPath}";
-		</script>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 		<script type="text/javascript" src="${ctx}/backstage/js/message/message.js"></script>
 	</body>
-
 </html>

@@ -42,7 +42,7 @@
 				</div>
 				<div class="layui-form-item">
 					<div class="layui-input-block">
-						<input type="submit" value="立即提交" class="layui-btn" lay-filter="demo1"/>
+						<input type="submit" value="立即提交" class="layui-btn" lay-submit="" lay-filter="demo1"/>
 						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					</div>
 				</div>
@@ -64,8 +64,8 @@
 			//自定义验证规则
 			form.verify({
 				title: function(value) {
-					if(value.length < 5) {
-						return '标题至少得5个字符';
+					if(value.length < 1) {
+						return '标题至少得1个字符';
 					}
 				},
 				content: function(value) {
@@ -79,5 +79,4 @@
 		});
 		</script>
 	</body>
-
 </html>

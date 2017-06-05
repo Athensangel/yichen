@@ -70,10 +70,7 @@
 				layer = layui.layer,
 				layedit = layui.layedit,
 				laydate = layui.laydate;
-
-			//创建一个编辑器
 			var editIndex = layedit.build('LAY_demo_editor');
-			//自定义验证规则
 			form.verify({
 				type: function(value) {
 					if(value.length == 0) {

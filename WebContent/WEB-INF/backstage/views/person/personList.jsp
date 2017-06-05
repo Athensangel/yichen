@@ -5,25 +5,19 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Table</title>
-		  <title>字典管理</title>
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
-		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="${ctx}/css/table.css" />
-		
 	</head>
-
 	<body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
 				<a href="${ctx}/back/person/add" class="layui-btn layui-btn-small" id="add">
 					<i class="layui-icon">&#xe608;</i> 添加信息
 				</a>
-				<a href="#" class="layui-btn layui-btn-small" id="import">
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="import">
 					<i class="layui-icon">&#xe608;</i> 导入信息
 				</a>
-				<a href="#" class="layui-btn layui-btn-small">
+				<a href="javascript:;" class="layui-btn layui-btn-small">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
 				</a>
 					<a href="javascript:;" class="layui-btn layui-btn-small" id="delete" onclick="batchDel()">
@@ -55,7 +49,7 @@
 								<td><img src="${ctx }${person.imagePath}"style="width: 130px;height:140px;"/></td>
 								<td><fmt:formatDate type="time" value="${person.addTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 								<td>
-									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+									<a href="javascript:;" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
 									<a href="${ctx}/back/person/up?id=${person.id}" class="layui-btn layui-btn-mini">编辑</a>
 									<a href="${ctx}/back/person/del?id=${person.id}" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
 								</td>
@@ -65,7 +59,7 @@
 					</table>
 				</div>
 			</fieldset>
-					<div class="admin-table-page">
+			<div class="admin-table-page">
 				<div id="page" class="page">
 			   <a   href="${ctx}/back/person/list/1" >首页</a>
 			    <c:if test="${page.pageNow != 1}">
@@ -87,13 +81,9 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			var ctx = "${pageContext.request.contextPath}";
-		</script>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 		<script type="text/javascript" src="${ctx}/backstage/js/person/person.js"></script>
 	</body>
-
 </html>

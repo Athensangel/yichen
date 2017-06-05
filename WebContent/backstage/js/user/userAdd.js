@@ -1,6 +1,5 @@
 //新增
 function save() {
-	debugger;
     $.ajax({
         type:"post",
         url:ctx + "/back/user/save.ajax",
@@ -14,9 +13,9 @@ function save() {
                 });
             } else {
 				if (data.msg && data.msg != null  && data.msg != '') {
-					layer.msg(data.msg, {icon: 2, shade: [0.4], time:1500});
+					layer.msg(data.msg, {icon: 2, shade: [0.4], time:3500});
 				} else {
-					layer.msg("添加失败！", {icon: 2, shade: [0.4], time: 1500});
+					layer.msg("添加失败！", {icon: 2, shade: [0.4], time: 3500});
 				}
             }
         }

@@ -5,7 +5,6 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>表单</title>
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,25 +16,25 @@
 	<body>
 		<div style="margin: 15px;">
 			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-				<legend>添加成员信息</legend>
+				<legend>添加用户信息</legend>
 			</fieldset>
 			<form class="layui-form" id="userAdd">
 				<div class="layui-form-item">
 					<label class="layui-form-label">登录名</label>
 					<div class="layui-input-block">
-						<input name="loginName" lay-verify="loginName" autocomplete="off" placeholder="请输入标题" class="layui-input">
+						<input name="loginName" lay-verify="loginName" autocomplete="off" placeholder="请输入登录名" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">密码</label>
 					<div class="layui-input-block">
-						<input  name="password"  lay-verify="pass" placeholder="请输入" autocomplete="off" class="layui-input">
+						<input  type="password" name="password"  lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">姓名</label>
 					<div class="layui-input-block">
-						<input  name="name"  lay-verify="name" placeholder="请输入" autocomplete="off" class="layui-input">
+						<input  name="name"  lay-verify="name" placeholder="请输入姓名" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -50,25 +49,24 @@
 						<input  name="tel"  lay-verify="phone" autocomplete="off" class="layui-input">
 					</div>
 				</div>
-
 				<div class="layui-form-item">
-					<label class="layui-form-label">单选框</label>
+					<label class="layui-form-label">性别</label>
 					<div class="layui-input-block">
-						<input type="radio" name="sex" value="0" title="男" checked="">
+						<input type="radio" name="sex" value="0" title="男" checked>
 						<input type="radio" name="sex" value="1" title="女">
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">状态</label>
 					<div class="layui-input-block">
-						<input type="radio" name="state" value="0" title="启用"checked="">
+						<input type="radio" name="state" value="0" title="启用"checked>
 						<input type="radio" name="state" value="1" title="禁用">
 					</div>
 				</div>
 				<div class="layui-form-item layui-form-text">
 					<label class="layui-form-label">备注</label>
 					<div class="layui-input-block">
-						<textarea placeholder="请输入内容" class="layui-textarea"  name="remark"></textarea>
+						<textarea placeholder="请输入备注" class="layui-textarea"  name="remark"></textarea>
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -80,7 +78,7 @@
 			</form>
 		</div>
 		<script type="text/javascript">
-			var ctx = "${pageContext.request.contextPath}";
+		 var ctx = "${pageContext.request.contextPath}";
 		</script>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>
 		<script type="text/javascript" src="${ctx}/plugins/layer/layer.js"></script>
@@ -92,24 +90,22 @@
 					layer = layui.layer,
 					layedit = layui.layedit,
 					laydate = layui.laydate;
-
-				//创建一个编辑器
 				var editIndex = layedit.build('LAY_demo_editor');
-				//自定义验证规则
 				form.verify({
 					loginName: function(value) {
-						if(value.length < 5) {
-							return '登录名至少得5个字符';
+						if(value.length == 0) {
+							return '登录名不能为空';
+						}else if(value.length < 3){
+							return '登录名至少得3个字符';
+						}else if(value.length >20){
+							return '登录名不能超过得20个字符';
 						}
 					},
 					pass: [/(.+){6,12}$/, '密码必须6到12位'],
 					name: function(value) {
-						if(value.length < 5) {
-							return '姓名至少得5个字符';
+						if(value.length < 2) {
+							return '姓名至少得2个字符';
 						}
-					},
-					content: function(value) {
-						layedit.sync(editIndex);
 					}
 				});
 			});
