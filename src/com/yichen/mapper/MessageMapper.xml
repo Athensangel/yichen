@@ -47,16 +47,16 @@
 		title = #{title},
 		type = #{type},
 		content = #{content},
-		add_time = now()
+		upd_time = now()
 		where id = #{id}
 	</update>
 	
 	<!-- 删除 -->
-	<delete id="delMessage">
-		delete from t_message where id = #{id}
-	</delete>
+	<update id="delMessage">
+		update t_message set del_flag = 1,upd_time = now() where id=#{id}
+	</update>
 	
-    <!-- 物理删除 -->
+    <!-- 批量删除 -->
 	<update id="batchDel">
 		UPDATE t_message SET
 		del_flag = '1',

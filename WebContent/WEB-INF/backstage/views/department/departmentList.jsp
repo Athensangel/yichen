@@ -5,15 +5,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Table</title>
-		  <title>用户管理</title>
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
 		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="${ctx}/css/table.css" />
-		
 	</head>
-
 	<body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
@@ -36,10 +32,12 @@
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="selected-all"></th>
-								<th>序号</th>
-								<th>部门名称</th>
-								<th>操作</th>
+								<th width="1%"><input type="checkbox" id="selected-all"></th>
+								<th width="1%">序号</th>
+								<th width="5%">部门名称</th>
+								<th width="30%">部门介绍</th>
+								<th width="4%">部门类型</th>
+								<th width="10%">操作</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -48,6 +46,8 @@
 								<td><input type="checkbox" name="checkbox"><input type="hidden" value="${department.id}"/></td>
 								<td>${status.index+1}</td>
 								<td>${department.name}</td>
+								<td>${department.introducte}</td>
+								<td>${department.type}</td>
 								<td>
 									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
 									<a href="${ctx}/back/department/up?id=${department.id}" class="layui-btn layui-btn-mini">编辑</a>

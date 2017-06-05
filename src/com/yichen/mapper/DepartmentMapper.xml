@@ -18,17 +18,17 @@
 
 	<!-- 添加数据 -->
 	<insert id="insertDepartmentVo">
-		insert into t_department(id,name,del_flag,add_time) values (#{id},#{name},0,now())
+		insert into t_department(id,name,introducte,type,del_flag,add_time) values (#{id},#{name},#{introducte},#{type},0,now())
 	</insert>
 
 	<!-- 删除数据 -->
-	<delete id="delDepartmentVo">
-		delete from t_department where id = #{id};
-	</delete>
+	<update id="delDepartmentVo">
+		update t_department set del_flag = 1,upd_time = now() where id=#{id}
+	</update>
 
 	<!-- 修改数据 -->
 	<update id="updateDepartmentVo">
-		update t_department set name = #{name},del_flag=0,add_time=now() where id=#{id}
+		update t_department set name = #{name},introducte = #{introducte},type = #{type},upd_time=now() where id=#{id}
 	</update>
 
 	<!-- 通过id查询 -->
@@ -43,7 +43,7 @@
 		</if>
 	</select>
 	
-	  <!-- 物理删除 -->
+	  <!-- 批量删除 -->
 	<update id="batchDel">
 		UPDATE t_department SET
 		del_flag = '1',

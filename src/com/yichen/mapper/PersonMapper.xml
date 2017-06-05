@@ -52,7 +52,7 @@
 		SELECT COUNT(a.id) FROM t_person a WHERE a.del_flag = '0'
 	</select>
 	
-	<!-- 物理删除 -->
+	<!-- 批量删除 -->
 	<update id="batchDel">
 		UPDATE t_person SET
 		del_flag = '1',

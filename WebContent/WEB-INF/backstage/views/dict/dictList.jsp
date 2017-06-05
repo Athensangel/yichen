@@ -5,15 +5,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Table</title>
-		  <title>字典管理</title>
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/global.css" media="all">
 		<link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="${ctx}/css/table.css" />
-		
 	</head>
-
 	<body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
@@ -78,5 +74,4 @@
 		<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 		<script type="text/javascript" src="${ctx}/backstage/js/dict/dict.js"></script>
 	</body>
-
 </html>
