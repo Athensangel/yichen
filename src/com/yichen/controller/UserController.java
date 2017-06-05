@@ -241,7 +241,7 @@ public class UserController {
 	@RequestMapping("/loginExt")
 	public String loginExt(HttpSession session){
 		session.invalidate();
-		return "index";
+		return "redirect:main";
 	}
 	
 	/**
