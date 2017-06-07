@@ -30,7 +30,7 @@ a:hover{color:#BA2636;text-decoration:none;}
 .index-news{ margin-left:30px;}
 .pic{ width:100%; margin:0px auto; background:url(../images/class1.png); width:100%; height:182px;}
 .pic-pic{ float:left; margin-top:20px; margin-left:120px;}
-.pic-pic img{ margin:10px;}
+.pic-pic img{ margin:10px 10px;}
 
 .foot{ width:100%; height:150px; background:#4e4236; margin-top:30px;}
 .footer{ width:50%; margin:0px auto;}
@@ -120,4 +120,4 @@ ul.imglist li span{ display:block; width:100%; height:30px; line-height:30px; ba
 
 #bottompic {width: 820px;height: 130px;margin: 0 auto;overflow: hidden;position: relative;}
 #bottompic2{position: absolute;left: 0;top: 0;}
-#bottompic2 li {width: 210px;height:130px; text-align:center; line-height:100px;margin:0 5px;display: block;float: left;list-style: none;}
+#bottompic2 li {width: 190px;height:130px; text-align:center; line-height:100px;margin:0 5px;display: block;float: left;list-style: none;}

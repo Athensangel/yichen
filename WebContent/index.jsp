@@ -104,6 +104,7 @@
 						<li><img src="${ctx}/images/bottompic/IMG_20151115_102612_HDR.jpg" /></li>
 						<li><img src="${ctx}/images/bottompic/IMG_20151115_102804_HDR.jpg" /></li>
 						<li><img src="${ctx}/images/bottompic/IMG_20151115_111802_HDR.jpg" /></li>
+						<li><img src="${ctx}/images/bottompic/IMG_20131116_104354.jpg" /></li>
 					</div>
 				</div>
 			</div>
