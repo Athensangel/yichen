@@ -30,7 +30,7 @@ a:hover{color:#BA2636;text-decoration:none;}
 .index-news{ margin-left:30px;}
 .pic{ width:100%; margin:0px auto; background:url(../images/class1.png); width:100%; height:182px;}
 .pic-pic{ float:left; margin-top:20px; margin-left:120px;}
-.pic-pic img{ margin:20px;}
+.pic-pic img{ margin:10px 10px;}
 
 .foot{ width:100%; height:150px; background:#4e4236; margin-top:30px;}
 .footer{ width:50%; margin:0px auto;}
@@ -117,3 +117,7 @@ ul.imglist{ margin:0 auto; width:90%; overflow:hidden}
 ul.imglist li{ float:left; padding:4px 8px; width:160px} 
 ul.imglist li img{ display:block; width:160px; height:190px} 
 ul.imglist li span{ display:block; width:100%; height:30px; line-height:30px; background:#F6F6F6} 
+
+#bottompic {width: 820px;height: 130px;margin: 0 auto;overflow: hidden;position: relative;}
+#bottompic2{position: absolute;left: 0;top: 0;}
+#bottompic2 li {width: 190px;height:130px; text-align:center; line-height:100px;margin:0 5px;display: block;float: left;list-style: none;}
