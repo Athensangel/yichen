@@ -38,7 +38,6 @@
 </div>
 <div style=" clear:both;"></div>
 <jsp:include page="common/footer.jsp" flush="true" /> 
-<script src="${ctx}/js/jquery.js"></script>
 <script>
 $(function(){
 	var Height = 40; //li的高度
