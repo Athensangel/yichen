@@ -94,15 +94,22 @@
         </div>
     </div>
     <div style=" clear:both;"></div>
-    <div class="pic">
-        <div class="pic-pic">
-            <a href="pic.html"><img src="${ctx}/images/pic.png" width="159"/></a>
-            <a href="pic.html"><img src="${ctx}/images/pic.png" width="159"/></a>
-            <a href="pic.html"><img src="${ctx}/images/pic.png" width="159"/></a>
-            <a href="pic.html"><img src="${ctx}/images/pic.png" width="159"/></a>
-        </div>
-    </div>
-</div>
+		<div class="pic">
+			<div class="pic-pic">
+				<div id="bottompic">
+					<div id="bottompic2">
+						<li><img src="${ctx}/images/bottompic/IMG_20131116_112132.jpg" /></li>
+						<li><img src="${ctx}/images/bottompic/IMG_20131116_112133.jpg" /></li>
+						<li><img src="${ctx}/images/bottompic/IMG_20131116_113104.jpg" /></li>
+						<li><img src="${ctx}/images/bottompic/IMG_20151115_102612_HDR.jpg" /></li>
+						<li><img src="${ctx}/images/bottompic/IMG_20151115_102804_HDR.jpg" /></li>
+						<li><img src="${ctx}/images/bottompic/IMG_20151115_111802_HDR.jpg" /></li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="${ctx}/front/bottompic/bottompic.js"></script>
 <div style=" clear:both;"></div>
 <jsp:include page="common/footer.jsp" flush="true" /> 
 </body>
