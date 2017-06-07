@@ -13,7 +13,7 @@
 
 	<!-- 查询数据 -->
 	<select id="querPersons" resultMap="personResultMap">
-		SELECT a.id,a.title,a.content,a.time,a.image_path imagePath,a.add_time addTime FROM t_person a WHERE a.del_flag = '0' ORDER BY a.add_time DESC  limit #{startPos},#{pageSize}
+		SELECT a.id,a.title,a.content,a.image_path imagePath,a.add_time addTime FROM t_person a WHERE a.del_flag = '0' ORDER BY a.add_time DESC  limit #{startPos},#{pageSize}
 	</select>
 
 	<!-- 添加数据 -->
