@@ -33,11 +33,11 @@
 			<li><a href="javascript:;" >传习部</a></li>
 			<li><a href="javascript:;" >竞技部</a>
 			  <ul>
-                    <li><a href="javascript:;">国际象棋</a></li>
-                    <li><a href="javascript:;">陆战棋</a></li>
-                    <li><a href="javascript:;">跳棋</a></li>
-                    <li><a href="javascript:;">围棋</a></li>
-                    <li><a href="javascript:;">中国象棋</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chessType/2">国际象棋</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chessType/4">陆战棋</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chessType/5">跳棋</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chessType/1">围棋</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chessType/3">中国象棋</a></li>
                 </ul>
 			</li>
 		  </ul>

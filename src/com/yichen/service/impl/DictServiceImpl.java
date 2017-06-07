@@ -46,4 +46,9 @@ public class DictServiceImpl implements DictService {
 		return dictMapper.batchDel(list);
 	}
 
+	@Override
+	public DictVo findDictByType(String type, String value) {
+		return dictMapper.findDictByType(type,value);
+	}
+
 }

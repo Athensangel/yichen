@@ -50,7 +50,7 @@
 	<!-- 通过id查询 -->
 	<select id="queryDictById" resultMap="dictResultMap">
 		select  a.id,a.type,a.value,a.label,a.sort,a.description,a.remark from t_dict a
-		where a.id = #{id}
+		where a.id = #{id} and a.del_flag = '0'
 	</select>
 
    <!-- 批量删除 -->
@@ -63,4 +63,10 @@
 			#{item}
 		</foreach>
 	</update>
+	
+	<!-- 通过type查询字典 -->
+	<select id="findDictByType" resultMap="dictResultMap">
+		select  a.id,a.type,a.value,a.label,a.sort,a.description,a.remark from t_dict a
+		where a.type = #{0} and a.value = #{1} and a.del_flag = '0'
+	</select>
 </mapper>

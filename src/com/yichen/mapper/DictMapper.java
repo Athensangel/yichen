@@ -18,4 +18,6 @@ public interface DictMapper {
 	DictVo queryDictById(String id);// 通过id查询棋队
 	
 	int batchDel(List<String> list);//批量删除
+
+	DictVo findDictByType(String type, String value);// 通过type查询字典
 }

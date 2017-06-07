@@ -8,9 +8,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yichen.model.DictVo;
 import com.yichen.model.MessageVo;
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
+import com.yichen.service.DictService;
 import com.yichen.service.MessageService;
 import com.yichen.service.PersonService;
 
@@ -28,6 +30,9 @@ public class IndexController {
 	
 	@Autowired
 	private PersonService personService ;
+	
+	@Autowired
+	private DictService dictService ;
 
 	/**
 	 * 首页
@@ -113,5 +118,14 @@ public class IndexController {
 		return "regime";
 	}
 	
-	
+	/**
+	 * 棋社棋类
+	 * @return
+	 */
+	@RequestMapping("chessType/{value}")
+	public String chessType(@PathVariable String value,ModelMap map) {
+		DictVo dictVo = dictService.findDictByType("chessType", value);
+		map.put("dictVo", dictVo);
+		return "chessIntroduce";
+	}
 }

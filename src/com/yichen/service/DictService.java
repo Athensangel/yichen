@@ -23,5 +23,7 @@ public interface DictService {
 	DictVo findDictById(String id);// 通过id查询字典
 
 	int batchDel(List<String> list);//批量删除
+	
+	DictVo findDictByType(String type,String value);// 通过type查询字典
 
 }
