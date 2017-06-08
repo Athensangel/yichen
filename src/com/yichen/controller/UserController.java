@@ -192,17 +192,15 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/loginValidate")
-	@	ResponseBody
-	public String loginValidate(UserVo userVo,RedirectAttributes attr,HttpSession session){
+	@ResponseBody
+	public AjaxResponseVo loginValidate(UserVo userVo,HttpSession session){
 		UserVo currentUserVo = userService.checkLogin(userVo);
 		if(currentUserVo != null){
 			session.setAttribute("currentUserVo", currentUserVo);
 			session.setAttribute("loginName", currentUserVo.getLoginName());
-			return "1"; //用户名密码正确
+			return AjaxResponseVo.of(ResponseCode.SUCCESS); //用户名密码正确
 		}else{
-			 message="登录失败:用户名?密码错误?用户未激活?";
-			 attr.addFlashAttribute("message", message);
-			return "2";//用户名密码错误
+			return AjaxResponseVo.of(ResponseCode.FAIL);//用户名密码错误
 		}
 	}
 	
@@ -211,16 +209,15 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/loginRegister")
-	public String loginRegister(UserVo userVo, RedirectAttributes attr) {
+	@ResponseBody
+	public AjaxResponseVo loginRegister(UserVo userVo) {
 		int result = checkLoginName(userVo.getLoginName());
 		if (result > 0) {
-			 message = "注册失败:用户名已存在!";
-			 attr.addFlashAttribute("message", message);
-			return "redirect:login";
+			 return AjaxResponseVo.of(ResponseCode.FAIL);
 		} else {
 			userVo.setId(UUIDUtil.getUUID());
 			userService.saveUserVo(userVo);
-			return "redirect:login";
+			return AjaxResponseVo.of(ResponseCode.SUCCESS); 
 		}
 	}
 	

@@ -94,7 +94,7 @@ $(document).ready(function() {
 	    		   password:$("#p").val()
 	    		  },
 	    		  function(data,status){
-	    			  if(data == '1'){
+	    			  if(data.code == 10000){
 	    				  window.location.href = ctx +"/main";
 	    			  }else{
 	    				  $('#loginCue').html("<font color='red'><b>×登录失败:用户名?密码错误?用户未激活?</b></font>");
@@ -156,23 +156,16 @@ $(document).ready(function() {
 			type: reMethod,
 			url: ctx+"/loginRegister",
 			data: userVo,
-			dataType: 'html',
-			success: function(result) {
-				if (result.length > 2) {
-					$('#user').focus().css({
-						border: "1px solid red",
-						boxShadow: "0 0 2px red"
-					});$("#userCue").html(result);
-					return false;
+			success: function(data) {
+				if (data.code == 10000) {
+					$('#loginCue').html("<font color='green'><b>(●'◡'●)注册成功！请登录</b></font>");
+					window.location.href = ctx +"/login";
 				} else {
-					$('#user').css({
-						border: "1px solid #D7D7D7",
-						boxShadow: "none"
-					});
+					$('#userCue').html("<font color='red'><b>×用户名已存在</b></font>");
+					return false;
 				}
 
 			}
 		});
-		$('#regUser').submit();
 	});
 });
