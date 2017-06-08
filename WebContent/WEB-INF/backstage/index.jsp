@@ -42,7 +42,7 @@
 									<a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
 								</dd>
 								<dd>
-									<a href="${ctx}/yc_2017"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+									<a href="${ctx}/loginOut"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
 								</dd>
 							</dl>
 						</li>

@@ -25,6 +25,7 @@ public class UserVo extends DbBaseVo<UserVo>{
 	private Integer gradeScore;//等级分数
 	private String isChess;//是否棋手（0，否，1，是）
 	private String chessType;//1围棋,2国际象棋,3象棋,4五子棋,5跳棋
+	private String rememberMe;//记住账号
 	public String getBirthday() {
 		return birthday;
 	}
@@ -132,5 +133,11 @@ public class UserVo extends DbBaseVo<UserVo>{
 	}
 	public void setChessType(String chessType) {
 		this.chessType = chessType;
+	}
+	public String getRememberMe() {
+		return rememberMe;
+	}
+	public void setRememberMe(String rememberMe) {
+		this.rememberMe = rememberMe;
 	}
 }

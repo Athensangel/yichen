@@ -1,16 +1,23 @@
 package com.yichen.interceptor;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
-import javax.servlet.http.HttpSession;  
-  
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;  
-import org.springframework.web.servlet.ModelAndView;  
+import org.springframework.web.servlet.ModelAndView;
+
+import com.yichen.model.UserVo;
+import com.yichen.service.UserServcie;  
 
 /** 
  * 登录认证的拦截器 
  */  
 public class LoginInterceptor implements HandlerInterceptor{  
+	
+	@Autowired
+	private UserServcie userService;
   
     /** 
      * Handler执行完成之后调用这个方法 
@@ -36,17 +43,31 @@ public class LoginInterceptor implements HandlerInterceptor{
         //获取请求的URL  
         String url = request.getRequestURI();  
         if(url.indexOf("back")>0){
-       	 //说明处在编辑的页面
-       	 HttpSession session = request.getSession();
-       	 String loginName = (String) session.getAttribute("loginName");
-       	 if(loginName != null){
-       		 //登陆成功的用户
-       		 return true;
-       	 }else{
-       		//没有登陆，转向登陆界面
-   	         request.getRequestDispatcher("/WEB-INF/backstage/login.jsp").forward(request,response);
-   		   return false;
-       	 }
+        	String loginName = "";
+    		String password = "";
+    		//取出Cookie
+    		Cookie [] c = request.getCookies();
+    		if(c!= null){
+    		for(int i=0;i<c.length;i++){
+    		    if(c[i].getName().equals("rememberUser")){
+    		        loginName=c[i].getValue().split("-")[0];
+    		        password=c[i].getValue().split("-")[1];
+    		    }
+    		 }
+    		UserVo uVo = new UserVo();
+    		uVo.setLoginName(loginName);
+    		uVo.setPassword(password);
+    		UserVo resultUserVo = userService.checkLogin(uVo);
+    		if(resultUserVo != null){
+    			return true;
+    		}else{
+    			request.getRequestDispatcher("/WEB-INF/backstage/login.jsp").forward(request,response);
+    	   		return false;
+    		}
+    		}else{
+    			request.getRequestDispatcher("/WEB-INF/backstage/login.jsp").forward(request,response);
+    	   		return false;
+    		}
         }else{
        	   return true;
         }

@@ -33,8 +33,8 @@
 					<span>${message }</span>
 					<div class="layui-form-item">
 						<div class="beg-pull-left beg-login-remember">
-							<label>记住帐号？</label>
-							<input type="checkbox" name="rememberMe" value="true" lay-skin="switch" checked title="记住帐号">
+							<label>自动登录？</label>
+							<input type="checkbox" name="rememberMe" lay-skin="switch">
 						</div>
 						<div class="beg-pull-right">
 							<button class="layui-btn layui-btn-primary" lay-submit lay-filter="login">

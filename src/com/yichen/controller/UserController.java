@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -58,8 +59,31 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("yc_2017")
-	public String backLoginIndex(){
-		return "WEB-INF/backstage/login";
+	public String backLoginIndex(HttpServletRequest request){
+		String loginName = "";
+		String password = "";
+		//取出Cookie
+		Cookie [] c = request.getCookies();
+		if(c!= null){
+		for(int i=0;i<c.length;i++){
+		    if(c[i].getName().equals("rememberUser")){
+		        loginName=c[i].getValue().split("-")[0];
+		        password=c[i].getValue().split("-")[1];
+		    }
+		 }
+		UserVo uVo = new UserVo();
+		uVo.setLoginName(loginName);
+		uVo.setPassword(password);
+		UserVo resultUserVo = userService.checkLogin(uVo);
+		if(resultUserVo != null){
+			return "redirect:/backIndex";
+		}else{
+			return "WEB-INF/backstage/login";
+		}
+		}else{
+			return "WEB-INF/backstage/login";
+		}
+		
 	}
 	
 	/**
@@ -108,9 +132,9 @@ public class UserController {
 		if (flag > 0) {
 			return flag > 0 ? AjaxResponseVo.of(ResponseCode.SAVE_FAIL) : AjaxResponseVo.of(ResponseCode.SAVE_SUCCESS);
 		} else {
-			userVo.setId(UUIDUtil.getUUID());
-			int result = userService.saveUserVo(userVo);
-			return result > 0 ? AjaxResponseVo.of(ResponseCode.SAVE_SUCCESS) : AjaxResponseVo.of(ResponseCode.SAVE_FAIL);
+		userVo.setId(UUIDUtil.getUUID());
+		int result = userService.saveUserVo(userVo);
+		return result > 0 ? AjaxResponseVo.of(ResponseCode.SAVE_SUCCESS) : AjaxResponseVo.of(ResponseCode.SAVE_FAIL);
 		}
 	}
 
@@ -155,9 +179,16 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/user/checkLogin")
-	public String backCheckLogin(UserVo userVo,RedirectAttributes attr,HttpSession session){
+	public String backCheckLogin(UserVo userVo,RedirectAttributes attr,HttpSession session,HttpServletResponse response){
 		UserVo currentUserVo = userService.checkLogin(userVo);
 		if(currentUserVo != null){
+			if("on".equals(userVo.getRememberMe())){
+				//添加Cookie
+		        Cookie c=new Cookie("rememberUser", userVo.getLoginName()+"-"+userVo.getPassword());
+		        c.setPath("/");
+		        c.setMaxAge(30*24*60*30);
+		        response.addCookie(c);
+			}
 			session.setAttribute("currentUserVo", currentUserVo);
 			session.setAttribute("loginName", currentUserVo.getLoginName());
 			session.setAttribute("id", currentUserVo.getId());
@@ -230,14 +261,30 @@ public class UserController {
 	public int checkLoginName(String loginName){
 		  int result = userService.checkLoginName(loginName);
 		  return result ;
-		}
+	}
+	
+	/**
+	 * 注销
+	 * @param session
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/loginOut")
+	public String backLoginOut(HttpSession session,HttpServletResponse response){
+		session.invalidate();
+		Cookie newCookie = new Cookie("rememberUser",null);
+		newCookie.setMaxAge(0); 
+		newCookie.setPath("/"); 
+		response.addCookie(newCookie);
+		return "redirect:yc_2017";
+	}
 	
 	/**
 	 * 退出登录
 	 * @return
 	 */
 	@RequestMapping("/loginExt")
-	public String loginExt(HttpSession session){
+	public String loginExt(HttpSession session,HttpServletResponse response){
 		session.invalidate();
 		return "redirect:main";
 	}
