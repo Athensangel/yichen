@@ -37,7 +37,7 @@
                 </div>
             <div class="index-box-right">
             <div class="box-nav">
-                    <div class="box-nav-left"><img src="${ctx}/images/12.png" width="149"/></div>
+                    <div class="box-nav-left"><img src="${ctx}/images/11.png" width="149"/></div>
                     <div class="box-nav-right"><a href="text.html">+MORE</a></div>
                 </div>
                 <img src="${ctx}/images/001.png" width="470"/>

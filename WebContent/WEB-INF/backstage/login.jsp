@@ -11,7 +11,6 @@
 		<link rel="stylesheet" href="${ctx}/plugins/layui/css/layui.css" media="all" />
 		<link rel="stylesheet" href="${ctx}/css/login.css" />
 	</head>
-
 	<body class="beg-login-bg">
 		<div class="beg-login-box">
 			<header>
@@ -29,7 +28,7 @@
 						<label class="beg-login-icon">
                         <i class="layui-icon">&#xe642;</i>
                     </label>
-						<input type="password" name="password" lay-verify="password" autocomplete="off" placeholder="这里输入密码" class="layui-input">
+						<input type="password" name="password" lay-verify="pass" autocomplete="off" placeholder="这里输入密码" class="layui-input">
 					</div>
 					<span>${message }</span>
 					<div class="layui-form-item">
@@ -57,10 +56,7 @@
 				layer = layui.layer,
 				layedit = layui.layedit,
 				laydate = layui.laydate;
-
-			//创建一个编辑器
 			var editIndex = layedit.build('LAY_demo_editor');
-			//自定义验证规则
 			form.verify({
 				loginName: function(value) {
 					if(value.length < 5) {

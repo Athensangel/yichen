@@ -86,23 +86,6 @@
 			<script type="text/javascript" src="${ctx}/plugins/layui/layui.js"></script>
 			<script type="text/javascript" src="${ctx}/datas/nav.js"></script>
 			<script src="${ctx}/js/index.js"></script>
-			<script>
-				layui.use('layer', function() {
-					var $ = layui.jquery,
-						layer = layui.layer;
-
-					$('#video1').on('click', function() {
-						layer.open({
-							title: 'YouTube',
-							maxmin: true,
-							type: 2,
-							content: 'video.html',
-							area: ['800px', '500px']
-						});
-					});
-
-				});
-			</script>
 		</div>
 	</body>
 
