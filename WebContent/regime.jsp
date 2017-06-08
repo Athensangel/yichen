@@ -10,7 +10,7 @@
 <jsp:include page="common/menu.jsp" flush="true" /> 
     <div>
     <div class="box-nav">
-                    <div class="box-nav-left"><img src="${ctx}/images/15.png" width="149"/></div>
+                    <div class="box-nav-left"><img src="${ctx}/images/17.png" width="149"/></div>
                     <div class="box-nav-right"><strong>首页 > 制度建设</strong></div>
                 </div>
     <img src="images/002.png" width="1003"/>
