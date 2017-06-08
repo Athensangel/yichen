@@ -51,9 +51,57 @@ function getParam(pname) {
     } 
 }  
 
-var reMethod = "GET",
+var reMethod = "POST",
 	pwdmin = 6;
 $(document).ready(function() {
+	$('#login').click(function() {
+		if ($('#u').val() == "") {
+			$('#u').focus().css({
+				border: "1px solid red",
+				boxShadow: "0 0 2px red"
+			});
+			$('#loginCue').html("<font color='red'><b>×用户名不能为空</b></font>");
+			return false;
+		}
+		
+		if ($('#p').val() == "") {
+			$('#p').focus().css({
+				border: "1px solid red",
+				boxShadow: "0 0 2px red"
+			});
+			$('#loginCue').html("<font color='red'><b>×密码不能为空</b></font>");
+			return false;
+		}
+
+		if ($('#u').val().length < 4 || $('#u').val().length > 20) {
+			$('#u').focus().css({
+				border: "1px solid red",
+				boxShadow: "0 0 2px red"
+			});
+			$('#loginCue').html("<font color='red'><b>×用户名位4-20字符</b></font>");
+			return false;
+
+		}
+		
+		if ($('#p').val().length < pwdmin) {
+			$('#p').focus();
+			$('#loginCue').html("<font color='red'><b>×密码不能小于" + pwdmin + "位</b></font>");
+			return false;
+		}
+	     $.post( ctx+"/loginValidate",
+	    		  {
+	    		   loginName:$("#u").val(),
+	    		   password:$("#p").val()
+	    		  },
+	    		  function(data,status){
+	    			  if(data == '1'){
+	    				  window.location.href = ctx +"/main";
+	    			  }else{
+	    				  $('#loginCue').html("<font color='red'><b>×登录失败:用户名?密码错误?用户未激活?</b></font>");
+	    			  }
+	    		  });
+	});
+	
 	$('#reg').click(function() {
 		if ($('#user').val() == "") {
 			$('#user').focus().css({
@@ -64,12 +112,12 @@ $(document).ready(function() {
 			return false;
 		}
 
-		if ($('#user').val().length < 4 || $('#user').val().length > 16) {
+		if ($('#user').val().length < 4 || $('#user').val().length > 20) {
 			$('#user').focus().css({
 				border: "1px solid red",
 				boxShadow: "0 0 2px red"
 			});
-			$('#userCue').html("<font color='red'><b>×用户名位4-16字符</b></font>");
+			$('#userCue').html("<font color='red'><b>×用户名位4-20字符</b></font>");
 			return false;
 
 		}

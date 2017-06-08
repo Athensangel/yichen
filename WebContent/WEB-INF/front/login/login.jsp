@@ -25,8 +25,9 @@
             <div class="web_login" id="web_login">
                <div class="login-box">
 			<div class="login_form">
-				<form action="${ctx }/loginValidate" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
+				<form name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
                <input type="hidden" name="to" value="log"/>
+               <div id="loginCue"></div>
                 <div class="uinArea" id="uinArea">
                 <label class="input-tips" for="u">帐号：</label>
                 <div class="inputOuter" id="uArea">
@@ -40,7 +41,7 @@
                 </div>
                 </div>
                 <span>${message }</span>
-                <div style="padding-left:50px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div><a href="${ctx }/forgetPassword" class="zcxy" target="_blank">忘记密码</a>
+                <div style="padding-left:50px;margin-top:20px;"><input type="button" value="登 录" style="width:150px;" class="button_blue" id="login"/></div><a href="${ctx }/forgetPassword" class="zcxy" target="_blank">忘记密码</a>
               </form>
            </div>
             	</div>

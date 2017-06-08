@@ -192,16 +192,17 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/loginValidate")
+	@	ResponseBody
 	public String loginValidate(UserVo userVo,RedirectAttributes attr,HttpSession session){
 		UserVo currentUserVo = userService.checkLogin(userVo);
 		if(currentUserVo != null){
 			session.setAttribute("currentUserVo", currentUserVo);
 			session.setAttribute("loginName", currentUserVo.getLoginName());
-			return "redirect:/main"; //用户名密码正确
+			return "1"; //用户名密码正确
 		}else{
 			 message="登录失败:用户名?密码错误?用户未激活?";
 			 attr.addFlashAttribute("message", message);
-			return "redirect:/login";//用户名密码错误
+			return "2";//用户名密码错误
 		}
 	}
 	
