@@ -53,4 +53,9 @@
 			#{item}
 		</foreach>
 	</update>
+	
+	<!-- 查询棋社棋种 -->
+	<select id="queryChess" resultType="DictVo">
+		SELECT a.id,a.type,a.value,a.label FROM t_dict a WHERE a.del_flag = '0' AND a.type = 'chessType' AND a.remark = #{id}
+	</select>
 </mapper>

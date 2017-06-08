@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.yichen.mapper.DepartmentMapper;
 import com.yichen.model.DepartmentVo;
+import com.yichen.model.DictVo;
 import com.yichen.service.DepartmentService;
 
 @Service
@@ -18,7 +19,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 	@Override
 	public List<DepartmentVo> findDepartments() {
-		return departmentMapper.queryDepartments();
+		List<DepartmentVo> departmentVoList = departmentMapper.queryDepartments();
+		for (DepartmentVo departmentVo : departmentVoList) {
+			List<DictVo> dictVoList = departmentMapper.queryChess(departmentVo.getId());
+			departmentVo.setDictVoList(dictVoList);
+		}
+		return departmentVoList;
 	}
 
 	@Override

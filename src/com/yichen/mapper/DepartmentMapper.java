@@ -3,6 +3,7 @@ package com.yichen.mapper;
 import java.util.List;
 
 import com.yichen.model.DepartmentVo;
+import com.yichen.model.DictVo;
 
 public interface DepartmentMapper {
 
@@ -17,5 +18,7 @@ public interface DepartmentMapper {
 	DepartmentVo queryDepartmentById(DepartmentVo departmentVo);// 通过id查询部门
 	
 	int batchDel(List<String> list);//批量删除
+
+	List<DictVo> queryChess(String id);//查询棋社棋种
 
 }

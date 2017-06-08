@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <div class="index-nav">
     	<div class="logo"><img src="${pageContext.request.contextPath}/images/logo.png" width="200"/></div>
 <div id="menu_yhm">
@@ -27,20 +28,18 @@
     </li>
        <li><a href="${pageContext.request.contextPath}/department">部门风采</a> 
         <ul>
-			<li><a href="javascript:;" >外联部</a></li>
-			<li><a href="javascript:;" >组织部</a></li>
-			<li><a href="javascript:;" >宣传部</a></li>
-			<li><a href="javascript:;" >传习部</a></li>
-			<li><a href="javascript:;" >竞技部</a>
+        <c:forEach items="${departmentVoList}" var="departmentVo">
+			<li><a href="${pageContext.request.contextPath}/departmentDetail?id=${departmentVo.id }&type=${departmentVo.type }" >${departmentVo.name}</a>
+			<c:if test="${fn:length(departmentVo.dictVoList)> 0}">
 			  <ul>
-                    <li><a href="${pageContext.request.contextPath}/chessType/2">国际象棋</a></li>
-                    <li><a href="${pageContext.request.contextPath}/chessType/4">陆战棋</a></li>
-                    <li><a href="${pageContext.request.contextPath}/chessType/5">跳棋</a></li>
-                    <li><a href="${pageContext.request.contextPath}/chessType/1">围棋</a></li>
-                    <li><a href="${pageContext.request.contextPath}/chessType/3">中国象棋</a></li>
-                </ul>
+			  <c:forEach items="${departmentVo.dictVoList}" var="department">
+                   <li><a href="${pageContext.request.contextPath}/chessType/${department.value}">${department.label}</a></li>
+              </c:forEach>
+              </ul>
+			</c:if>
 			</li>
-		  </ul>
+		</c:forEach>
+	   </ul>
     </li>
     	<li><a href="javascript:;">理性之音</a> 
             <ul>

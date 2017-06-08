@@ -2,16 +2,20 @@ package com.yichen.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yichen.model.DepartmentVo;
 import com.yichen.model.DictVo;
 import com.yichen.model.MessageVo;
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
+import com.yichen.service.DepartmentService;
 import com.yichen.service.DictService;
 import com.yichen.service.MessageService;
 import com.yichen.service.PersonService;
@@ -33,6 +37,9 @@ public class IndexController {
 	
 	@Autowired
 	private DictService dictService ;
+	
+	@Autowired
+	private DepartmentService departmentService;
 
 	/**
 	 * 首页
@@ -40,15 +47,18 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping("main")
-	public String main(ModelMap map) {
+	public String main(ModelMap map,HttpSession session) {
 		Page page = new Page(5, 1);
 		page.setPageSize(5);
 		page.setType("1");// 消息
 		List<MessageVo> messageNews = messageService.findMessages(page);
 		page.setType("2");// 公告
 		List<MessageVo> messageNotice = messageService.findMessages(page);
+		List<DepartmentVo> departmentVoList = departmentService.findDepartments();
 		map.put("messageNews", messageNews);
 		map.put("messageNotice", messageNotice);
+		map.put("departmentVoList", departmentVoList);
+		session.setAttribute("departmentVoList", departmentVoList);
 		return "index";
 	}
 
