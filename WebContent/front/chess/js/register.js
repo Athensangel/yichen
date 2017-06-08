@@ -7,88 +7,96 @@ $(function() {
 	    return this.optional(element) || (length == 11 && mobile.test(value));  
 	}, "请正确填写您的手机号码");
 	$("#msform").validate({
-		rules : {
-			loginName : {
-				required : true,
-				minlength : 5,
-				maxlength : 20
+		rules:{
+			loginName:{
+				required:true,
+				minlength:5,
+				maxlength:20
 			},
-			password : {
-				required : true,
-				minlength : 6,
-				maxlength : 32
+			password:{
+				required:true,
+				minlength:6,
+				maxlength:32
 			},
-			repassword : {
-				equalTo : "#password"
+			repassword:{
+				equalTo:"#password"
 			},
-			name : {
-				required : true,
-				minlength : 2,
-				maxlength : 4
+			name:{
+				required:true,
+				minlength:2,
+				maxlength:4
 			},
-			tel : {
-				required : true,
+			tel:{
+				required:true,
 				isMobile:true,
-				maxlength : 11
+				maxlength:11
 			},
-			email : {
-				required : true,
+			email:{
+				required:true,
 				email:true,
-				maxlength : 20
+				maxlength:20
 			},
-			chessTitle : {
-				maxlength : 20
+			chessTitle:{
+				maxlength:20
 			},
-			grade : {
-				maxlength : 20
+			grade:{
+				maxlength:20
 			},
-			remark : {
-				maxlength : 50
+			gradeScore:{
+				digits:true,  
+				maxlength:20
+			},
+			remark:{
+				maxlength:50
 			}
 		},
-		messages : {
-			loginName : {
-				required : "必填信息",
-				minlength : "用户名长度不能小于5位",
-				maxlength : "用户名长度不能超过20"
+		messages:{
+			loginName:{
+				required:"必填信息",
+				minlength:"用户名长度不能小于5位",
+				maxlength:"用户名长度不能超过20"
 			},
-			password : {
-				required : "必填信息",
-				minlength : "密码长度不能小于6位",
-				maxlength : "密码长度不能超过32"
+			password:{
+				required:"必填信息",
+				minlength:"密码长度不能小于6位",
+				maxlength:"密码长度不能超过32"
 			},
-			repassword : {
-				equalTo : "两次密码输入不一致"
+			repassword:{
+				equalTo:"两次密码输入不一致"
 			},
-			name : {
-				required : "必填信息",
-				minlength : "姓名长度不能小于2个字符",
-				maxlength : "姓名长度不能超过4个字符"
+			name:{
+				required:"必填信息",
+				minlength:"姓名长度不能小于2个字符",
+				maxlength:"姓名长度不能超过4个字符"
 			},
-			tel : {
-				  required : "必填信息",  
-				  maxlength : "确认手机不能超过11位",  
-	              isMobile : "请正确填写您的手机号码"  
+			tel:{
+				  required:"必填信息",  
+				  maxlength:"确认手机不能超过11位",  
+	              isMobile:"请正确填写您的手机号码"  
 			},
-			email : {
-				required : "必填信息",
+			email:{
+				required:"必填信息",
 				email: "请输入正确格式的电子邮件",
-				maxlength : "邮箱长度不能超过50"
+				maxlength:"邮箱长度不能超过50"
 			},
-			chessTitle : {
-				maxlength : "运动员称号长度不能超过20"
+			chessTitle:{
+				maxlength:"运动员称号长度不能超过20"
 			},
-			grade : {
-				maxlength : "等级长度不能超过20"
+			grade:{
+				maxlength:"等级长度不能超过20"
 			},
-			remark : {
-				maxlength : "备注长度不能超过50"
+			gradeScore:{
+				digits: "只能输入整数",
+				maxlength:"等级分数长度不能超过20"
+			},
+			remark:{
+				maxlength:"备注长度不能超过50"
 			}
 		},
-		submitHandler : function(form) {
+		submitHandler:function(form) {
 			form.submit();
 		},
-		errorPlacement : function(error, element) {
+		errorPlacement:function(error, element) {
 			error.insertAfter(element);
 		}
 	});
