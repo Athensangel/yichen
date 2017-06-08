@@ -259,6 +259,12 @@ public class UserController {
 	 */
 	@RequestMapping("/loginPlayer")
 	public String loginPlayer(UserVo userVo, RedirectAttributes attr){
+		if("".equals(userVo.getLoginName()) || "".equals(userVo.getPassword()) || "".equals(userVo.getName())
+				|| "".equals(userVo.getBirthday()) || "".equals(userVo.getTel()) || "".equals(userVo.getEmail())){
+			 message = "注册失败:请完善注册信息";
+			 attr.addFlashAttribute("message", message);
+			 return "redirect:chessReg";
+		}
 		int result = checkLoginName(userVo.getLoginName());
 		if (result > 0) {
 			 message = "注册失败:用户名已存在!";

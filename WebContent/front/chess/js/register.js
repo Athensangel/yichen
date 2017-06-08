@@ -15,43 +15,35 @@ $(function() {
 			},
 			password : {
 				required : true,
-				minlength : 5,
-				maxlength : 20
+				minlength : 6,
+				maxlength : 32
 			},
 			repassword : {
 				equalTo : "#password"
 			},
 			name : {
 				required : true,
-				minlength : 5,
-				maxlength : 10
+				minlength : 2,
+				maxlength : 4
 			},
 			tel : {
 				required : true,
 				isMobile:true,
-				minlength : 11,
-				maxlength : 20
+				maxlength : 11
 			},
 			email : {
 				required : true,
 				email:true,
-				minlength : 5,
 				maxlength : 20
 			},
 			chessTitle : {
-				required : true,
-				minlength : 5,
 				maxlength : 20
 			},
 			grade : {
-				required : true,
-				minlength : 5,
 				maxlength : 20
 			},
 			remark : {
-				required : true,
-				minlength : 5,
-				maxlength : 20
+				maxlength : 50
 			}
 		},
 		messages : {
@@ -62,42 +54,35 @@ $(function() {
 			},
 			password : {
 				required : "必填信息",
-				minlength : "密码长度不能小于5位",
-				maxlength : "密码长度不能超过20"
+				minlength : "密码长度不能小于6位",
+				maxlength : "密码长度不能超过32"
 			},
 			repassword : {
 				equalTo : "两次密码输入不一致"
 			},
 			name : {
 				required : "必填信息",
-				minlength : "姓名长度不能小于5位",
-				maxlength : "姓名长度不能超过20"
+				minlength : "姓名长度不能小于2个字符",
+				maxlength : "姓名长度不能超过4个字符"
 			},
 			tel : {
-				  required : "请输入手机号",  
-	              minlength : "确认手机不能小于11个字符",  
+				  required : "必填信息",  
+				  maxlength : "确认手机不能超过11位",  
 	              isMobile : "请正确填写您的手机号码"  
 			},
 			email : {
 				required : "必填信息",
 				email: "请输入正确格式的电子邮件",
-				minlength : "邮箱长度小于11位",
-				maxlength : "邮箱长度不能超过20"
+				maxlength : "邮箱长度不能超过50"
 			},
 			chessTitle : {
-				required : "运动员称号",
-				minlength : "运动员称号长度小于11位",
 				maxlength : "运动员称号长度不能超过20"
 			},
 			grade : {
-				required : "必填信息",
-				minlength : "等级长度小于11位",
 				maxlength : "等级长度不能超过20"
 			},
 			remark : {
-				required : "必填信息",
-				minlength : "备注长度小于5位",
-				maxlength : "备注长度不能超过40"
+				maxlength : "备注长度不能超过50"
 			}
 		},
 		submitHandler : function(form) {
@@ -109,3 +94,7 @@ $(function() {
 	});
 
 });
+
+function checkField(val){
+  $("#chessType").attr("value", val);
+}

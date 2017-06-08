@@ -26,7 +26,7 @@ var ctx = "${pageContext.request.contextPath}";
 		<h2 class="fs-title">棋手注册流程</h2>
 		<h3 class="fs-subtitle">选择注册棋类</h3>
 		<span>${message }</span>
-		<select id="chessSelect">
+		<select id="chessSelect" onchange="checkField(this.value)">
 		<c:forEach items="${dvList }" var="dv">
 		  <option value ="${dv.value }">${dv.label }</option>
 		  </c:forEach>
@@ -45,7 +45,7 @@ var ctx = "${pageContext.request.contextPath}";
 		</select>
 		<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:true,maxDate:'%y-%M-%d'});" name="birthday" placeholder="出生日期" >
 		<input type="text" name="tel" placeholder="联系电话" />
-		<input type="text" name="email" placeholder="QQ邮箱" />
+		<input type="text" name="email" placeholder="邮箱" />
 		<input type="button" name="previous" class="previous action-button" value="上一步" />
 		<input type="button" name="next" class="next action-button" value="下一步" />
 	</fieldset>
