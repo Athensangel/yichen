@@ -47,7 +47,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">描述 </label>
 					<div class="layui-input-block">
-						<input name="description"  value="${dictVo.description}" lay-verify="description" autocomplete="off" placeholder="请输入描述" class="layui-input">
+						<textarea class="layui-textarea" name="description">${dictVo.description}</textarea>
 					</div>
 				</div>
 				<div class="layui-form-item">

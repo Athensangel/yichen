@@ -30,7 +30,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">内容</label>
 					<div class="layui-input-block">
-						<input name="content" lay-verify="required" autocomplete="off" value="${personVo. content}"  class="layui-input">
+						<textarea class="layui-textarea" name="content">${personVo. content}</textarea>
 					</div>
 				</div>
 				<div class="layui-form-item">

@@ -26,6 +26,10 @@
 			</blockquote>
 			<fieldset class="layui-elem-field">
 				<legend>数据列表</legend>
+				<c:if test="${fn:length(personVoList)< 1}">
+					<div style="text-align:center;">暂无数据</div>
+				</c:if>
+				<c:if test="${fn:length(personVoList)> 0}">
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
@@ -45,7 +49,7 @@
 								<td><input type="checkbox" name="checkbox"><input type="hidden" value="${person.id}"/></td>
 								<td>${status.index+1}</td>
 								<td>${person.title}</td>
-								<td>${fn:substring(person.content, 0, 20)}...</td>
+								<td title="${person.content}">${fn:substring(person.content, 0, 50)}...</td>
 								<td><img src="${ctx }${person.imagePath}"style="width: 130px;height:140px;"/></td>
 								<td><fmt:formatDate type="time" value="${person.addTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 								<td>
@@ -58,9 +62,11 @@
 						</tbody>
 					</table>
 				</div>
+			  </c:if>
 			</fieldset>
 			<div class="admin-table-page">
-				<div id="page" class="page">
+			 <c:if test="${page.totalCount > 0}">
+			  <div id="page" class="page">
 			   <a   href="${ctx}/back/person/list/1" >首页</a>
 			    <c:if test="${page.pageNow != 1}">
 			 		<a href="${ctx}/back/person/list/${page.pageNow-1}">上一页</a>
@@ -79,6 +85,7 @@
 			    </c:if>
 					<a href="${ctx}/back/person/list/${page.totalPageCount}">末页</a>
 				</div>
+			  </c:if>
 			</div>
 		</div>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>

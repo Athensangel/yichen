@@ -60,7 +60,7 @@ a:hover{color:#BA2636;text-decoration:none;}
 	text-align:center;
 	font-size:0;
 }
-.page-normal a,.page-normal .page-current,.page-normal .page-prev{
+.page-normal a,.page-normal .current,.page-normal .page-prev{
 	padding:3px 5px;
 	font-size:12px;
 	margin-left:10px;
@@ -76,7 +76,7 @@ a:hover{color:#BA2636;text-decoration:none;}
 	color:#fff;
 }
 
-.page-normal .page-current{
+.page-normal .current{
 	border:1px solid #4e4236;
 	color:#fff;
 	background:#4e4236;

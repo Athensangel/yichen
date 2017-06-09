@@ -27,6 +27,10 @@
 			</blockquote>
 			<fieldset class="layui-elem-field">
 				<legend>数据列表</legend>
+				<c:if test="${fn:length(userVoList)< 1}">
+					<div style="text-align:center;">暂无数据</div>
+				</c:if>
+				<c:if test="${fn:length(userVoList)> 0}">
 				<div class="layui-field-box">
 					<table class="site-table table-hover">
 						<thead>
@@ -73,10 +77,12 @@
 						</tbody>
 					</table>
 				</div>
+			  </c:if>
 			</fieldset>
 			<div class="admin-table-page">
+			 <c:if test="${page.totalCount > 0}">
 			 <div id="page" class="page">
-			   <a   href="${ctx}/back/user/list/1" >首页</a>
+			   <a href="${ctx}/back/user/list/1" >首页</a>
 			    <c:if test="${page.pageNow != 1}">
 			 		<a href="${ctx}/back/user/list/${page.pageNow-1}">上一页</a>
 					<a href="${ctx}/back/user/list/1" >1</a>
@@ -94,6 +100,7 @@
 			    </c:if>
 					<a href="${ctx}/back/user/list/${page.totalPageCount}">末页</a>
 				</div>
+			  </c:if>
 			</div>
 		</div>
 		<script type="text/javascript" src="${ctx}/js/jquery.js"></script>

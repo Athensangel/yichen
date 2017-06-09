@@ -38,7 +38,7 @@ var navs = [{
 }, {
 	"title": "弈辰史苑管理",
 	"icon": "fa-stop-circle",
-	"href": "https://www.baidu.com",
+	"href": "",
 	"spread": false
 }, {
 	"title": "用户管理",

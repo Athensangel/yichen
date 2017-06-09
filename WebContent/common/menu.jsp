@@ -9,7 +9,7 @@
     	<li><a href="${pageContext.request.contextPath}/">首页</a> 
             <ul>
                 <li><a href="javascript:;" >时事资讯</a></li>
-			    <li><a href="javascript:;" >活动风采</a></li>
+			    <li><a href="${pageContext.request.contextPath}/demeanour" >活动风采</a></li>
             </ul>
     	</li>
         <li><a href="${pageContext.request.contextPath}/about">奕辰概括</a> 

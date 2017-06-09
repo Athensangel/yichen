@@ -10,11 +10,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.yichen.model.DemeanourVo;
 import com.yichen.model.DepartmentVo;
 import com.yichen.model.DictVo;
 import com.yichen.model.MessageVo;
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
+import com.yichen.service.DemeanourService;
 import com.yichen.service.DepartmentService;
 import com.yichen.service.DictService;
 import com.yichen.service.MessageService;
@@ -40,6 +42,9 @@ public class IndexController {
 	
 	@Autowired
 	private DepartmentService departmentService;
+	
+	@Autowired
+	private DemeanourService demeanourService;
 
 	/**
 	 * 首页
@@ -137,5 +142,24 @@ public class IndexController {
 		DictVo dictVo = dictService.findDictByType("chessType", value);
 		map.put("dictVo", dictVo);
 		return "chessIntroduce";
+	}
+	
+	/**
+	 * 活动风采
+	 * @return
+	 */
+	@RequestMapping("demeanour")
+	public String demeanour(ModelMap map,DemeanourVo demeanourVo) {
+		int totalCount = demeanourService.findDemeanourVoCounts(demeanourVo.getCurrentTime());//查询条数
+		if(demeanourVo.getPageNow() == null){
+			demeanourVo.setPageNow(1);
+		}
+		Page page = new Page(totalCount, demeanourVo.getPageNow());
+		page.setPageSize(12);
+		page.setCurrentTime(demeanourVo.getCurrentTime());
+		List<DemeanourVo> demeanourVoList = demeanourService.findDemeanours(page);
+		map.put("demeanourVoList", demeanourVoList);
+		map.put("page", page);
+		return "demeanour";
 	}
 }

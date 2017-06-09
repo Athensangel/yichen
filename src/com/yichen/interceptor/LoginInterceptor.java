@@ -2,7 +2,8 @@ package com.yichen.interceptor;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;  
@@ -40,14 +41,19 @@ public class LoginInterceptor implements HandlerInterceptor{
      */  
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,  
             Object handler) throws Exception {  
-        //获取请求的URL  
-        String url = request.getRequestURI();  
-        if(url.indexOf("back")>0){
-        	String loginName = "";
-    		String password = "";
+    //获取请求的URL  
+    String url = request.getRequestURI();  
+    if(url.indexOf("back")>0){
+      	 HttpSession session = request.getSession();
+       	 String loginName = (String) session.getAttribute("loginName");
+       	 if(loginName != null){
+       		 //登陆成功的用户
+       		 return true;
+       	 }else{
+       		String password = "";
     		//取出Cookie
     		Cookie [] c = request.getCookies();
-    		if(c!= null){
+    		if(c.length > 1){
     		for(int i=0;i<c.length;i++){
     		    if(c[i].getName().equals("rememberUser")){
     		        loginName=c[i].getValue().split("-")[0];
@@ -68,6 +74,7 @@ public class LoginInterceptor implements HandlerInterceptor{
     			request.getRequestDispatcher("/WEB-INF/backstage/login.jsp").forward(request,response);
     	   		return false;
     		}
+       	 }
         }else{
        	   return true;
         }

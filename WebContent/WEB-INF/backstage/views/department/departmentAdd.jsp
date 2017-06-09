@@ -28,7 +28,7 @@
 				<div class="layui-form-item layui-form-text">
 					<label class="layui-form-label">部门介绍</label>
 					<div class="layui-input-block">
-						<textarea class="layui-textarea layui-hide" name="introducte" id="LAY_demo_editor"></textarea>
+						<textarea class="layui-textarea" name="introducte"></textarea>
 					</div>
 				</div>
 			   <div class="layui-form-item">

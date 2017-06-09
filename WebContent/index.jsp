@@ -57,6 +57,9 @@
                       <div class="box-nav-right"><a href="${ctx}/news/1">+MORE</a></div>
                 </div>
                 <img src="${ctx}/images/001.png" width="500"/>
+                <c:if test="${fn:length(messageNews)< 1}">
+					<div style="text-align:center;">暂无数据</div>
+				</c:if>
                 <ul class="news_list_c">
                 <c:forEach items="${messageNews}" var="message">
                   <li><span><fmt:formatDate type="time" value="${message.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span> 
@@ -77,6 +80,9 @@
                     <div class="box-nav-right"><a href="${ctx}/news/1">+MORE</a></div>
                 </div>
                 <img src="${ctx}/images/001.png" width="460"/>
+                 <c:if test="${fn:length(messageNotice)< 1}">
+					<div style="text-align:center;">暂无数据</div>
+				</c:if>
                 <ul class="news_list_c">
               <c:forEach items="${messageNotice}" var="notice">
                   <li><span><fmt:formatDate type="time" value="${notice.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /></span> 

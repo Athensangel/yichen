@@ -50,7 +50,7 @@
 								<td>${dict.value}</td>
 								<td>${dict.label}</td>
 								<td>${dict.sort}</td>
-								<td>${dict.description}</td>
+								<td title="${dict.description}">${fn:substring(dict.description, 0, 30)}...</td>
 								<td>${dict.remark}</td>
 								<td>
 									<a href="javascript:;" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>

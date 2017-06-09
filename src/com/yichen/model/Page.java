@@ -32,6 +32,7 @@ public class Page implements Serializable {
 	@SuppressWarnings("unused")
 	private boolean hasLast;// 是否有最后一页
 	private String type;//类型(1，动态，2公告）
+	private String currentTime;
 	public Page(int totalCount, int pageNow) {
 		this.totalCount = totalCount;
 		this.pageNow = pageNow;
@@ -126,5 +127,14 @@ public class Page implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public String getCurrentTime() {
+		return currentTime;
+	}
+
+	public void setCurrentTime(String currentTime) {
+		this.currentTime = currentTime;
+	}
+
 
 }
