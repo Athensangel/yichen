@@ -45,7 +45,7 @@ public class LoginInterceptor implements HandlerInterceptor{
     String url = request.getRequestURI();  
     if(url.indexOf("back")>0){
       	 HttpSession session = request.getSession();
-       	 String loginName = (String) session.getAttribute("loginName");
+       	 String loginName = (String) session.getAttribute("backLoginName");
        	 if(loginName != null){
        		 //登陆成功的用户
        		 return true;

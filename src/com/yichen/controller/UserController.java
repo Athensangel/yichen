@@ -189,8 +189,8 @@ public class UserController {
 		        c.setMaxAge(30*24*60*30);
 		        response.addCookie(c);
 			}
-			session.setAttribute("currentUserVo", currentUserVo);
-			session.setAttribute("loginName", currentUserVo.getLoginName());
+			session.setAttribute("backUserVo", currentUserVo);
+			session.setAttribute("backLoginName", currentUserVo.getLoginName());
 			session.setAttribute("id", currentUserVo.getId());
 			return "redirect:/backIndex"; //用户名密码正确
 		}else{

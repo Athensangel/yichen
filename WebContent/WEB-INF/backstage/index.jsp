@@ -35,7 +35,7 @@
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
 								<img src="${ctx}/images/0.jpg" />
-								<span>${currentUserVo.name }</span>
+								<span>${backUserVo.name }</span>
 							</a>
 							<dl class="layui-nav-child">
 								<dd>
