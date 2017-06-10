@@ -56,6 +56,7 @@ public class UserController {
 	
 	/**
 	 * 登录
+	 * @param request
 	 * @return
 	 */
 	@RequestMapping("yc_2017")
@@ -176,6 +177,9 @@ public class UserController {
 	/**
 	 * 登录验证
 	 * @param userVo
+	 * @param attr
+	 * @param session
+	 * @param response
 	 * @return
 	 */
 	@RequestMapping("/user/checkLogin")
@@ -220,6 +224,8 @@ public class UserController {
 	
 	/**
 	 * 登录验证
+	 * @param userVo
+	 * @param session
 	 * @return
 	 */
 	@RequestMapping("/loginValidate")
@@ -237,6 +243,7 @@ public class UserController {
 	
 	/**
 	 * 注册
+	 * @param userVo
 	 * @return
 	 */
 	@RequestMapping("/loginRegister")
@@ -254,6 +261,7 @@ public class UserController {
 	
 	/**
 	 * 用户名校验
+	 * @param loginName
 	 * @return
 	 */
 	@RequestMapping("/checkLoginName")
@@ -281,6 +289,8 @@ public class UserController {
 	
 	/**
 	 * 退出登录
+	 * @param session
+	 * @param response
 	 * @return
 	 */
 	@RequestMapping("/loginExt")
@@ -291,6 +301,8 @@ public class UserController {
 	
 	/**
 	 * 跳转棋手注册
+	 * @param map
+	 * @param dictVo
 	 * @return
 	 */
 	@RequestMapping("/chessReg")
@@ -303,6 +315,9 @@ public class UserController {
 	
 	/**
 	 * 棋手注册
+	 * @param userVo
+	 * @param attr
+	 * @return
 	 */
 	@RequestMapping("/loginPlayer")
 	public String loginPlayer(UserVo userVo, RedirectAttributes attr){
@@ -333,26 +348,35 @@ public class UserController {
 		return "WEB-INF/front/login/forget";
 	}
 	
+	/**
+	 * 验证码生成
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@RequestMapping("/createVerifyCode")
 	 public void createVerifyCode(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
-	        response.setHeader("Pragma", "No-cache");  
-	        response.setHeader("Cache-Control", "no-cache");  
-	        response.setDateHeader("Expires", 0);  
-	        response.setContentType("image/jpeg");  
-	          
-	        //生成随机字串  
-	        String verifyCode = VerifyCodeUtils.generateVerifyCode(4);  
-	        //存入会话session  
-	        HttpSession session = request.getSession(true);  
-	        session.setAttribute("verifyCode", verifyCode.toLowerCase());  
-	        //生成图片  
-	        int w = 100, h = 30;  
-	        VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);  
-	  
-	    }  
+        response.setHeader("Pragma", "No-cache");  
+        response.setHeader("Cache-Control", "no-cache");  
+        response.setDateHeader("Expires", 0);  
+        response.setContentType("image/jpeg");  
+        //生成随机字串  
+        String verifyCode = VerifyCodeUtils.generateVerifyCode(4);  
+        //存入会话session  
+        HttpSession session = request.getSession(true);  
+        session.setAttribute("verifyCode", verifyCode.toLowerCase());  
+        //生成图片  
+        int w = 100, h = 30;  
+        VerifyCodeUtils.outputImage(w, h, response.getOutputStream(), verifyCode);  
+	 }  
 	
 	/**
 	 * 忘记密码验证登录名
+	 * @param loginName
+	 * @param verifyCode
+	 * @param attr
+	 * @param session
 	 * @return
 	 */
 	@RequestMapping("/fpVerify")
@@ -377,6 +401,10 @@ public class UserController {
 	
 	/**
 	 * 邮箱验证
+	 * @param email
+	 * @param emailCode
+	 * @param session
+	 * @param map
 	 * @return
 	 */
 	@RequestMapping("/emailVerify")
@@ -394,6 +422,9 @@ public class UserController {
 	
 	/**
 	 * 获取邮箱验证码
+	 * @param email
+	 * @param session
+	 * @param map
 	 * @return
 	 */
 	@RequestMapping("/getEmailCode")
@@ -406,7 +437,10 @@ public class UserController {
 	}
 	
 	/**
-	 *  更新密码
+	 * 更新密码
+	 * @param password
+	 * @param session
+	 * @return
 	 */
 	@RequestMapping("/updatePassword")
 	public String updatePassword(String password,HttpSession session){
@@ -415,7 +449,9 @@ public class UserController {
 	}
 	
 	/**
-	 *  批量删除
+	 * 批量删除
+	 * @param ids
+	 * @return
 	 */
 	@RequestMapping("/back/user/batchDel")
 	@ResponseBody

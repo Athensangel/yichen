@@ -10,21 +10,21 @@
 <jsp:include page="common/menu.jsp" flush="true" /> 
     <div>
     <div class="box-nav">
-                    <div class="box-nav-left"><img src="${ctx}/images/15.png" width="149"/></div>
-                    <div class="box-nav-right"><strong>首页 >资讯公告 > 详细</strong></div>
-                </div>
+        <div class="box-nav-left"><img src="${ctx}/images/15.png" width="149"/></div>
+        <div class="box-nav-right"><strong>首页 >资讯公告 > 详细</strong></div>
+    </div>
     <img src="images/002.png" width="1003"/>
     <div class="abouttext">
-        	<p><strong>${messageVo.title}</strong></p>
-            <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
-            <p><span>发布时间：<fmt:formatDate type="time" value="${messageVo.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /> 信息来源：弈辰棋社</span></p>
-            <div class="text">
-            <p>
-              ${messageVo.content}
-            </p>
+   	 <p><strong>${messageVo.title}</strong></p>
+       <div style="border:#ccc 1px dashed; width:90%; margin:10px auto;"></div>
+       <p><span>发布时间：<fmt:formatDate type="time" value="${messageVo.addTime }" pattern="yyyy-MM-dd HH:mm:ss" /> 信息来源：弈辰棋社</span></p>
+       <div class="text">
+       <p>
+         ${messageVo.content}
+       </p>
 <!--     <div class="abouttext-img"><img src="" width="50%"/></div> -->
-	</div>
-        </div>
+	 </div>
+    </div>
     <img src="${ctx}/images/002.png" width="1003"/>
     </div>
 </div>

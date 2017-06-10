@@ -10,11 +10,11 @@
 <jsp:include page="common/menu.jsp" flush="true" /> 
     <div>
     <div class="box-nav">
-                    <div class="box-nav-left"><img src="${ctx}/images/15.png" width="149"/></div>
-                    <div class="box-nav-right"><strong>首页 > 资讯公告</strong></div>
+       <div class="box-nav-left"><img src="${ctx}/images/15.png" width="149"/></div>
+       <div class="box-nav-right"><strong>首页 > 资讯公告</strong></div>
     </div>
     <img src="${ctx}/images/002.png" width="1003"/>
-    <c:if test="${fn:length(demeanourVoList)< 1}">
+    <c:if test="${fn:length(messageVoList)< 1}">
 		<div style="text-align:center;">暂无数据</div>
 	</c:if>
     <ul class="news_list_b">

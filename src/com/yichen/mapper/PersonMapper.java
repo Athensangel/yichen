@@ -5,6 +5,11 @@ import java.util.List;
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
 
+/**
+ * 人物风采Mapper
+ * @author Administrator
+ *
+ */
 public interface PersonMapper {
 	List<PersonVo> querPersons(Page page);// 查询
 

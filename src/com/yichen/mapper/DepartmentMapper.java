@@ -5,6 +5,11 @@ import java.util.List;
 import com.yichen.model.DepartmentVo;
 import com.yichen.model.DictVo;
 
+/**
+ * 部门Mapper
+ * @author Administrator
+ *
+ */
 public interface DepartmentMapper {
 
 	List<DepartmentVo> queryDepartments();// 查询部门

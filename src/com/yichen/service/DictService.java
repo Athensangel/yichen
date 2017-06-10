@@ -5,7 +5,7 @@ import java.util.List;
 import com.yichen.model.DictVo;
 
 /**
- * DictService业务层
+ * 字典Service
  * @author cc
  *
  */

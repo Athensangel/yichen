@@ -5,6 +5,11 @@ import java.util.List;
 import com.yichen.model.Page;
 import com.yichen.model.PersonVo;
 
+/**
+ * 人物风采Service
+ * @author Administrator
+ *
+ */
 public interface PersonService {
 	List<PersonVo> findPersons(Page page);// 查询
 

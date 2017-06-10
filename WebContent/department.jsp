@@ -12,11 +12,11 @@
     <div class="pic-left">
     <p>部门分类</p>
     	<div class="ycbm">
-                <ul>
-                <c:forEach items="${departmentVoList }" var="department">
-                    <li class="on"><a href='${ctx }/departmentDetail?id=${department.id }&type=${department.type }'>${department.name }</a></li>
-                    </c:forEach>
-                </ul>
+            <ul>
+            <c:forEach items="${departmentVoList }" var="department">
+                <li class="on"><a href='${ctx }/departmentDetail?id=${department.id }&type=${department.type }'>${department.name }</a></li>
+                </c:forEach>
+            </ul>
             <div class="hover"></div>
         </div>
     </div>
@@ -46,7 +46,7 @@ $(function(){
 		$(this).addClass('on').siblings().removeClass('on');
 		var index = $(this).index();
 		var distance = index*(Height+1)+pTop+'px'; //如果你的li有个border-bottom为1px高度的话，这里需要加1
-		$('.ycbm .hover').stop().animate({top:distance},150); //默认动画时间为150毫秒，懒人们可根据需要修改
+		$('.ycbm .hover').stop().animate({top:distance},150); //默认动画时间为150毫秒，可根据需要修改
 	});
 });
 </script>

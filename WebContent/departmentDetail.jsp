@@ -12,9 +12,9 @@
 <jsp:include page="common/menu.jsp" flush="true" /> 
     <div>
     <div class="box-nav">
-                    <div class="box-nav-left"><img src="${ctx}/images/16.png" width="149"/></div>
-                    <div class="box-nav-right"><strong>首页 > 部门风采 > 详情</strong></div>
-                </div>
+        <div class="box-nav-left"><img src="${ctx}/images/16.png" width="149"/></div>
+        <div class="box-nav-right"><strong>首页 > 部门风采 > 详情</strong></div>
+    </div>
     <img src="${ctx}/images/002.png" width="1003"/>
     <div class="abouttext">
         	<p><strong>${currentDepartmentVo.name}</strong></p>

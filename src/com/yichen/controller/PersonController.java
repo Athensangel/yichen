@@ -59,21 +59,14 @@ public class PersonController {
 	@RequestMapping(value="/back/person/save" ,method=RequestMethod.POST)
 	public String  backPersonSave(@RequestParam(value = "myfile", required = false) MultipartFile file,PersonVo personVo,HttpServletRequest request) {
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");     
-	        /**构建图片保存的目录**/    
 	        String logoPathDir = "/uploads/"+ dateformat.format(new Date());     
-	        /**得到图片保存目录的真实路径**/    
 	        String logoRealPathDir = request.getSession().getServletContext().getRealPath(logoPathDir);     
-	        /**根据真实路径创建目录**/    
 	        File logoSaveFile = new File(logoRealPathDir);     
 	        if(!logoSaveFile.exists())     
 	            logoSaveFile.mkdirs();           
-	        /**页面控件的文件流**/    
 	        if (file.getSize()!=0) {   
-	        /**获取文件的后缀**/    
 	        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));     
-	        /**使用UUID生成文件名称**/    
 	        String logImageName = UUID.randomUUID().toString()+ suffix;//构建文件名称     
-	        /**拼成完整的文件保存路径加文件**/    
 	        String fileName = logoRealPathDir + File.separator   + logImageName;                
 	        File files = new File(fileName);          
 	        try {     
@@ -112,21 +105,14 @@ public class PersonController {
 	@RequestMapping(value="/back/person/modify" ,method=RequestMethod.POST)
 	public String  backPersonModify(@RequestParam(value = "myfile", required = false) MultipartFile file,PersonVo personVo,HttpServletRequest request) {
 		 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");     
-	        /**构建图片保存的目录**/    
 	        String logoPathDir = "/uploads/"+ dateformat.format(new Date());     
-	        /**得到图片保存目录的真实路径**/    
 	        String logoRealPathDir = request.getSession().getServletContext().getRealPath(logoPathDir);     
-	        /**根据真实路径创建目录**/    
 	        File logoSaveFile = new File(logoRealPathDir);     
 	        if(!logoSaveFile.exists())     
 	            logoSaveFile.mkdirs();           
-	        /**页面控件的文件流**/    
 	        if (file.getSize()!=0) {   
-	        /**获取文件的后缀**/    
 	        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));     
-	        /**使用UUID生成文件名称**/    
 	        String logImageName = UUID.randomUUID().toString()+ suffix;//构建文件名称     
-	        /**拼成完整的文件保存路径加文件**/    
 	        String fileName = logoRealPathDir + File.separator   + logImageName;                
 	        File files = new File(fileName);          
 	        try {     

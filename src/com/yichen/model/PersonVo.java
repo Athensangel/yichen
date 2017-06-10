@@ -1,5 +1,10 @@
 package com.yichen.model;
 
+/**
+ * 人物风采
+ * @author Administrator
+ *
+ */
 public class PersonVo extends DbBaseVo<PersonVo>{
 	private String title;
 	private String content;

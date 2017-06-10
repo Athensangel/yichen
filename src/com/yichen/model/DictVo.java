@@ -1,5 +1,10 @@
 package com.yichen.model;
 
+/**
+ * 字典
+ * @author Administrator
+ *
+ */
 public class DictVo extends DbBaseVo<DictVo> {
 	
 	private String type;  //类型

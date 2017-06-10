@@ -4,7 +4,11 @@ import java.util.List;
 
 import com.yichen.model.DictVo;
 
-
+/**
+ * 字典Mapper
+ * @author Administrator
+ *
+ */
 public interface DictMapper {
 
 	List<DictVo> querDicts(DictVo dictVo);// 查询棋队

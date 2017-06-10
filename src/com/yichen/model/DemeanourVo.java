@@ -1,6 +1,10 @@
 package com.yichen.model;
 
-
+/**
+ * 活动风采
+ * @author Administrator
+ *
+ */
 public class DemeanourVo extends DbBaseVo<DemeanourVo>{
 	private String title;
 	private String content;
