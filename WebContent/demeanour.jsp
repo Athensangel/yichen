@@ -31,7 +31,7 @@
 <div class="demeanour">
 	<c:forEach items="${demeanourVoList}" var="demeanour">
 		<div class="filtr-item" data-category="${demeanour.dataCategory}">
-			<img src="${ctx}/${demeanour.imagePath}">
+			<img src="${ctx}${demeanour.imagePath}">
 		</div>
 	</c:forEach>
 </div>

@@ -25,7 +25,7 @@
 			<ul class="imglist">
 				<c:forEach items="${personVoList }" var="personVo">
 					<li><a href="${ctx}/person/detail?id=${personVo.id}"> <img
-							src="${ctx}/${personVo.imagePath}" /> <span>${personVo.title}</span>
+							src="${ctx}${personVo.imagePath}" /> <span>${personVo.title}</span>
 					</a></li>
 				</c:forEach>
 			</ul>
